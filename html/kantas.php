@@ -12,9 +12,10 @@ require_once('./includes/dbconnect.php');
 //$query = sprintf("SELECT timeStamp, temperature, humidity FROM tempHum");
 
 //query to get limited data from the table, order is: latest data last
-$query = sprintf("SELECT * FROM tempHum WHERE timestamp > (SELECT MAX( timestamp ) FROM tempHum) - INTERVAL 1 DAY");
+//$query = sprintf("SELECT * FROM grow ORDER BY timeStamp DESC LIMIT 10");
+$query = sprintf("SELECT * FROM grow WHERE timestamp > (SELECT MAX( timestamp ) FROM grow) - INTERVAL 1 DAY");
 //$query = sprintf("SELECT * FROM (SELECT timeStamp, temperature, humidity FROM tempHum ORDER BY timeStamp DESC LIMIT 145)as results ORDER BY results.timeStamp ASC");
-//$query = sprintf("SELECT * FROM (SELECT timeStamp, temp1, hum1 FROM grow ORDER BY timeStamp DESC LIMIT 145)as results ORDER BY results.timeStamp ASC");
+//$query = sprintf("SELECT * FROM (SELECT timeStamp, temp1, hum1 FROM grow ORDER BY timeStamp DESC LIMIT 10)as results ORDER BY results.timeStamp ASC");
 
 //SELECT * FROM `table` WHERE timestamp >= CURDATE() // select current date data only
 // timestamp < CURDATE() - INTERVAL 1 DAY // last 24 h
