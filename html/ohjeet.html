@@ -70,13 +70,76 @@
                   </div>
                </div>
                <!-- Main content text -->
-               <h5>Lorem ipsum</h5>
-               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut malesuada imperdiet interdum. Mauris pharetra tincidunt libero, nec convallis ligula aliquam ut. Morbi vitae pellentesque justo. Cras fringilla ultricies risus, non semper neque tincidunt sit amet. Mauris venenatis sem justo, at tristique arcu egestas a. Phasellus tristique ex gravida lorem rhoncus finibus. Aenean congue ligula felis, quis varius eros condimentum et. Sed vestibulum ex magna, vel fermentum erat volutpat sed. Aliquam ut vehicula odio, non placerat nisl. Nulla facilisi. Maecenas in odio auctor, condimentum dolor non, fringilla lacus. Duis faucibus consequat nulla, vel aliquam mauris.</p>
-               <br>
-               <p>Pellentesque convallis eget sem tristique posuere. Quisque nec dui luctus, mollis diam vel, laoreet est. Etiam sem neque, iaculis sed sem a, scelerisque cursus risus. Cras et tellus a felis feugiat cursus et a libero. Integer diam nunc, consectetur quis facilisis ac, luctus in erat. Proin ullamcorper nisl eget mauris elementum sagittis. Fusce vel ante lacinia, suscipit odio a, vestibulum libero. Donec gravida, augue ultrices egestas scelerisque, odio neque ornare metus, eget pellentesque ipsum libero nec ipsum.</p>
-               <br>
-               <p>Ut vitae massa nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi magna elit, fringilla ut mauris eget, maximus luctus felis. In fringilla nibh vel eros fringilla, at eleifend elit commodo. Phasellus et lectus lorem. Aenean ac mi ante. Maecenas tristique ullamcorper est, congue convallis lacus ultricies a. Donec bibendum quis tortor et auctor. Etiam lectus turpis, bibendum et molestie at, auctor vel nunc.</p>
-            </main>
+			   <div class="container-fluid">
+			   <h5>Käyttöopas</h5>
+			   <p>Laitteen käyttöopas on ladattavissa TÄSTÄ. Käyttöoppaasta löytyy yksityiskohtaiset ohjeet kuinka laitetta pystytään käyttämään ja kuinka mahdollisista virhetilanteista pääsee eroon.</p>
+			   <br>
+               <h5>Käytetyt laitteet ja teknologiat</h5>
+               <p>Alle on listattu projektissa käytetyt laitteet ja teknologiat, joiden avulla koko projekti toimii. Listattujen laitteiden ja teknologioiden avulla käyttäjä ymmärtää kuinka projekti on rakennettu ja kuinka projektia voidaan mahdollisesti jatkokehittää.</p>
+			   <br>
+			   <img class="img-responsive" src="img/arkkitehtuurikuvaus.jpg" alt="Arkkitehtuuri" width="800">
+			   <br>
+			   <h6>Sensorit</h6>
+			   <p>Projektissa käytetyt sensori löytyvät <a href="#">VIITTAUS SENSORISIVULLE</a></p>               
+			   <br>
+			   <h6>Arduino</h6>
+			   <div class="row">
+			   <div class="col-sm-1">
+			   <img class="img-responsive" src="img/arduino.jpg" alt="Arduino" width="100">
+			   </div>
+			   <div class="col-sm-11">
+               <p>Projektissa on käytettyä <a href="https://www.arduino.cc/">Arduino</a> UNO WiFi REV2 -mikrokontrolleria, joka kerää sensoreilta kerätyn datan. Arduino UNO WiFI REV2:ssa on sisäänrakennettu Wifi, joka tekee langattomasta tiedonsiirrosta helppoa.
+				Muistia mikrokontrollerissa on 48 kilotavun Flash Memory, 6 144 tavun SRAM sekä 256 tavun EEPROM. Arduino tarjoaa 14 digitaalista I/O pinniä sekä 6 analogista pinniä.</p>
+			   </div>
+			   </div>
+			   <br>			   
+			   <h6>WiFi</h6>
+			   <div class="row">
+			   <div class="col-sm-1">
+			   <img class="img-responsive" src="img/wifi.png" alt="WiFi" width="100">
+			   </div>
+			   <div class="col-sm-11">
+               <p>Arduino on yhdistettynä langattomaan verkkoon, jonka avulla tiedot siirretään projektin tietokantaan. Tiedonsiirto vaatii langattoman yhteyden (<a href="https://www.wi-fi.org/">WiFi</a>), muuten tietoja ei saa siirrettyä tietokantaan.</p>
+			   </div>
+			   </div>
+			   <br>
+			   <h6>Tietokanta</h6>
+			   <div class="row">
+			   <div class="col-sm-1">
+			   <img class="img-responsive" src="img/apache.png" alt="Apache" width="100">
+			   <img class="img-responsive" src="img/mysql.png" alt="MySQL" width="100">
+			   </div>
+			   <div class="col-sm-11">
+               <p>Tietokanta on rakennettu <a href="https://www.mysql.com/">MySQL</a>-tietokantaa hyödyntäen ja se pyörii Kokkolan Yliopistokeskuksen <a href="https://httpd.apache.org/">Apache</a>-palvelimella. Tietokantaan varastoidaan Arduinolta sensoridata, joka voidaan lopulta hakea verkkokäyttöliittymään käyttäjän nähtäväksi.</p>
+			   </div>
+			   </div>
+			   <br>
+			   <h6>Verkkokäyttöliittymä</h6>
+			   <div class="row">
+			   <div class="col-sm-1">
+			   <img class="img-responsive" src="img/html5.png" alt="HTML" width="100">
+			   <img class="img-responsive" src="img/bootstrap.svg" alt="Bootstrap" width="100">
+			   <img class="img-responsive" src="img/chartjs.svg" alt="Chart.js" width="100">
+			   <img class="img-responsive" src="img/jquery.png" alt="jQuery" width="100">
+			   </div>
+			   <div class="col-sm-11">
+               <p>Verkkokäyttöliittymä hakee tiedot tietokannasta TEKEMÄLLÄ JOTAIN. Verkkokäyttöliittymän sivut ovat rakennettu <a href="https://www.w3schools.com/html/">HTML</a>-kuvauskielellä, jonka rinnalla on käytetty <a href="https://getbootstrap.com/">Bootstrap v4.3.1</a> CSS-tyylikirjastoa. Verkkokäyttöliittymän kuvaajat ovat luotu hyödyntäen <a href="https://www.chartjs.org/">Chart.js v2.8.0</a> JavaScript kirjastoa sekä käyttöliittymän painikkeiden toiminnalisuudet on luotu käyttäen <a href="https://jquery.com/">jQueryä</a>.</p>
+			   <br>
+			   <p>HTML ja CSS</p>
+			   <br>
+			   <p>Bootstrap</p>
+			   <br>
+			   <p>Chart.js</p>
+			   <br>
+			   <p>jQuery</p>
+			   </div>
+			   </div>
+			   <br>
+			   <h6>MUUTA</h6>
+               <p>Tekstin täydennys, käyttöoppaan luonti ja tiedoston lataus, yksityiskohtaiset tiedot kirjastoista/käyttötavoista, ohjeet sivun nimeäminen -> Info sivuksi</p>
+			   <br>
+			   </div>
+			</main>
          </div>
       </div>
       <!-- Javascript references -->
