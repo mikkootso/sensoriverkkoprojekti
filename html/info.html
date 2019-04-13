@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Favicon -->
+      <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+      <link rel="manifest" href="favicon/site.webmanifest">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <!-- Custom styles for this template -->
+      <link href="css/styles.css" rel="stylesheet">
+      <title>Vesikasvastusympäristön monitorointi</title>
+   </head>
+   <body>
+      <!-- Optional JavaScript -->
+      <!-- Chart.js -->
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <!-- Left side navbar -->
+      <div class="container-fluid">
+         <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+               <div class="sidebar-sticky">
+                  <ul class="nav flex-column">
+                     <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                        <span data-feather="activity"></span>
+                        Monitorointi<span class="sr-only"></span>
+                        </a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="data.html">
+                        <span data-feather="database"></span>
+                        Data<span class="sr-only"></span>
+                        </a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link active" href="info.html">
+                        <span data-feather="info"></span>
+                        Info<span class="sr-only">(current)</span>
+                        </a>
+                     </li>
+					 <li class="nav-item">
+                        <a class="nav-link" href="sensorit.html">
+                        <span data-feather="thermometer"></span>
+                        Sensorit<span class="sr-only"></span>
+                        </a>
+                     </li>
+                  </ul>
+               </div>
+            </nav>
+            <!-- Main content -->
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+               <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                  <h1 class="h2">Info</h1>
+                  <div class="btn-toolbar mb-2 mb-md-0">
+                     <!-- Share and download buttons -->
+                     <div class="btn-group mr-2">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">
+                        <span data-feather="share-2"></span>
+                        Jaa
+                        </button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">
+                        <span data-feather="download"></span>
+                        Lataa
+                        </button>
+                     </div>
+                  </div>
+               </div>
+               <!-- Main content text -->
+			   <div class="container-fluid">
+			   <h5>Käyttöopas</h5>
+			   <p>Laitteen käyttöopas on ladattavissa TÄSTÄ. Käyttöoppaasta löytyy yksityiskohtaiset ohjeet kuinka laitetta pystytään käyttämään ja kuinka mahdollisista virhetilanteista pääsee eroon.</p>
+			   <br>
+               <h5>Käytetyt laitteet ja teknologiat</h5>
+               <p>Alle on listattu projektissa käytetyt laitteet ja teknologiat, joiden avulla koko projekti toimii. Listattujen laitteiden ja teknologioiden avulla käyttäjä ymmärtää kuinka projekti on rakennettu ja kuinka projektia voidaan mahdollisesti jatkokehittää.</p>
+			   <br>
+			   <img class="img-responsive" src="img/arkkitehtuurikuvaus.jpg" alt="Arkkitehtuuri" width="800">
+			   <br>
+			   <h6>Sensorit</h6>
+			   <p>Projektissa käytetyt sensori löytyvät <a href="#">VIITTAUS SENSORISIVULLE</a></p>               
+			   <br>
+			   <h6>Arduino</h6>
+			   <div class="row">
+			   <div class="col-sm-1">
+			   <img class="img-responsive" src="img/arduino.jpg" alt="Arduino" width="100">
+			   </div>
+			   <div class="col-sm-11">
+               <p>Projektissa on käytettyä <a href="https://www.arduino.cc/">Arduino</a> UNO WiFi REV2 -mikrokontrolleria, joka kerää sensoreilta kerätyn datan. Arduino UNO WiFI REV2:ssa on sisäänrakennettu Wifi, joka tekee langattomasta tiedonsiirrosta helppoa.
+				Muistia mikrokontrollerissa on 48 kilotavun Flash Memory, 6 144 tavun SRAM sekä 256 tavun EEPROM. Arduino tarjoaa 14 digitaalista I/O pinniä sekä 6 analogista pinniä.</p>
+			   </div>
+			   </div>
+			   <br>			   
+			   <h6>WiFi</h6>
+			   <div class="row">
+			   <div class="col-sm-1">
+			   <img class="img-responsive" src="img/wifi.png" alt="WiFi" width="100">
+			   </div>
+			   <div class="col-sm-11">
+               <p>Arduino on yhdistettynä langattomaan verkkoon, jonka avulla tiedot siirretään projektin tietokantaan. Tiedonsiirto vaatii langattoman yhteyden (<a href="https://www.wi-fi.org/">WiFi</a>), muuten tietoja ei saa siirrettyä tietokantaan.</p>
+			   </div>
+			   </div>
+			   <br>
+			   <h6>Tietokanta</h6>
+			   <div class="row">
+			   <div class="col-sm-1">
+			   <img class="img-responsive" src="img/apache.png" alt="Apache" width="100">
+			   <img class="img-responsive" src="img/mysql.png" alt="MySQL" width="100">
+			   </div>
+			   <div class="col-sm-11">
+               <p>Tietokanta on rakennettu <a href="https://www.mysql.com/">MySQL</a>-tietokantaa hyödyntäen ja se pyörii Kokkolan Yliopistokeskuksen <a href="https://httpd.apache.org/">Apache</a>-palvelimella. Tietokantaan varastoidaan Arduinolta sensoridata, joka voidaan lopulta hakea verkkokäyttöliittymään käyttäjän nähtäväksi.</p>
+			   </div>
+			   </div>
+			   <br>
+			   <h6>Verkkokäyttöliittymä</h6>
+			   <div class="row">
+			   <div class="col-sm-1">
+			   <img class="img-responsive" src="img/html5.png" alt="HTML" width="100">
+			   <img class="img-responsive" src="img/bootstrap.svg" alt="Bootstrap" width="100">
+			   <img class="img-responsive" src="img/chartjs.svg" alt="Chart.js" width="100">
+			   <img class="img-responsive" src="img/jquery.png" alt="jQuery" width="100">
+			   </div>
+			   <div class="col-sm-11">
+               <p>Verkkokäyttöliittymä hakee tiedot tietokannasta TEKEMÄLLÄ JOTAIN. Verkkokäyttöliittymän sivut ovat rakennettu <a href="https://www.w3schools.com/html/">HTML</a>-kuvauskielellä, jonka rinnalla on käytetty <a href="https://getbootstrap.com/">Bootstrap v4.3.1</a> CSS-tyylikirjastoa. Verkkokäyttöliittymän kuvaajat ovat luotu hyödyntäen <a href="https://www.chartjs.org/">Chart.js v2.8.0</a> JavaScript kirjastoa sekä käyttöliittymän painikkeiden toiminnalisuudet on luotu käyttäen <a href="https://jquery.com/">jQueryä</a>.</p>
+			   <br>
+			   <p>HTML ja CSS</p>
+			   <br>
+			   <p>Bootstrap</p>
+			   <br>
+			   <p>Chart.js</p>
+			   <br>
+			   <p>jQuery</p>
+			   </div>
+			   </div>
+			   <br>
+			   <h6>MUUTA</h6>
+               <p>Tekstin täydennys, käyttöoppaan luonti ja tiedoston lataus, yksityiskohtaiset tiedot kirjastoista/käyttötavoista, ohjeet sivun nimeäminen -> Info sivuksi</p>
+			   <br>
+			   </div>
+			</main>
+         </div>
+      </div>
+      <!-- Javascript references -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+      <script src="js/bootstrap.js"></script>
+</html>
+</body>
+</html>
