@@ -82,7 +82,7 @@
                   <div class="dropdown">
                      <button type="button" class="btn btn-sm  btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
                      <span data-feather="calendar"></span>
-                     Tämä vuosi
+                     Viimeiset 24h
                      </button>
                      <div class="dropdown-menu">
                         <a class="dropdown-item" href="#">Viimeiset 24h</a>
@@ -95,45 +95,10 @@
                <!-- Main content text -->
                <p>Tällä sivustolla seurataan kasvihuoneen olosuhteita. Seurattavia suureita ovat ilman lämpötila, kosteus, valoisuus ja hiilidioksidipitoisuus.</p>
                <br>
-               <!-- KPIs -->
-               <div class="row">
-                  <div class="col-sm-6">
-                        <div id="tBorder" class="card border-success text-center">
-                        <div id="tText" class="card-body text-success">
-                              <h5 class="card-title">Lämpötila</h5>
-                              <p id = "tValue" class="card-text">C</p>
-                              <p class="card-text"><small id = "tTime" class="text-muted">Viimeksi päivitetty ...</small></p>
-                        </div>
-                        </div>
-                  </div> 
-                  <div class="col-sm-6">
-                        <div id="hBorder" class="card border-success text-center">
-                        <div id="hText" class="card-body text-success">
-                              <h5 class="card-title">Kosteus</h5>
-                              <p id = "hValue" class="card-text">%</p>
-                              <p class="card-text"><small id = "hTime" class="text-muted">Viimeksi päivitetty ...</small></p>
-                        </div>
-                        </div>
-                  </div> 
-                  <div class="col-sm-6">
-                        <div id="lBorder" class="card border-success text-center">
-                        <div id="lText" class="card-body text-success">
-                              <h5 class="card-title">Valoisuus</h5>
-                              <p id = "lValue" class="card-text">lx</p>
-                              <p class="card-text"><small id = "lTime" class="text-muted">Viimeksi päivitetty ...</small></p>
-                        </div>
-                        </div>
-                  </div> 
-                  <div class="col-sm-6">
-                        <div id="cBorder" class="card border-success text-center">
-                        <div id="cText" class="card-body text-success">
-                              <h5 class="card-title">Hiilidioksidipitoisuus</h5>
-                              <p id = "cValue" class="card-text">ppm</p>
-                              <p class="card-text"><small id = "cTime" class="text-muted">Viimeksi päivitetty ...</small></p>
-                        </div>
-                        </div>
-                  </div>
-               </div>
+
+               <!--cards -->
+               <div id = "cards"></div>
+
                <!--charts -->
                   <div class="row">
                         <div class="col-md-6 ">
@@ -171,8 +136,12 @@
                   -->
                   <div>
                         <div class="border border-dark">
-                              <p><span data-feather="help-circle"></span>Valoisuuden ja hiilidioksidin asteikko on oikealla, muiden vasemmalla.</p>
-                              <canvas id="mixed" width="400" height="300"></canvas>
+                              <canvas id="mixed1" width="400" height="300"></canvas>
+                        </div>
+                  </div>
+                  <div>
+                        <div class="border border-dark">
+                              <canvas id="mixed2" width="400" height="300"></canvas>
                         </div>
                   </div>
             </main>

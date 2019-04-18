@@ -5,7 +5,6 @@ $(document).ready(function(){
       success : function(data){
         console.log(data);
         
-  
         var tstamp = [];
         var temp1 = [];
         var hum1 = [];
@@ -13,17 +12,7 @@ $(document).ready(function(){
         var co2 = [];
         var temp2 = [];
 
-        // Min and max limits
-        var temp1Min = 20;
-        var temp1Max = 30;
-        var hum1Min = 30;
-        var hum1Max = 80;
-        var ldrMin = 100;
-        var ldrMax = 900;
-        var co2Min = 400;
-        var co2Max = 1200;
-        
-  
+
         for(var i in data) {
           tstamp.push(data[i].timeStamp);
           temp1.push(data[i].temp1);
@@ -31,75 +20,96 @@ $(document).ready(function(){
           ldr.push(data[i].ldr);
           co2.push(data[i].co2);
           temp2.push(data[i].temp2);
-          
         }
+        
+        const cards = [
+          {id: 1, title: "Lämpötila", min: 20, max: 30, lastValues: {val: data[data.length-1].temp1, stamp: data[data.length-1].timeStamp, unit: "C"}},
+          {id: 2, title: "Kosteus", min: 30, max: 80, lastValues: {val: data[data.length-1].hum1, stamp: data[data.length-1].timeStamp, unit: "%"}},
+          {id: 3, title: "Valoisuus", min: 100, max: 900, lastValues: {val: data[data.length-1].ldr, stamp: data[data.length-1].timeStamp, unit: "lx"}},
+          {id: 4, title: "Hiilidioksidipitoisuus", min: 400, max: 1200, lastValues: {val: data[data.length-1].co2, stamp: data[data.length-1].timeStamp, unit: "ppm"}}
+        ];
+        
+        const charts = [
+          {cid: "#temp1", label: "Ilman lämpötila", yData: temp1, color: "rgba(59, 89, 152, 1)"},
+          {cid: "#hum1", label: "Ilman kosteus", yData: hum1, color: "rgba(29, 202, 255, 1)"},
+          {cid: "#ldr", label: "Valoisuus", yData: ldr, color: "rgba(229, 202, 25, 1)"},
+          {cid: "#co2", label: "Hiilidioksidipitoisuus", yData: co2, color: "rgba(0, 255, 0, 1)"}
+        ];
 
-        //chart 1 
-        var chartdata = {
-          labels: tstamp,
-          datasets: [
-            {
-              label: "Ilman lämpötila",
-              yAxisID: 'A',
-              fill: false,
-              lineTension: 0.1,
-              backgroundColor: "rgba(59, 89, 152, 0.75)",
-              borderColor: "rgba(59, 89, 152, 1)",
-              pointHoverBackgroundColor: "rgba(59, 89, 152, 1)",
-              pointHoverBorderColor: "rgba(59, 89, 152, 1)",
-              data: temp1
-            },
-            {
-              label: "Ilman kosteus",
-              yAxisID: 'A',
-              fill: false,
-              lineTension: 0.1,
-              backgroundColor: "rgba(29, 202, 255, 0.75)",
-              borderColor: "rgba(29, 202, 255, 1)",
-              pointHoverBackgroundColor: "rgba(29, 202, 255, 1)",
-              pointHoverBorderColor: "rgba(29, 202, 255, 1)",
-              data: hum1
-            },
-            {
-              label: "Valoisuus",
-              yAxisID: 'B',
-              fill: false,
-              lineTension: 0.1,
-              backgroundColor: "rgba(229, 202, 25, 0.75)",
-              borderColor: "rgba(229, 202, 25, 1)",
-              pointHoverBackgroundColor: "rgba(229, 202, 25, 1)",
-              pointHoverBorderColor: "rgba(229, 202, 25, 1)",
-              data: ldr
-            },
-            {
-              label: "Hiilidioksidi",
-              yAxisID: 'B',
-              fill: false,
-              lineTension: 0.1,
-              backgroundColor: "rgba(0, 255, 0, 0.75)",
-              borderColor: "rgba(0, 255, 0, 1)",
-              pointHoverBackgroundColor: "rgba(0, 255, 0, 1)",
-              pointHoverBorderColor: "rgba(0, 255, 0, 1)",
-              data: co2
-            },
-            {
-              label: "Veden lämpötila",
-              yAxisID: 'A',
-              fill: false,
-              lineTension: 0.1,
-              backgroundColor: "rgba(255, 0, 0, 0.75)",
-              borderColor: "rgba(255, 0, 0, 1)",
-              pointHoverBackgroundColor: "rgba(255, 0, 0, 1)",
-              pointHoverBorderColor: "rgba(255, 0, 0, 1)",
-              data: temp2
-            }
-          ]
-        };
+        // create cards
+        var newRowDiv = document.createElement("div");
+        newRowDiv.className = "row";
+        cards.forEach(function(element) {
+          var newDiv = document.createElement("div");
+          newDiv.className = "col-sm-6";
+          newRowDiv.appendChild(newDiv);
+          var newDiv2 = document.createElement("div");
+          newDiv2.className = (element.lastValues.val < element.min || element.lastValues.val > element.max) ? "card border-danger text-center" : "card border-success text-center"; //
+          newDiv.appendChild(newDiv2);
+          var newDiv3 = document.createElement("div");
+          newDiv3.className = (element.lastValues.val < element.min || element.lastValues.val > element.max) ? "card-body text-danger" : "card-body text-success"; //
+          newDiv2.appendChild(newDiv3);
+          var h5 = document.createElement("h5");
+          h5.innerHTML = element.title;     //
+          h5.className = "card-title"
+          newDiv3.appendChild(h5);
+          var p = document.createElement("p");
+          p.innerHTML = element.lastValues.val + " " + element.lastValues.unit;   //
+          p.className = "card-text";
+          newDiv3.appendChild(p);
+          var p2 = document.createElement("p");
+          p2.className = "card-text";
+          var small = document.createElement("small");
+          small.className = "text-muted";
+          small.innerHTML = "Viimeksi päivitetty " + element.lastValues.stamp;     //
+          p2.appendChild(small);
+          newDiv3.appendChild(p2);
+          document.getElementById("cards").appendChild(newRowDiv);
+        });
+        //console.log(newRowDiv);
 
-        var ctx = $("#mixed");
+        //chart 0 
+        var ctx = $("#mixed1");
         var LineGraph = new Chart(ctx, {
           type: 'line',
-          data: chartdata,
+          data: {
+            labels: tstamp,
+            datasets: [
+              {
+                label: "Ilman lämpötila", //
+                yAxisID: 'A',  //
+                fill: false,
+                lineTension: 0.1,
+                backgroundColor: "rgba(59, 89, 152, 0.75)",
+                borderColor: "rgba(59, 89, 152, 1)",
+                pointHoverBackgroundColor: "rgba(59, 89, 152, 1)", //
+                pointHoverBorderColor: "rgba(59, 89, 152, 1)",
+                data: temp1  //
+              },
+              {
+                label: "Ilman kosteus",
+                yAxisID: 'A',
+                fill: false,
+                lineTension: 0.1,
+                backgroundColor: "rgba(29, 202, 255, 0.75)",
+                borderColor: "rgba(29, 202, 255, 1)",
+                pointHoverBackgroundColor: "rgba(29, 202, 255, 1)",
+                pointHoverBorderColor: "rgba(29, 202, 255, 1)",
+                data: hum1
+              },
+              {
+                label: "Veden lämpötila",
+                yAxisID: 'A',
+                fill: false,
+                lineTension: 0.1,
+                backgroundColor: "rgba(255, 0, 0, 0.75)",
+                borderColor: "rgba(255, 0, 0, 1)",
+                pointHoverBackgroundColor: "rgba(255, 0, 0, 1)",
+                pointHoverBorderColor: "rgba(255, 0, 0, 1)",
+                data: temp2
+              }
+            ]
+          },
           options: {
             scales: {
               yAxes: [{
@@ -110,10 +120,49 @@ $(document).ready(function(){
                   max: 100,
                   min: 0
                 }
-              }, {
+              }]
+            }
+          }
+        });
+
+        //chart 1 
+
+        var ctx = $("#mixed2");
+        var LineGraph = new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: tstamp,
+            datasets: [
+              {
+                label: "Valoisuus",
+                yAxisID: 'B',
+                fill: false,
+                lineTension: 0.1,
+                backgroundColor: "rgba(229, 202, 25, 0.75)",
+                borderColor: "rgba(229, 202, 25, 1)",
+                pointHoverBackgroundColor: "rgba(229, 202, 25, 1)",
+                pointHoverBorderColor: "rgba(229, 202, 25, 1)",
+                data: ldr
+              },
+              {
+                label: "Hiilidioksidi",
+                yAxisID: 'B',
+                fill: false,
+                lineTension: 0.1,
+                backgroundColor: "rgba(0, 255, 0, 0.75)",
+                borderColor: "rgba(0, 255, 0, 1)",
+                pointHoverBackgroundColor: "rgba(0, 255, 0, 1)",
+                pointHoverBorderColor: "rgba(0, 255, 0, 1)",
+                data: co2
+              }
+            ]
+          },
+          options: {
+            scales: {
+              yAxes: [{
                 id: 'B',
                 type: 'linear',
-                position: 'right',
+                position: 'left',
                 ticks: {
                   max: 1000,
                   min: 0
@@ -123,96 +172,92 @@ $(document).ready(function(){
           }
         });
 
-        //chart 2 
-        var temp1data = {
-            labels: tstamp,
-            datasets: [
-              {
-                label: "Ilman lämpötila",
-                fill: false,
-                lineTension: 0.1,
-                backgroundColor: "rgba(59, 89, 152, 0.75)",
-                borderColor: "rgba(59, 89, 152, 1)",
-                pointHoverBackgroundColor: "rgba(59, 89, 152, 1)",
-                pointHoverBorderColor: "rgba(59, 89, 152, 1)",
-                data: temp1
-              }
-            ]
-          };
-  
-        var ttx = $("#temp1");
-        var LineGraph2 = new Chart(ttx, {
-          type: 'line',
-          data: temp1data
+        //charts ...testing...
+        charts.forEach(function(element){
+          var LineGraph2 = new Chart($(element.cid), {  //
+            type: 'line',
+            data: {
+              labels: tstamp,
+              datasets: [
+                {
+                  label: element.label,   //
+                  fill: false,
+                  lineTension: 0.1,
+                  backgroundColor: element.color,
+                  borderColor: element.color,
+                  pointHoverBackgroundColor: element.color,  //
+                  pointHoverBorderColor: element.color,
+                  data: element.yData   //
+                }
+              ]
+            }
+          });
         });
-
+        /*
         //chart 3 
-        var hum1data = {
+        
+        var htx = $("#hum1");
+        var LineGraph3 = new Chart(htx, {
+          type: 'line',
+          data: {
             labels: tstamp,
             datasets: [
               {
                 label: "Ilman kosteus",
                 fill: false,
                 lineTension: 0.1,
-                backgroundColor: "rgba(29, 202, 255, 0.75)",
+                backgroundColor: "rgba(29, 202, 255, 1)",
                 borderColor: "rgba(29, 202, 255, 1)",
                 pointHoverBackgroundColor: "rgba(29, 202, 255, 1)",
                 pointHoverBorderColor: "rgba(29, 202, 255, 1)",
                 data: hum1
               }
             ]
-          };
-  
-        var htx = $("#hum1");
-        var LineGraph3 = new Chart(htx, {
-          type: 'line',
-          data: hum1data
+          }
         }); //
 
         //chart 4 
-        var ldrdata = {
+       
+      var htx = $("#ldr");
+      var LineGraph3 = new Chart(htx, {
+        type: 'line',
+        data: {
           labels: tstamp,
           datasets: [
             {
               label: "Valoisuus",
               fill: false,
               lineTension: 0.1,
-              backgroundColor: "rgba(229, 202, 25, 0.75)",
+              backgroundColor: "rgba(229, 202, 25, 1)",
               borderColor: "rgba(229, 202, 25, 1)",
               pointHoverBackgroundColor: "rgba(229, 202, 25, 1)",
               pointHoverBorderColor: "rgba(229, 202, 25, 1)",
               data: ldr
             }
           ]
-        };
-
-      var htx = $("#ldr");
-      var LineGraph3 = new Chart(htx, {
-        type: 'line',
-        data: ldrdata
+        }
       }); //
 
       //chart 5 
-      var co2data = {
-        labels: tstamp,
-        datasets: [
-          {
-            label: "Hiilidioksidi",
-            fill: false,
-            lineTension: 0.1,
-            backgroundColor: "rgba(0, 255, 0, 0.75)",
-            borderColor: "rgba(0, 255, 0, 1)",
-            pointHoverBackgroundColor: "rgba(0, 255, 0, 1)",
-            pointHoverBorderColor: "rgba(0, 255, 0, 1)",
-            data: co2
-          }
-        ]
-      };
 
       var htx = $("#co2");
       var LineGraph3 = new Chart(htx, {
         type: 'line',
-        data: co2data,
+        data: {
+          labels: tstamp,
+          datasets: [
+            {
+              label: "Hiilidioksidi",
+              fill: false,
+              lineTension: 0.1,
+              backgroundColor: "rgba(0, 255, 0, 1)",
+              borderColor: "rgba(0, 255, 0, 1)",
+              pointHoverBackgroundColor: "rgba(0, 255, 0, 1)",
+              pointHoverBorderColor: "rgba(0, 255, 0, 1)",
+              data: co2
+            }
+          ]
+        },
         options: {
           scales: {
             yAxes: [{
@@ -220,13 +265,13 @@ $(document).ready(function(){
                 beginAtZero: false,
                 min: 300,
                 max: 1300,
-                stepSize: 50,
               }
             }]
           }
         }
       }); //
 
+      
       //chart 6 
       var temp2data = {
         labels: tstamp,
@@ -244,7 +289,7 @@ $(document).ready(function(){
         ]
       };
 
-      /*
+      
       var htx = $("#temp2");
       var LineGraph3 = new Chart(htx, {
         type: 'line',
@@ -264,52 +309,8 @@ $(document).ready(function(){
       }); 
       */
       
-      //  temp1Card
-      let tv = document.getElementById("tValue");
-      tv.innerHTML = data[data.length-1].temp1 + " C";
-      let tt = document.getElementById("tTime");
-      tt.innerHTML = "Viimeksi päivitetty " + data[data.length-1].timeStamp;
-      if (data[data.length-1].temp1 < temp1Min || data[data.length-1].temp1 > temp1Max) {
-        let tb = document.getElementById("tBorder");
-        tb.setAttribute("class", "card border-danger text-center");
-        let tt = document.getElementById("tText");
-        tt.setAttribute("class", "card-body text-danger");
-      }
-      //  hum1Card
-      let hv = document.getElementById("hValue");
-      hv.innerHTML = data[data.length-1].hum1 + " %";
-      let ht = document.getElementById("hTime");
-      ht.innerHTML = "Viimeksi päivitetty " + data[data.length-1].timeStamp;
-      if (data[data.length-1].hum1 < hum1Min || data[data.length-1].hum1 > hum1Max) {
-        let hb = document.getElementById("hBorder");
-        hb.setAttribute("class", "card border-danger text-center");
-        let ht = document.getElementById("hText");
-        ht.setAttribute("class", "card-body text-danger");
-      }
-      //  ldrCard
-      let lv = document.getElementById("lValue");
-      lv.innerHTML = data[data.length-1].ldr + " lx";
-      let lt = document.getElementById("lTime");
-      lt.innerHTML = "Viimeksi päivitetty " + data[data.length-1].timeStamp;
-      if (data[data.length-1].ldr < ldrMin || data[data.length-1].ldr > ldrMax) {
-        let lb = document.getElementById("lBorder");
-        lb.setAttribute("class", "card border-danger text-center");
-        let lt = document.getElementById("lText");
-        lt.setAttribute("class", "card-body text-danger");
-      }
-      //  co2Card
-      let cv = document.getElementById("cValue");
-      cv.innerHTML = data[data.length-1].co2 + " ppm";
-      let ct = document.getElementById("cTime");
-      ct.innerHTML = "Viimeksi päivitetty " + data[data.length-1].timeStamp;
-      if (data[data.length-1].co2 < co2Min || data[data.length-1].co2 > co2Max) {
-        let cb = document.getElementById("cBorder");
-        cb.setAttribute("class", "card border-danger text-center");
-        let ct = document.getElementById("cText");
-        ct.setAttribute("class", "card-body text-danger");
-      }
 
-    },
+    }, // end of success
     error : function(data) {
 
     }
