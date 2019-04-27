@@ -42,13 +42,13 @@ $(document).ready(function(){
 
         // create cards
         var newRowDiv = document.createElement("div");
-        newRowDiv.className = "row";
+        newRowDiv.className = "card-columns";
         cards.forEach(function(element) {
           var newDiv = document.createElement("div");
-          newDiv.className = "col-sm-3";
+          newDiv.className = "col-sm-10";
           newRowDiv.appendChild(newDiv);
           var newDiv2 = document.createElement("div");
-          newDiv2.className = (element.lastValues.val < element.min || element.lastValues.val > element.max) ? "card border-danger text-center" : "card border-success text-center"; //
+          newDiv2.className = (element.lastValues.val < element.min || element.lastValues.val > element.max) ? "card shadow-nohover border-danger text-center" : "card shadow-nohover border-success text-center"; //
           newDiv.appendChild(newDiv2);
           var newDiv3 = document.createElement("div");
           newDiv3.className = (element.lastValues.val < element.min || element.lastValues.val > element.max) ? "card-body text-danger" : "card-body text-success"; //
