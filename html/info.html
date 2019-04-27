@@ -89,7 +89,6 @@
                </div>
             </div>
             <!-- Main content text -->
-            <div class="container-fluid">
                <h5>Käyttöopas</h5>
                <p>Laitteen käyttöopas on ladattavissa <a href="#">TÄÄLTÄ</a>. Käyttöoppaasta löytyy yksityiskohtaiset ohjeet kuinka laitetta pystytään käyttämään sekä tunnistetut virhetilanteet ja kuinka niistä käyttäjä pystyy pääsemään eroon.</p>
                <br>
@@ -103,10 +102,10 @@
                <br>
                <h6>Arduino</h6>
                <div class="row">
-                  <div class="col-sm-1">
+                  <div class="col-sm-2">
                      <img class="img-responsive" src="img/arduino.jpg" alt="Arduino" width="100">
                   </div>
-                  <div class="col-sm-11">
+                  <div class="col-sm-10">
                      <p>Projektissa on käytetty <a href="https://www.arduino.cc/">Arduino</a> UNO WiFi REV2 -mikrokontrolleria, joka kerää vesikasvatusympäristöstä sensoreilta kerätyn datan. Arduino UNO WiFi REV2 tulee sisäänrakennetun WiFi-moduulin kanssa, joka tekee langattomasta tiedonsiirrosta helppoa.
                         Muistia mikrokontrollerissa on 48 kilotavun Flash Memory, 6 144 tavun SRAM sekä 256 tavun EEPROM. Arduino tarjoaa 14 digitaalista I/O pinniä sekä 6 analogista pinniä. Projektissa sensoreille on varattu X määrä pinnejä, joista vapaaksi pinnejä jää X muuhun käyttöön.
                      </p>
@@ -115,34 +114,34 @@
                <br>			   
                <h6>WiFi</h6>
                <div class="row">
-                  <div class="col-sm-1">
-                     <img class="img-responsive" src="img/wifi.png" alt="WiFi" width="100">
+                  <div class="col-sm-2">
+                     <img class="img-responsive" src="img/wifi.png" alt="WiFi" width="150">
                   </div>
-                  <div class="col-sm-11">
+                  <div class="col-sm-10">
                      <p>Arduino on yhdistettynä langattomaan verkkoon, jonka avulla tiedot siirretään projektin tietokantaan. Tiedonsiirto vaatii langattoman yhteyden (<a href="https://www.wi-fi.org/">WiFi</a>), muuten tietoja ei saa siirrettyä tietokantaan. Arduino pystyy varastoimaan sensoreilta tulevaa dataa n. X tuntia, ennenkuin muisti täyttyy eikä uusia mittaustuloksia pystyy enää tallentamaan Arduinon muistiin. Tietojen siirtäminen onnistuu tällä hetkellä vain langatonta verkkoyhteyttä hyödyntäen. Arduino yhdistetään langattomaan verkkoon TEKEMÄLLÄ JOTAIN.</p>
                   </div>
                </div>
                <br>
                <h6>Tietokanta</h6>
                <div class="row">
-                  <div class="col-sm-1">
-                     <img class="img-responsive" src="img/apache.png" alt="Apache" width="100">
-                     <img class="img-responsive" src="img/mysql.png" alt="MySQL" width="100">
+                  <div class="col-sm-2">
+                     <img class="img-responsive" src="img/apache.png" alt="Apache" width="150">
+                     <img class="img-responsive" src="img/mysql.png" alt="MySQL" width="150">
                   </div>
-                  <div class="col-sm-11">
+                  <div class="col-sm-10">
                      <p>Tietokanta on rakennettu <a href="https://www.mysql.com/">MySQL</a>-tietokantaa hyödyntäen ja se asennettuna Kokkolan Yliopistokeskus Chydeniuksen <a href="https://httpd.apache.org/">Apache</a>-palvelimelle. Tietokantaan varastoidaan Arduinolta tuleva sensoridata, joka voidaan lopulta hakea tietokannasta verkkokäyttöliittymään käyttäjän nähtäväksi. Tietokanta on rakennettu kahdesta taulukosta LISÄÄ TIETOKANNAN RAKENTEESTA</p>
                   </div>
                </div>
                <br>
                <h6>Verkkokäyttöliittymä</h6>
                <div class="row">
-                  <div class="col-sm-1">
+                  <div class="col-sm-2">
                      <img class="img-responsive" src="img/html5.png" alt="HTML" width="100">
                      <img class="img-responsive" src="img/bootstrap.svg" alt="Bootstrap" width="100">
-                     <img class="img-responsive" src="img/chartjs.svg" alt="Chart.js" width="100">
-                     <img class="img-responsive" src="img/jquery.png" alt="jQuery" width="100">
+                     <img class="img-responsive" src="img/chartjs.svg" alt="Chart.js" width="150">
+                     <img class="img-responsive" src="img/jquery.png" alt="jQuery" width="150">
                   </div>
-                  <div class="col-sm-11">
+                  <div class="col-sm-10">
                      <p>Verkkokäyttöliittymä hakee tiedot MySQL-tietokannasta TEKEMÄLLÄ JOTAIN. Verkkokäyttöliittymän sivut ovat rakennettu <a href="https://www.w3schools.com/html/">HTML</a>-kuvauskielellä, jonka rinnalla on käytetty <a href="https://getbootstrap.com/">Bootstrap v4.3.1</a>-kirjastoa. Verkkokäyttöliittymän kuvaajat ovat luotu hyödyntäen <a href="https://www.chartjs.org/">Chart.js v2.8.0</a> JavaScript-kirjastoa sekä käyttöliittymän painikkeiden toiminnalisuudet on luotu käyttäen <a href="https://jquery.com/">jQueryä</a>.</p>
                      <br>
                      <b>HTML ja CSS</b>
@@ -161,7 +160,6 @@
                <h6>MUUTA SIVUN TEKOON LIITTYEN</h6>
                <p>Tekstin täydennys, käyttöoppaan luonti ja tiedoston lataus, yksityiskohtaiset tiedot kirjastoista/käyttötavoista, arkkitehtuuri kuvasta thumbnail, jonka avaamalla isompi kuva, väliotsikoiden boldaus</p>
                <br>
-            </div>
          </main>
       </div>
       <!-- Javascript references -->
