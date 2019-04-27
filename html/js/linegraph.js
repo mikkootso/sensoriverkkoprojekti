@@ -26,7 +26,11 @@ $(document).ready(function(){
           {id: 1, title: "Lämpötila", min: 20, max: 30, lastValues: {val: data[data.length-1].temp1, stamp: data[data.length-1].timeStamp, unit: "C"}},
           {id: 2, title: "Kosteus", min: 30, max: 80, lastValues: {val: data[data.length-1].hum1, stamp: data[data.length-1].timeStamp, unit: "%"}},
           {id: 3, title: "Valoisuus", min: 100, max: 900, lastValues: {val: data[data.length-1].ldr, stamp: data[data.length-1].timeStamp, unit: "lx"}},
-          {id: 4, title: "Hiilidioksidipitoisuus", min: 400, max: 1200, lastValues: {val: data[data.length-1].co2, stamp: data[data.length-1].timeStamp, unit: "ppm"}}
+          {id: 4, title: "Hiilidioksidipitoisuus", min: 400, max: 1200, lastValues: {val: data[data.length-1].co2, stamp: data[data.length-1].timeStamp, unit: "ppm"}},
+		  {id: 5, title: "Placeholder", min: 100, max: 900, lastValues: {val: data[data.length-1].ldr, stamp: data[data.length-1].timeStamp, unit: "lx"}},
+          {id: 6, title: "Placeholder", min: 400, max: 1200, lastValues: {val: data[data.length-1].co2, stamp: data[data.length-1].timeStamp, unit: "ppm"}},
+		  {id: 7, title: "Placeholder", min: 100, max: 900, lastValues: {val: data[data.length-1].ldr, stamp: data[data.length-1].timeStamp, unit: "lx"}},
+          {id: 8, title: "Placeholder", min: 400, max: 1200, lastValues: {val: data[data.length-1].co2, stamp: data[data.length-1].timeStamp, unit: "ppm"}}
         ];
         
         const charts = [
@@ -41,7 +45,7 @@ $(document).ready(function(){
         newRowDiv.className = "row";
         cards.forEach(function(element) {
           var newDiv = document.createElement("div");
-          newDiv.className = "col-sm-6";
+          newDiv.className = "col-sm-3";
           newRowDiv.appendChild(newDiv);
           var newDiv2 = document.createElement("div");
           newDiv2.className = (element.lastValues.val < element.min || element.lastValues.val > element.max) ? "card border-danger text-center" : "card border-success text-center"; //
