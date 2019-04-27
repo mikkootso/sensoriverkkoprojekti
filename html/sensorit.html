@@ -1,556 +1,561 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <!-- Favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <link rel="manifest" href="favicon/site.webmanifest">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <!-- Custom styles for this template -->
-  <link href="css/styles.css" rel="stylesheet">
-  <title>Vesikasvastusympäristön monitorointi</title>
-  <style>
-  table {
-    table-layout: fixed;
-    width: 100%;
-    margin-top: 12px;
-    margin-bottom: 12px;
-  }
-
-  table tr td {
-    font-size: 12px;
-  }
-
-  .card-text {
-    font-size: 12px;
-  }
-
-  .first-td-width {
-    width: 68%;
-  }
-
-  .second-td-width {
-    width: 32%;
-  }
-
-  .btn-border {
-    border: 1px solid lightgray;
-  }
-
-  .btn-border:hover {
-    border: 1px solid lightgray;
-  }
-
-  .nav-tabs > li > a {
-    color: dimgray;
-  }
-  </style>
-</head>
-<body>
-  <!-- Optional JavaScript -->
-  <!-- Chart.js -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <!-- Left side navbar -->
-  <div class="container-fluid">
-    <div class="row">
-      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-        <div class="sidebar-sticky">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">
-                <span data-feather="activity"></span>
-                Monitorointi<span class="sr-only"></span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="data.html">
-                <span data-feather="database"></span>
-                Data<span class="sr-only"></span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="info.html">
-                <span data-feather="info"></span>
-                Info<span class="sr-only"></span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="sensorit.html">
-                <span data-feather="thermometer"></span>
-                Sensorit<span class="sr-only">(current)</span>
-              </a>
-            </li>
-          </ul>
-        </div>
+   <head>
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <!-- Favicon -->
+      <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+      <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+      <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+      <link rel="manifest" href="favicon/site.webmanifest">
+      <!-- Bootstrap CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <!-- Custom styles for this template -->
+      <link href="css/styles.css" rel="stylesheet">
+      <title>Vesikasvastusympäristön monitorointi</title>
+      <style>
+         table {
+         table-layout: fixed;
+         width: 100%;
+         margin-top: 12px;
+         margin-bottom: 12px;
+         }
+         table tr td {
+         font-size: 12px;
+         }
+         .card-text {
+         font-size: 12px;
+         }
+         .first-td-width {
+         width: 68%;
+         }
+         .second-td-width {
+         width: 32%;
+         }
+         .btn-border {
+         border: 1px solid lightgray;
+         }
+         .btn-border:hover {
+         border: 1px solid lightgray;
+         }
+         .nav-tabs > li > a {
+         color: dimgray;
+         }
+      </style>
+   </head>
+   <body>
+      <!-- Optional JavaScript -->
+      <!-- Chart.js -->
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarsExample09">
+            <ul class="navbar-nav mr-auto">
+               <li class="nav-item">
+                  <a class="nav-link" href="index.html">
+                  <span data-feather="activity"></span>
+                  Monitorointi<span class="sr-only"></span>
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="data.html">
+                  <span data-feather="database"></span>
+                  Data<span class="sr-only"></span>
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="info.html">
+                  <span data-feather="info"></span>
+                  Info<span class="sr-only"></span>
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link active" href="sensorit.html">
+                  <span data-feather="thermometer"></span>
+                  Sensorit<span class="sr-only">(current)</span>
+                  </a>
+               </li>
+            </ul>
+            <form class="form-inline my-2 my-md-0">
+               <input class="form-control" type="text" placeholder="Hae" aria-label="Search">
+            </form>
+            <ul class="navbar-nav">
+               <li class="nav-item">
+                  <a class="nav-link" href="#">
+                  <span data-feather="user"></span>
+                  Login<span class="sr-only"></span>
+                  </a>
+               </li>
+            </ul>
+         </div>
       </nav>
-      <!-- Main content -->
-      <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">Sensorit</h1>
-		  <div class="btn-toolbar mb-2 mb-md-0">
-                     <!-- Share and download buttons -->
-                     <div class="btn-group mr-2">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">
-                        <span data-feather="share-2"></span>
-                        Jaa
-                        </button>
-                        <button onclick="window.print();return false;" type="button" class="btn btn-sm btn-outline-secondary">
-                        <span data-feather="printer"></span>
-                        Tulosta
-                        </button>
+      <div class="container-fluid">
+         <!-- Main content -->
+         <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+               <h1 class="h2">Sensorit</h1>
+               <div class="btn-toolbar mb-2 mb-md-0">
+                  <!-- Share and download buttons -->
+                  <div class="btn-group mr-2">
+                     <button type="button" class="btn btn-sm btn-outline-secondary">
+                     <span data-feather="share-2"></span>
+                     Jaa
+                     </button>
+                     <button onclick="window.print();return false;" type="button" class="btn btn-sm btn-outline-secondary">
+                     <span data-feather="printer"></span>
+                     Tulosta
+                     </button>
+                  </div>
+               </div>
+            </div>
+            <!-- Main content text -->
+            <h4>Alla lisätietoa vesikasvatusympäristössä käytössä olevista sensoreista ja niiden käyttötarkoituksesta</h4>
+            <br>
+            <!-- Tästä alkaa kortit -->
+            <!-- Lähde: https://getbootstrap.com/docs/4.3/components/navs/#javascript-behavior -->
+            <!-- Lähde: https://getbootstrap.com/docs/4.3/components/card/#navigation -->
+            <!-- Lähde: https://getbootstrap.com/docs/4.3/components/card/#using-grid-markup -->
+            <!-- Bootstrapissa myös card-group -komponentti, joka voisi olla vielä siistimpi, mutta ei ole responsiivinen vielä.
+               Lähde: https://getbootstrap.com/docs/4.3/components/card/#card-groups -->
+            <div class="container">
+               <!-- Ensimmäinen rivi eli ensimmäiset kolme korttia -->
+               <div class="row">
+                  <!-- Ensimmäinen kortti -->
+                  <div class="col-sm">
+                     <!-- Tehdään korttiin navigaatio (tabit) ja kullekin linkille (tabille) sisältö -->
+                     <div class="card">
+                        <div class="card-header">
+                           <ul class="nav nav-tabs card-header-tabs" id="dhtTab" role="tablist">
+                              <li class="nav-item">
+                                 <a class="nav-link active" id="dht-home-tab" data-toggle="tab" href="#dht-home" role="tab" aria-controls="dht-home" aria-selected="true">Yleistä</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" id="dht-specs-tab" data-toggle="tab" href="#dht-specs" role="tab" aria-controls="dht-specs" aria-selected="false">Teknisiä tietoja</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" id="dht-uses-tab" data-toggle="tab" href="#dht-uses" role="tab" aria-controls="dht-uses" aria-selected="false">Käyttötarkoitus</a>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="tab-content">
+                           <div class="tab-pane fade show active" id="dht-home" role="tabpanel" aria-labelledby="dht-home-tab">
+                              <img src="imgs-sensors/dht22.jpg" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                 <h6 class="card-subtitle mb-2">Ilman lämpötila- ja kosteus</h6>
+                                 <p class="card-text">
+                                    Digitaalinen DHT22 lämpötila- ja (suhteellinen) ilmankosteusanturi.
+                                 </p>
+                                 <a href="https://www.dfrobot.com/product-1102.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
+                              </div>
+                           </div>
+                           <div class="tab-pane fade" id="dht-specs" role="tabpanel" aria-labelledby="dht-specs-tab">
+                              <img src="imgs-sensors/dht222.jpg" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                 <h6 class="card-subtitle mb-2">Ilman lämpötila- ja kosteus</h6>
+                                 <table>
+                                    <tr>
+                                       <td class="first-td-width">Käyttöjännite ja -virta:</td>
+                                       <td class="second-td-width">5V/1.8mA</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="first-td-width">Käyttölämpötila (&deg;C):</td>
+                                       <td class="second-td-width">-20-80</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="first-td-width">Mittausalue ja -tarkkuus (&deg;C):</td>
+                                       <td class="second-td-width">-40-80/&plusmn;0.5</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="first-td-width">Mittausalue ja -tarkkuus (%RH):</td>
+                                       <td class="second-td-width">0-100/&plusmn;2</td>
+                                    </tr>
+                                 </table>
+                                 <a href="https://www.dfrobot.com/product-1102.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
+                              </div>
+                           </div>
+                           <div class="tab-pane fade" id="dht-uses" role="tabpanel" aria-labelledby="dht-uses-tab">
+                              <img src="imgs-sensors/dht223.jpg" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                 <h6 class="card-subtitle mb-2">Ilman lämpötila- ja kosteus</h6>
+                                 <p class="card-text">
+                                    Ilman lämpötilalla on suora yhteys kasvin aineenvaihduntaan ja sen nopeuteen. Esimerkiksi
+                                    liian nopea aineenvaihdunta syö liikaa energiavarastoja ja liian korkea lämpötila toisaalta
+                                    vahingoittaa kasvien solurakennetta. Ilman kosteus sen sijaan vaikuttaa kasvin kasvin haihdunnan
+                                    säätelyyn: hidas haihdunta on kasville eduksi. Liian kostea ilma tosin estää veden haihtumista
+                                    kokonaan. Kasvissa vesi toimii aineenvaihdunnan raaka-aineena ja sillä on monta funktiota.
+                                 </p>
+                                 <a href="https://www.dfrobot.com/product-1102.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
+                              </div>
+                           </div>
+                        </div>
                      </div>
-          </div>
-        </div>
-        <!-- Main content text -->
-        <h4>Alla lisätietoa vesikasvatusympäristössä käytössä olevista sensoreista ja niiden käyttötarkoituksesta</h4>
-        <br>
-        <!-- Tästä alkaa kortit -->
-        <!-- Lähde: https://getbootstrap.com/docs/4.3/components/navs/#javascript-behavior -->
-        <!-- Lähde: https://getbootstrap.com/docs/4.3/components/card/#navigation -->
-        <!-- Lähde: https://getbootstrap.com/docs/4.3/components/card/#using-grid-markup -->
-        <!-- Bootstrapissa myös card-group -komponentti, joka voisi olla vielä siistimpi, mutta ei ole responsiivinen vielä.
-        Lähde: https://getbootstrap.com/docs/4.3/components/card/#card-groups -->
-        <div class="container">
-          <!-- Ensimmäinen rivi eli ensimmäiset kolme korttia -->
-          <div class="row">
-            <!-- Ensimmäinen kortti -->
-            <div class="col-sm">
-              <!-- Tehdään korttiin navigaatio (tabit) ja kullekin linkille (tabille) sisältö -->
-              <div class="card">
-                <div class="card-header">
-                  <ul class="nav nav-tabs card-header-tabs" id="dhtTab" role="tablist">
-                    <li class="nav-item">
-                      <a class="nav-link active" id="dht-home-tab" data-toggle="tab" href="#dht-home" role="tab" aria-controls="dht-home" aria-selected="true">Yleistä</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="dht-specs-tab" data-toggle="tab" href="#dht-specs" role="tab" aria-controls="dht-specs" aria-selected="false">Teknisiä tietoja</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="dht-uses-tab" data-toggle="tab" href="#dht-uses" role="tab" aria-controls="dht-uses" aria-selected="false">Käyttötarkoitus</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="tab-content">
-                  <div class="tab-pane fade show active" id="dht-home" role="tabpanel" aria-labelledby="dht-home-tab">
-                    <img src="imgs-sensors/dht22.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h6 class="card-subtitle mb-2">Ilman lämpötila- ja kosteus</h6>
-                      <p class="card-text">
-                        Digitaalinen DHT22 lämpötila- ja (suhteellinen) ilmankosteusanturi.
-                      </p>
-                      <a href="https://www.dfrobot.com/product-1102.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
-                    </div>
                   </div>
-                  <div class="tab-pane fade" id="dht-specs" role="tabpanel" aria-labelledby="dht-specs-tab">
-                    <img src="imgs-sensors/dht222.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h6 class="card-subtitle mb-2">Ilman lämpötila- ja kosteus</h6>
-                        <table>
-                          <tr>
-                            <td class="first-td-width">Käyttöjännite ja -virta:</td>
-                            <td class="second-td-width">5V/1.8mA</td>
-                          </tr>
-                          <tr>
-                            <td class="first-td-width">Käyttölämpötila (&deg;C):</td>
-                            <td class="second-td-width">-20-80</td>
-                          </tr>
-                          <tr>
-                            <td class="first-td-width">Mittausalue ja -tarkkuus (&deg;C):</td>
-                            <td class="second-td-width">-40-80/&plusmn;0.5</td>
-                          </tr>
-                          <tr>
-                            <td class="first-td-width">Mittausalue ja -tarkkuus (%RH):</td>
-                            <td class="second-td-width">0-100/&plusmn;2</td>
-                          </tr>
-                        </table>
-                      <a href="https://www.dfrobot.com/product-1102.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
-                    </div>
+                  <!-- Toinen kortti -->
+                  <div class="col-sm">
+                     <div class="card">
+                        <!-- Tehdään korttiin navigaatio (tabit) ja kullekin linkille (tabille) sisältö -->
+                        <div class="card-header">
+                           <ul class="nav nav-tabs card-header-tabs" id="coTab" role="tablist">
+                              <li class="nav-item">
+                                 <a class="nav-link active" id="co-home-tab" data-toggle="tab" href="#co-home" role="tab" aria-controls="co-home" aria-selected="true">Yleistä</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" id="co-specs-tab" data-toggle="tab" href="#co-specs" role="tab" aria-controls="co-specs" aria-selected="false">Teknisiä tietoja</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" id="co-uses-tab" data-toggle="tab" href="#co-uses" role="tab" aria-controls="co-uses" aria-selected="false">Käyttötarkoitus</a>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="tab-content">
+                           <div class="tab-pane fade show active" id="co-home" role="tabpanel" aria-labelledby="co-home-tab">
+                              <img src="imgs-sensors/co2.jpg" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                 <h6 class="card-subtitle mb-2">Hiilidioksidi</h6>
+                                 <p class="card-text">
+                                    Analoginen ei-dispersiivinen infrapunasensori hiilidioksidimittauksiin.
+                                 </p>
+                                 <a href="https://www.dfrobot.com/product-1549.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
+                              </div>
+                           </div>
+                           <div class="tab-pane fade" id="co-specs" role="tabpanel" aria-labelledby="co-specs-tab">
+                              <img src="imgs-sensors/co22.jpg" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                 <h6 class="card-subtitle mb-2">Hiilidioksidi</h6>
+                                 <table>
+                                    <tr>
+                                       <td class="first-td-width">Käyttöjännite:</td>
+                                       <td class="second-td-width">4.5V-5.5V (DC)</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="first-td-width">Käyttövirta (@5V avg/max):</td>
+                                       <td class="second-td-width">&#60;60mA/150mA</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="first-td-width">Käyttölämpötila ja -kosteus (&deg;C/%RH):</td>
+                                       <td class="second-td-width">0-50/0-95</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="first-td-width">Mittausalue ja -tarkkuus (ppm):</td>
+                                       <td class="second-td-width">0-5000/&plusmn;50</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="first-td-width">Esilämmitys- ja vastausaika (s):</td>
+                                       <td class="second-td-width">180/120</td>
+                                    </tr>
+                                 </table>
+                                 <a href="https://www.dfrobot.com/product-1549.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
+                              </div>
+                           </div>
+                           <div class="tab-pane fade" id="co-uses" role="tabpanel" aria-labelledby="co-uses-tab">
+                              <img src="imgs-sensors/co23.jpg" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                 <h6 class="card-subtitle mb-2">Hiilidioksidi</h6>
+                                 <p class="card-text">
+                                    Hydroviljelyssä kasvit eivät saa samalla tavalla hiilidioksidia kuin luonnossa. Näin ollen sitä
+                                    tulee monitoroida ja lisätä tarvittaessa, jotta yhteyttäminen on mahdollisimman aktiivista (veden ja valon rinnalla).
+                                    Tarkoitus on nopeuttaa kasvua ja parantaa kasvin tuottavuutta. Kasvit hengittävät hiilidioksidia ja tuottavat happea.
+                                 </p>
+                                 <a href="https://www.dfrobot.com/product-1549.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
                   </div>
-                  <div class="tab-pane fade" id="dht-uses" role="tabpanel" aria-labelledby="dht-uses-tab">
-                    <img src="imgs-sensors/dht223.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h6 class="card-subtitle mb-2">Ilman lämpötila- ja kosteus</h6>
-                      <p class="card-text">
-                        Ilman lämpötilalla on suora yhteys kasvin aineenvaihduntaan ja sen nopeuteen. Esimerkiksi
-                        liian nopea aineenvaihdunta syö liikaa energiavarastoja ja liian korkea lämpötila toisaalta
-                        vahingoittaa kasvien solurakennetta. Ilman kosteus sen sijaan vaikuttaa kasvin kasvin haihdunnan
-                        säätelyyn: hidas haihdunta on kasville eduksi. Liian kostea ilma tosin estää veden haihtumista
-                        kokonaan. Kasvissa vesi toimii aineenvaihdunnan raaka-aineena ja sillä on monta funktiota.
-                      </p>
-                      <a href="https://www.dfrobot.com/product-1102.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
-                    </div>
+                  <!-- Kolmas kortti -->
+                  <div class="col-sm">
+                     <div class="card">
+                        <!-- Tehdään korttiin navigaatio (tabit) ja kullekin linkille (tabille) sisältö -->
+                        <div class="card-header">
+                           <ul class="nav nav-tabs card-header-tabs" id="lightTab" role="tablist">
+                              <li class="nav-item">
+                                 <a class="nav-link active" id="light-home-tab" data-toggle="tab" href="#light-home" role="tab" aria-controls="light-home" aria-selected="true">Yleistä</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" id="light-specs-tab" data-toggle="tab" href="#light-specs" role="tab" aria-controls="light-specs" aria-selected="false">Teknisiä tietoja</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" id="light-uses-tab" data-toggle="tab" href="#light-uses" role="tab" aria-controls="light-uses" aria-selected="false">Käyttötarkoitus</a>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="tab-content">
+                           <div class="tab-pane fade show active" id="light-home" role="tabpanel" aria-labelledby="light-home-tab">
+                              <img src="imgs-sensors/light.jpg" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                 <h6 class="card-subtitle mb-2">Valoisuus</h6>
+                                 <p class="card-text">
+                                    Analoginen näkyvän valon määrää ympäristössä mittaava TEMT6000-anturi.
+                                 </p>
+                                 <a href="https://www.dfrobot.com/product-274.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
+                              </div>
+                           </div>
+                           <div class="tab-pane fade" id="light-specs" role="tabpanel" aria-labelledby="light-specs-tab">
+                              <img src="imgs-sensors/light2.jpg" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                 <h6 class="card-subtitle mb-2">Valoisuus</h6>
+                                 <table>
+                                    <tr>
+                                       <td class="first-td-width">Käyttöjännite (DC):</td>
+                                       <td class="second-td-width">3.3V-5.5V</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="first-td-width">Käyttölämpötila (&deg;C):</td>
+                                       <td class="second-td-width">-40-85</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="first-td-width">Mittausalue (Lux):</td>
+                                       <td class="second-td-width">1-1000</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="first-td-width">Herkkyys (nm):</td>
+                                       <td class="second-td-width">380–750</td>
+                                    </tr>
+                                 </table>
+                                 <a href="https://www.dfrobot.com/product-274.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
+                              </div>
+                           </div>
+                           <div class="tab-pane fade" id="light-uses" role="tabpanel" aria-labelledby="light-uses-tab">
+                              <img src="imgs-sensors/light3.jpg" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                 <h6 class="card-subtitle mb-2">Valoisuus</h6>
+                                 <p class="card-text">
+                                    Valon avulla kasvit muodostavat hiilidioksidista ja vedestä sokeria. Kasvien kasvu on tiettyyn rajaan asti
+                                    voimakkaampaa, mitä enemmän valoa ne saavat. Lisäksi valon laatu vaikuttaa - useita aallonpituuksia sisältävä
+                                    valo takaa tasaisen kasvun, koska sen eri aallonpituudet vaikuttavat kasvin eri toimintoihin. Tämä on huomioitava
+                                    erityisesti keinovaloa käytettäessä.
+                                 </p>
+                                 <a href="https://www.dfrobot.com/product-274.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
                   </div>
-                </div>
-              </div>
+               </div>
+               <br>
+               <!-- Toinen rivi eli seuraavat kolme korttia -->
+               <div class="row">
+                  <!-- Neljäs kortti -->
+                  <div class="col-sm">
+                     <div class="card">
+                        <!-- Tehdään korttiin navigaatio (tabit) ja kullekin linkille (tabille) sisältö -->
+                        <div class="card-header">
+                           <ul class="nav nav-tabs card-header-tabs" id="phTab" role="tablist">
+                              <li class="nav-item">
+                                 <a class="nav-link active" id="ph-home-tab" data-toggle="tab" href="#ph-home" role="tab" aria-controls="ph-home" aria-selected="true">Yleistä</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" id="ph-specs-tab" data-toggle="tab" href="#ph-specs" role="tab" aria-controls="ph-specs" aria-selected="false">Teknisiä tietoja</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" id="ph-uses-tab" data-toggle="tab" href="#ph-uses" role="tab" aria-controls="ph-uses" aria-selected="false">Käyttötarkoitus</a>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="tab-content">
+                           <div class="tab-pane fade show active" id="ph-home" role="tabpanel" aria-labelledby="ph-home-tab">
+                              <img src="imgs-sensors/ph.jpg" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                 <h6 class="card-subtitle mb-2">pH</h6>
+                                 <p class="card-text">
+                                    Analoginen teollisuustason pH-anturi.
+                                 </p>
+                                 <a href="https://www.dfrobot.com/product-1110.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
+                              </div>
+                           </div>
+                           <div class="tab-pane fade" id="ph-specs" role="tabpanel" aria-labelledby="ph-specs-tab">
+                              <img src="imgs-sensors/ph2.jpg" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                 <h6 class="card-subtitle mb-2">pH</h6>
+                                 <table>
+                                    <tr>
+                                       <td class="first-td-width">Käyttöjännite:</td>
+                                       <td class="second-td-width">5V</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="first-td-width">Mittausalue- ja tarkkuus (pH):</td>
+                                       <td class="second-td-width">0-14/&plusmn;0.1</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="first-td-width">Käyttölämpötila (&deg;C):</td>
+                                       <td class="second-td-width">0-60</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="first-td-width">Vastausaika (s):</td>
+                                       <td class="second-td-width">&#60;60</td>
+                                    </tr>
+                                 </table>
+                                 <a href="https://www.dfrobot.com/product-1110.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
+                              </div>
+                           </div>
+                           <div class="tab-pane fade" id="ph-uses" role="tabpanel" aria-labelledby="ph-uses-tab">
+                              <img src="imgs-sensors/ph3.jpg" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                 <h6 class="card-subtitle mb-2">pH</h6>
+                                 <p class="card-text">
+                                    pH määrittää kasvualustan happamuuden ja useimmille kasveille suotuisa pH on 6.5-7. pH-taso
+                                    voi vaikuttaa ratkaisevast kasvin terveyteen. Kasvin kyky imeä ravinteita liuoksesta riippuu
+                                    liuoksen pH-arvosta: esimerkiksi happamat liuokset edistävät alumiinin, typen ja mangaanin imeytymistä
+                                    kun taas liian happamassa liuoksessa aineita liuekenee liikaa ja liuos voi muuttua myrkylliseksi kasvin
+                                    kannalta. Erilaisilla pH-arvoilla voi syntyä myös puutostiloja.
+                                 </p>
+                                 <a href="https://www.dfrobot.com/product-1110.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Viides kortti -->
+                  <div class="col-sm">
+                     <div class="card">
+                        <!-- Tehdään korttiin navigaatio (tabit) ja kullekin linkille (tabille) sisältö -->
+                        <div class="card-header">
+                           <ul class="nav nav-tabs card-header-tabs" id="ecTab" role="tablist">
+                              <li class="nav-item">
+                                 <a class="nav-link active" id="ec-home-tab" data-toggle="tab" href="#ec-home" role="tab" aria-controls="ec-home" aria-selected="true">Yleistä</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" id="ec-specs-tab" data-toggle="tab" href="#ec-specs" role="tab" aria-controls="ec-specs" aria-selected="false">Teknisiä tietoja</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" id="ec-uses-tab" data-toggle="tab" href="#ec-uses" role="tab" aria-controls="ec-uses" aria-selected="false">Käyttötarkoitus</a>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="tab-content">
+                           <div class="tab-pane fade show active" id="ec-home" role="tabpanel" aria-labelledby="ec-home-tab">
+                              <img src="imgs-sensors/ec.jpg" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                 <h6 class="card-subtitle mb-2">Sähkönjohtavuus</h6>
+                                 <p class="card-text">
+                                    Sähkönjohtavuutta mittaava analoginen sensori laboratoriokäyttöön.
+                                 </p>
+                                 <a href="https://www.dfrobot.com/product-1123.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
+                              </div>
+                           </div>
+                           <div class="tab-pane fade" id="ec-specs" role="tabpanel" aria-labelledby="ec-specs-tab">
+                              <img src="imgs-sensors/ec2.jpg" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                 <h6 class="card-subtitle mb-2">Sähkönjohtavuus</h6>
+                                 <table>
+                                    <tr>
+                                       <td class="first-td-width">Käyttöjännite:</td>
+                                       <td class="second-td-width">3V-5V</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="first-td-width">Käyttölämpötila (&deg;C):</td>
+                                       <td class="second-td-width">0-40</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="first-td-width">Mittausalue (ms/cm):</td>
+                                       <td class="second-td-width">1-15</td>
+                                    </tr>
+                                 </table>
+                                 <a href="https://www.dfrobot.com/product-1123.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
+                              </div>
+                           </div>
+                           <div class="tab-pane fade" id="ec-uses" role="tabpanel" aria-labelledby="ec-uses-tab">
+                              <img src="imgs-sensors/ec3.jpg" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                 <h6 class="card-subtitle mb-2">Sähkönjohtavuus</h6>
+                                 <p class="card-text">
+                                    Sähkönjohtavuus eli konduktanssi antaa viitteitä veteen liuenneiden suolojen määrästä.
+                                    Mitä enemmän vedessä on ravinteita, sitä korkeampi veden johtokyky on. Eri ravinteet siis
+                                    tuottavat erilaisia johtuvuusarvoja liuetessaan veteen. Ideaalijohtokyky riippuu kasvista eli kasvit
+                                    vastaavat eri tavalla eri ravinteisiin ja liuoksiin.
+                                 </p>
+                                 <a href="https://www.dfrobot.com/product-1123.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Kuudes kortti -->
+                  <div class="col-sm">
+                     <div class="card">
+                        <!-- Tehdään korttiin navigaatio (tabit) ja kullekin linkille (tabille) sisältö -->
+                        <div class="card-header">
+                           <ul class="nav nav-tabs card-header-tabs" id="waterTab" role="tablist">
+                              <li class="nav-item">
+                                 <a class="nav-link active" id="water-home-tab" data-toggle="tab" href="#water-home" role="tab" aria-controls="water-home" aria-selected="true">Yleistä</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" id="water-specs-tab" data-toggle="tab" href="#water-specs" role="tab" aria-controls="water-specs" aria-selected="false">Teknisiä tietoja</a>
+                              </li>
+                              <li class="nav-item">
+                                 <a class="nav-link" id="water-uses-tab" data-toggle="tab" href="#water-uses" role="tab" aria-controls="water-uses" aria-selected="false">Käyttötarkoitus</a>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="tab-content">
+                           <div class="tab-pane fade show active" id="water-home" role="tabpanel" aria-labelledby="water-home-tab">
+                              <img src="imgs-sensors/water.jpg" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                 <h6 class="card-subtitle mb-2">Veden lämpötila</h6>
+                                 <p class="card-text">
+                                    Liuoksen lämpötilaa mittaava DS18B20-anturi.
+                                 </p>
+                                 <a href="https://www.dfrobot.com/product-1354.html" target="_blank" class="btn btn-light">Lue lisää!</a>
+                              </div>
+                           </div>
+                           <div class="tab-pane fade" id="water-specs" role="tabpanel" aria-labelledby="water-specs-tab">
+                              <img src="imgs-sensors/water2.jpg" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                 <h6 class="card-subtitle mb-2">Veden lämpötila</h6>
+                                 <table>
+                                    <tr>
+                                       <td class="first-td-width">Käyttöjännite ja -virta:</td>
+                                       <td class="second-td-width">3V-5.5V/&#60;3&#956;A</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="first-td-width">Käyttölämpötila (&deg;C):</td>
+                                       <td class="second-td-width">-55-125</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="first-td-width">Mittausalue ja -tarkkuus (&deg;C):</td>
+                                       <td class="second-td-width">-44-125/&plusmn;0.5</td>
+                                    </tr>
+                                    <tr>
+                                       <td class="first-td-width">Vastausaika (s):</td>
+                                       <td class="second-td-width">&#60;0.75</td>
+                                    </tr>
+                                 </table>
+                                 <a href="https://www.dfrobot.com/product-1354.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
+                              </div>
+                           </div>
+                           <div class="tab-pane fade" id="water-uses" role="tabpanel" aria-labelledby="water-uses-tab">
+                              <img src="imgs-sensors/water3.jpg" class="card-img-top" alt="...">
+                              <div class="card-body">
+                                 <h6 class="card-subtitle mb-2">Veden lämpötila</h6>
+                                 <p class="card-text">
+                                    Veden lämpötila määrää erilaisten yhdisteiden muodostumis- ja kulkeutumisnopeuden kasvissa. Toisin sanoen
+                                    puhutaan kasvin kasvusta. Minimilämpötila on alhaisin lämpötila, jossa kasvua tapahtuu. Optimilämpötilassa sen sijaan
+                                    kasvu on kaikkein nopeinta. Korkein lämpötila, jossa kasvua vielä havaitaan, on maksimilämpötila.
+                                    Lämpötilaa säädellään optimilämpötilan ylläpitämiseksi - poikkeamat siinä pienentävät satoa. Veden pitäminen
+                                    optimissä auttaa pitämään kasvien juuret terveinä mahdollistaen parhaan mahdollisen ravinteiden ottokyvyn kasvissa.
+                                 </p>
+                                 <a href="https://www.dfrobot.com/product-1354.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
-            <!-- Toinen kortti -->
-            <div class="col-sm">
-              <div class="card">
-                <!-- Tehdään korttiin navigaatio (tabit) ja kullekin linkille (tabille) sisältö -->
-                <div class="card-header">
-                  <ul class="nav nav-tabs card-header-tabs" id="coTab" role="tablist">
-                    <li class="nav-item">
-                      <a class="nav-link active" id="co-home-tab" data-toggle="tab" href="#co-home" role="tab" aria-controls="co-home" aria-selected="true">Yleistä</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="co-specs-tab" data-toggle="tab" href="#co-specs" role="tab" aria-controls="co-specs" aria-selected="false">Teknisiä tietoja</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="co-uses-tab" data-toggle="tab" href="#co-uses" role="tab" aria-controls="co-uses" aria-selected="false">Käyttötarkoitus</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="tab-content">
-                  <div class="tab-pane fade show active" id="co-home" role="tabpanel" aria-labelledby="co-home-tab">
-                    <img src="imgs-sensors/co2.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h6 class="card-subtitle mb-2">Hiilidioksidi</h6>
-                      <p class="card-text">
-                        Analoginen ei-dispersiivinen infrapunasensori hiilidioksidimittauksiin.
-                      </p>
-                      <a href="https://www.dfrobot.com/product-1549.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="co-specs" role="tabpanel" aria-labelledby="co-specs-tab">
-                    <img src="imgs-sensors/co22.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h6 class="card-subtitle mb-2">Hiilidioksidi</h6>
-                        <table>
-                          <tr>
-                            <td class="first-td-width">Käyttöjännite:</td>
-                            <td class="second-td-width">4.5V-5.5V (DC)</td>
-                          </tr>
-                          <tr>
-                            <td class="first-td-width">Käyttövirta (@5V avg/max):</td>
-                            <td class="second-td-width">&#60;60mA/150mA</td>
-                          </tr>
-                          <tr>
-                            <td class="first-td-width">Käyttölämpötila ja -kosteus (&deg;C/%RH):</td>
-                            <td class="second-td-width">0-50/0-95</td>
-                          </tr>
-                          <tr>
-                            <td class="first-td-width">Mittausalue ja -tarkkuus (ppm):</td>
-                            <td class="second-td-width">0-5000/&plusmn;50</td>
-                          </tr>
-                          <tr>
-                            <td class="first-td-width">Esilämmitys- ja vastausaika (s):</td>
-                            <td class="second-td-width">180/120</td>
-                          </tr>
-                        </table>
-                      <a href="https://www.dfrobot.com/product-1549.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="co-uses" role="tabpanel" aria-labelledby="co-uses-tab">
-                    <img src="imgs-sensors/co23.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h6 class="card-subtitle mb-2">Hiilidioksidi</h6>
-                      <p class="card-text">
-                        Hydroviljelyssä kasvit eivät saa samalla tavalla hiilidioksidia kuin luonnossa. Näin ollen sitä
-                        tulee monitoroida ja lisätä tarvittaessa, jotta yhteyttäminen on mahdollisimman aktiivista (veden ja valon rinnalla).
-                        Tarkoitus on nopeuttaa kasvua ja parantaa kasvin tuottavuutta. Kasvit hengittävät hiilidioksidia ja tuottavat happea.
-                      </p>
-                      <a href="https://www.dfrobot.com/product-1549.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Kolmas kortti -->
-            <div class="col-sm">
-              <div class="card">
-                <!-- Tehdään korttiin navigaatio (tabit) ja kullekin linkille (tabille) sisältö -->
-                <div class="card-header">
-                  <ul class="nav nav-tabs card-header-tabs" id="lightTab" role="tablist">
-                    <li class="nav-item">
-                      <a class="nav-link active" id="light-home-tab" data-toggle="tab" href="#light-home" role="tab" aria-controls="light-home" aria-selected="true">Yleistä</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="light-specs-tab" data-toggle="tab" href="#light-specs" role="tab" aria-controls="light-specs" aria-selected="false">Teknisiä tietoja</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="light-uses-tab" data-toggle="tab" href="#light-uses" role="tab" aria-controls="light-uses" aria-selected="false">Käyttötarkoitus</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="tab-content">
-                  <div class="tab-pane fade show active" id="light-home" role="tabpanel" aria-labelledby="light-home-tab">
-                    <img src="imgs-sensors/light.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h6 class="card-subtitle mb-2">Valoisuus</h6>
-                      <p class="card-text">
-                        Analoginen näkyvän valon määrää ympäristössä mittaava TEMT6000-anturi.
-                      </p>
-                      <a href="https://www.dfrobot.com/product-274.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="light-specs" role="tabpanel" aria-labelledby="light-specs-tab">
-                    <img src="imgs-sensors/light2.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h6 class="card-subtitle mb-2">Valoisuus</h6>
-                        <table>
-                          <tr>
-                            <td class="first-td-width">Käyttöjännite (DC):</td>
-                            <td class="second-td-width">3.3V-5.5V</td>
-                          </tr>
-                          <tr>
-                            <td class="first-td-width">Käyttölämpötila (&deg;C):</td>
-                            <td class="second-td-width">-40-85</td>
-                          </tr>
-                          <tr>
-                            <td class="first-td-width">Mittausalue (Lux):</td>
-                            <td class="second-td-width">1-1000</td>
-                          </tr>
-                          <tr>
-                            <td class="first-td-width">Herkkyys (nm):</td>
-                            <td class="second-td-width">380–750</td>
-                          </tr>
-                        </table>
-                      <a href="https://www.dfrobot.com/product-274.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="light-uses" role="tabpanel" aria-labelledby="light-uses-tab">
-                    <img src="imgs-sensors/light3.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h6 class="card-subtitle mb-2">Valoisuus</h6>
-                      <p class="card-text">
-                        Valon avulla kasvit muodostavat hiilidioksidista ja vedestä sokeria. Kasvien kasvu on tiettyyn rajaan asti
-                        voimakkaampaa, mitä enemmän valoa ne saavat. Lisäksi valon laatu vaikuttaa - useita aallonpituuksia sisältävä
-                        valo takaa tasaisen kasvun, koska sen eri aallonpituudet vaikuttavat kasvin eri toimintoihin. Tämä on huomioitava
-                        erityisesti keinovaloa käytettäessä.
-                      </p>
-                      <a href="https://www.dfrobot.com/product-274.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <br>
-          <!-- Toinen rivi eli seuraavat kolme korttia -->
-          <div class="row">
-            <!-- Neljäs kortti -->
-            <div class="col-sm">
-              <div class="card">
-                <!-- Tehdään korttiin navigaatio (tabit) ja kullekin linkille (tabille) sisältö -->
-                <div class="card-header">
-                  <ul class="nav nav-tabs card-header-tabs" id="phTab" role="tablist">
-                    <li class="nav-item">
-                      <a class="nav-link active" id="ph-home-tab" data-toggle="tab" href="#ph-home" role="tab" aria-controls="ph-home" aria-selected="true">Yleistä</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="ph-specs-tab" data-toggle="tab" href="#ph-specs" role="tab" aria-controls="ph-specs" aria-selected="false">Teknisiä tietoja</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="ph-uses-tab" data-toggle="tab" href="#ph-uses" role="tab" aria-controls="ph-uses" aria-selected="false">Käyttötarkoitus</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="tab-content">
-                  <div class="tab-pane fade show active" id="ph-home" role="tabpanel" aria-labelledby="ph-home-tab">
-                    <img src="imgs-sensors/ph.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h6 class="card-subtitle mb-2">pH</h6>
-                      <p class="card-text">
-                        Analoginen teollisuustason pH-anturi.
-                      </p>
-                      <a href="https://www.dfrobot.com/product-1110.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="ph-specs" role="tabpanel" aria-labelledby="ph-specs-tab">
-                    <img src="imgs-sensors/ph2.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h6 class="card-subtitle mb-2">pH</h6>
-                        <table>
-                          <tr>
-                            <td class="first-td-width">Käyttöjännite:</td>
-                            <td class="second-td-width">5V</td>
-                          </tr>
-                          <tr>
-                            <td class="first-td-width">Mittausalue- ja tarkkuus (pH):</td>
-                            <td class="second-td-width">0-14/&plusmn;0.1</td>
-                          </tr>
-                          <tr>
-                            <td class="first-td-width">Käyttölämpötila (&deg;C):</td>
-                            <td class="second-td-width">0-60</td>
-                          </tr>
-                          <tr>
-                            <td class="first-td-width">Vastausaika (s):</td>
-                            <td class="second-td-width">&#60;60</td>
-                          </tr>
-                        </table>
-                      <a href="https://www.dfrobot.com/product-1110.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="ph-uses" role="tabpanel" aria-labelledby="ph-uses-tab">
-                    <img src="imgs-sensors/ph3.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h6 class="card-subtitle mb-2">pH</h6>
-                      <p class="card-text">
-                        pH määrittää kasvualustan happamuuden ja useimmille kasveille suotuisa pH on 6.5-7. pH-taso
-                        voi vaikuttaa ratkaisevast kasvin terveyteen. Kasvin kyky imeä ravinteita liuoksesta riippuu
-                        liuoksen pH-arvosta: esimerkiksi happamat liuokset edistävät alumiinin, typen ja mangaanin imeytymistä
-                        kun taas liian happamassa liuoksessa aineita liuekenee liikaa ja liuos voi muuttua myrkylliseksi kasvin
-                        kannalta. Erilaisilla pH-arvoilla voi syntyä myös puutostiloja.
-                      </p>
-                      <a href="https://www.dfrobot.com/product-1110.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Viides kortti -->
-            <div class="col-sm">
-              <div class="card">
-                <!-- Tehdään korttiin navigaatio (tabit) ja kullekin linkille (tabille) sisältö -->
-                <div class="card-header">
-                  <ul class="nav nav-tabs card-header-tabs" id="ecTab" role="tablist">
-                    <li class="nav-item">
-                      <a class="nav-link active" id="ec-home-tab" data-toggle="tab" href="#ec-home" role="tab" aria-controls="ec-home" aria-selected="true">Yleistä</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="ec-specs-tab" data-toggle="tab" href="#ec-specs" role="tab" aria-controls="ec-specs" aria-selected="false">Teknisiä tietoja</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="ec-uses-tab" data-toggle="tab" href="#ec-uses" role="tab" aria-controls="ec-uses" aria-selected="false">Käyttötarkoitus</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="tab-content">
-                  <div class="tab-pane fade show active" id="ec-home" role="tabpanel" aria-labelledby="ec-home-tab">
-                    <img src="imgs-sensors/ec.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h6 class="card-subtitle mb-2">Sähkönjohtavuus</h6>
-                      <p class="card-text">
-                        Sähkönjohtavuutta mittaava analoginen sensori laboratoriokäyttöön.
-                      </p>
-                      <a href="https://www.dfrobot.com/product-1123.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="ec-specs" role="tabpanel" aria-labelledby="ec-specs-tab">
-                    <img src="imgs-sensors/ec2.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h6 class="card-subtitle mb-2">Sähkönjohtavuus</h6>
-                        <table>
-                          <tr>
-                            <td class="first-td-width">Käyttöjännite:</td>
-                            <td class="second-td-width">3V-5V</td>
-                          </tr>
-                          <tr>
-                            <td class="first-td-width">Käyttölämpötila (&deg;C):</td>
-                            <td class="second-td-width">0-40</td>
-                          </tr>
-                          <tr>
-                            <td class="first-td-width">Mittausalue (ms/cm):</td>
-                            <td class="second-td-width">1-15</td>
-                          </tr>
-                        </table>
-                      <a href="https://www.dfrobot.com/product-1123.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="ec-uses" role="tabpanel" aria-labelledby="ec-uses-tab">
-                    <img src="imgs-sensors/ec3.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h6 class="card-subtitle mb-2">Sähkönjohtavuus</h6>
-                      <p class="card-text">
-                        Sähkönjohtavuus eli konduktanssi antaa viitteitä veteen liuenneiden suolojen määrästä.
-                        Mitä enemmän vedessä on ravinteita, sitä korkeampi veden johtokyky on. Eri ravinteet siis
-                        tuottavat erilaisia johtuvuusarvoja liuetessaan veteen. Ideaalijohtokyky riippuu kasvista eli kasvit
-                        vastaavat eri tavalla eri ravinteisiin ja liuoksiin.
-                      </p>
-                      <a href="https://www.dfrobot.com/product-1123.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- Kuudes kortti -->
-            <div class="col-sm">
-              <div class="card">
-                <!-- Tehdään korttiin navigaatio (tabit) ja kullekin linkille (tabille) sisältö -->
-                <div class="card-header">
-                  <ul class="nav nav-tabs card-header-tabs" id="waterTab" role="tablist">
-                    <li class="nav-item">
-                      <a class="nav-link active" id="water-home-tab" data-toggle="tab" href="#water-home" role="tab" aria-controls="water-home" aria-selected="true">Yleistä</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="water-specs-tab" data-toggle="tab" href="#water-specs" role="tab" aria-controls="water-specs" aria-selected="false">Teknisiä tietoja</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" id="water-uses-tab" data-toggle="tab" href="#water-uses" role="tab" aria-controls="water-uses" aria-selected="false">Käyttötarkoitus</a>
-                    </li>
-                  </ul>
-                </div>
-                <div class="tab-content">
-                  <div class="tab-pane fade show active" id="water-home" role="tabpanel" aria-labelledby="water-home-tab">
-                    <img src="imgs-sensors/water.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h6 class="card-subtitle mb-2">Veden lämpötila</h6>
-                      <p class="card-text">
-                        Liuoksen lämpötilaa mittaava DS18B20-anturi.
-                      </p>
-                      <a href="https://www.dfrobot.com/product-1354.html" target="_blank" class="btn btn-light">Lue lisää!</a>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="water-specs" role="tabpanel" aria-labelledby="water-specs-tab">
-                    <img src="imgs-sensors/water2.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h6 class="card-subtitle mb-2">Veden lämpötila</h6>
-                        <table>
-                          <tr>
-                            <td class="first-td-width">Käyttöjännite ja -virta:</td>
-                            <td class="second-td-width">3V-5.5V/&#60;3&#956;A</td>
-                          </tr>
-                          <tr>
-                            <td class="first-td-width">Käyttölämpötila (&deg;C):</td>
-                            <td class="second-td-width">-55-125</td>
-                          </tr>
-                          <tr>
-                            <td class="first-td-width">Mittausalue ja -tarkkuus (&deg;C):</td>
-                            <td class="second-td-width">-44-125/&plusmn;0.5</td>
-                          </tr>
-                          <tr>
-                            <td class="first-td-width">Vastausaika (s):</td>
-                            <td class="second-td-width">&#60;0.75</td>
-                          </tr>
-                        </table>
-                      <a href="https://www.dfrobot.com/product-1354.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="water-uses" role="tabpanel" aria-labelledby="water-uses-tab">
-                    <img src="imgs-sensors/water3.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h6 class="card-subtitle mb-2">Veden lämpötila</h6>
-                      <p class="card-text">
-                        Veden lämpötila määrää erilaisten yhdisteiden muodostumis- ja kulkeutumisnopeuden kasvissa. Toisin sanoen
-                        puhutaan kasvin kasvusta. Minimilämpötila on alhaisin lämpötila, jossa kasvua tapahtuu. Optimilämpötilassa sen sijaan
-                        kasvu on kaikkein nopeinta. Korkein lämpötila, jossa kasvua vielä havaitaan, on maksimilämpötila.
-                        Lämpötilaa säädellään optimilämpötilan ylläpitämiseksi - poikkeamat siinä pienentävät satoa. Veden pitäminen
-                        optimissä auttaa pitämään kasvien juuret terveinä mahdollistaen parhaan mahdollisen ravinteiden ottokyvyn kasvissa.
-                      </p>
-                      <a href="https://www.dfrobot.com/product-1354.html" target="_blank" class="btn btn-light btn-border">Lue lisää!</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </main>
-    </div>
-  </div>
-  <!-- Javascript references -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="js/bootstrap.js"></script>
-</body>
+         </main>
+      </div>
+      <!-- Javascript references -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="js/bootstrap.js"></script>
+   </body>
 </html>

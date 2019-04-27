@@ -24,132 +24,145 @@
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-      <!-- Left side navbar -->
+      <!-- Navbar -->   
+      <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+         <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarsExample09">
+            <ul class="navbar-nav mr-auto">
+               <li class="nav-item">
+                  <a class="nav-link" href="index.html">
+                  <span data-feather="activity"></span>
+                  Monitorointi<span class="sr-only"></span>
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="data.html">
+                  <span data-feather="database"></span>
+                  Data<span class="sr-only"></span>
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link active" href="info.html">
+                  <span data-feather="info"></span>
+                  Info<span class="sr-only">(current)</span>
+                  </a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="sensorit.html">
+                  <span data-feather="thermometer"></span>
+                  Sensorit<span class="sr-only"></span>
+                  </a>
+               </li>
+            </ul>
+            <form class="form-inline my-2 my-md-0">
+               <input class="form-control" type="text" placeholder="Hae" aria-label="Search">
+            </form>
+            <ul class="navbar-nav">
+               <li class="nav-item">
+                  <a class="nav-link" href="#">
+                  <span data-feather="user"></span>
+                  Login<span class="sr-only"></span>
+                  </a>
+               </li>
+            </ul>
+         </div>
+      </nav>
       <div class="container-fluid">
-         <div class="row">
-            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-               <div class="sidebar-sticky">
-                  <ul class="nav flex-column">
-                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">
-                        <span data-feather="activity"></span>
-                        Monitorointi<span class="sr-only"></span>
-                        </a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="data.html">
-                        <span data-feather="database"></span>
-                        Data<span class="sr-only"></span>
-                        </a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link active" href="info.html">
-                        <span data-feather="info"></span>
-                        Info<span class="sr-only">(current)</span>
-                        </a>
-                     </li>
-					 <li class="nav-item">
-                        <a class="nav-link" href="sensorit.html">
-                        <span data-feather="thermometer"></span>
-                        Sensorit<span class="sr-only"></span>
-                        </a>
-                     </li>
-                  </ul>
-               </div>
-            </nav>
-            <!-- Main content -->
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-               <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                  <h1 class="h2">Info</h1>
-                  <div class="btn-toolbar mb-2 mb-md-0">
-                     <!-- Share and download buttons -->
-                     <div class="btn-group mr-2">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">
-                        <span data-feather="share-2"></span>
-                        Jaa
-                        </button>
-                        <button onclick="window.print();return false;" type="button" class="btn btn-sm btn-outline-secondary">
-                        <span data-feather="printer"></span>
-                        Tulosta
-                        </button>
-                     </div>
+         <!-- Main content -->
+         <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+               <h1 class="h2">Info</h1>
+               <div class="btn-toolbar mb-2 mb-md-0">
+                  <!-- Share and download buttons -->
+                  <div class="btn-group mr-2">
+                     <button type="button" class="btn btn-sm btn-outline-secondary">
+                     <span data-feather="share-2"></span>
+                     Jaa
+                     </button>
+                     <button onclick="window.print();return false;" type="button" class="btn btn-sm btn-outline-secondary">
+                     <span data-feather="printer"></span>
+                     Tulosta
+                     </button>
                   </div>
                </div>
-               <!-- Main content text -->
-			   <div class="container-fluid">
-			   <h5>Käyttöopas</h5>
-			   <p>Laitteen käyttöopas on ladattavissa <a href="#">TÄÄLTÄ</a>. Käyttöoppaasta löytyy yksityiskohtaiset ohjeet kuinka laitetta pystytään käyttämään sekä tunnistetut virhetilanteet ja kuinka niistä käyttäjä pystyy pääsemään eroon.</p>
-			   <br>
+            </div>
+            <!-- Main content text -->
+            <div class="container-fluid">
+               <h5>Käyttöopas</h5>
+               <p>Laitteen käyttöopas on ladattavissa <a href="#">TÄÄLTÄ</a>. Käyttöoppaasta löytyy yksityiskohtaiset ohjeet kuinka laitetta pystytään käyttämään sekä tunnistetut virhetilanteet ja kuinka niistä käyttäjä pystyy pääsemään eroon.</p>
+               <br>
                <h5>Käytetyt laitteet ja teknologiat</h5>
                <p>Alle on listattu projektissa käytetyt laitteet ja teknologiat, joiden avulla koko projekti toimii. Listattujen laitteiden ja teknologioiden avulla käyttäjä ymmärtää kuinka projekti on rakennettu ja kuinka projektia voidaan mahdollisesti jatkokehittää.</p>
-			   <br>
-			   <img class="img-responsive d-block mx-auto" src="img/arkkitehtuurikuvaus.jpg" alt="Arkkitehtuuri" width="800">
-			   <br>
-			   <h6>Sensorit</h6>
-			   <p>Projektissa käytetyt sensorit löytyvät <a href="sensorit.html">täältä</a>.</p>               
-			   <br>
-			   <h6>Arduino</h6>
-			   <div class="row">
-			   <div class="col-sm-1">
-			   <img class="img-responsive" src="img/arduino.jpg" alt="Arduino" width="100">
-			   </div>
-			   <div class="col-sm-11">
-               <p>Projektissa on käytetty <a href="https://www.arduino.cc/">Arduino</a> UNO WiFi REV2 -mikrokontrolleria, joka kerää vesikasvatusympäristöstä sensoreilta kerätyn datan. Arduino UNO WiFi REV2 tulee sisäänrakennetun WiFi-moduulin kanssa, joka tekee langattomasta tiedonsiirrosta helppoa.
-				Muistia mikrokontrollerissa on 48 kilotavun Flash Memory, 6 144 tavun SRAM sekä 256 tavun EEPROM. Arduino tarjoaa 14 digitaalista I/O pinniä sekä 6 analogista pinniä. Projektissa sensoreille on varattu X määrä pinnejä, joista vapaaksi pinnejä jää X muuhun käyttöön.</p>
-			   </div>
-			   </div>
-			   <br>			   
-			   <h6>WiFi</h6>
-			   <div class="row">
-			   <div class="col-sm-1">
-			   <img class="img-responsive" src="img/wifi.png" alt="WiFi" width="100">
-			   </div>
-			   <div class="col-sm-11">
-               <p>Arduino on yhdistettynä langattomaan verkkoon, jonka avulla tiedot siirretään projektin tietokantaan. Tiedonsiirto vaatii langattoman yhteyden (<a href="https://www.wi-fi.org/">WiFi</a>), muuten tietoja ei saa siirrettyä tietokantaan. Arduino pystyy varastoimaan sensoreilta tulevaa dataa n. X tuntia, ennenkuin muisti täyttyy eikä uusia mittaustuloksia pystyy enää tallentamaan Arduinon muistiin. Tietojen siirtäminen onnistuu tällä hetkellä vain langatonta verkkoyhteyttä hyödyntäen. Arduino yhdistetään langattomaan verkkoon TEKEMÄLLÄ JOTAIN.</p>
-			   </div>
-			   </div>
-			   <br>
-			   <h6>Tietokanta</h6>
-			   <div class="row">
-			   <div class="col-sm-1">
-			   <img class="img-responsive" src="img/apache.png" alt="Apache" width="100">
-			   <img class="img-responsive" src="img/mysql.png" alt="MySQL" width="100">
-			   </div>
-			   <div class="col-sm-11">
-               <p>Tietokanta on rakennettu <a href="https://www.mysql.com/">MySQL</a>-tietokantaa hyödyntäen ja se asennettuna Kokkolan Yliopistokeskus Chydeniuksen <a href="https://httpd.apache.org/">Apache</a>-palvelimelle. Tietokantaan varastoidaan Arduinolta tuleva sensoridata, joka voidaan lopulta hakea tietokannasta verkkokäyttöliittymään käyttäjän nähtäväksi. Tietokanta on rakennettu kahdesta taulukosta LISÄÄ TIETOKANNAN RAKENTEESTA</p>
-			   </div>
-			   </div>
-			   <br>
-			   <h6>Verkkokäyttöliittymä</h6>
-			   <div class="row">
-			   <div class="col-sm-1">
-			   <img class="img-responsive" src="img/html5.png" alt="HTML" width="100">
-			   <img class="img-responsive" src="img/bootstrap.svg" alt="Bootstrap" width="100">
-			   <img class="img-responsive" src="img/chartjs.svg" alt="Chart.js" width="100">
-			   <img class="img-responsive" src="img/jquery.png" alt="jQuery" width="100">
-			   </div>
-			   <div class="col-sm-11">
-               <p>Verkkokäyttöliittymä hakee tiedot MySQL-tietokannasta TEKEMÄLLÄ JOTAIN. Verkkokäyttöliittymän sivut ovat rakennettu <a href="https://www.w3schools.com/html/">HTML</a>-kuvauskielellä, jonka rinnalla on käytetty <a href="https://getbootstrap.com/">Bootstrap v4.3.1</a>-kirjastoa. Verkkokäyttöliittymän kuvaajat ovat luotu hyödyntäen <a href="https://www.chartjs.org/">Chart.js v2.8.0</a> JavaScript-kirjastoa sekä käyttöliittymän painikkeiden toiminnalisuudet on luotu käyttäen <a href="https://jquery.com/">jQueryä</a>.</p>
-			   <br>
-			   <b>HTML ja CSS</b>
-			   <p>Verkkokäyttöliittymän runko on rakennettu HTML-kuvauskielellä sekä CSS-tyylikirjastoa hyödyntäen. Verkkokäyttöliittymä on testattu moderneilla selaimilla sekä validoitu käyttämällä W3C validaattoria. TÄHÄN TULOKSIA </p>
-			   <br>
-			   <b>Bootstrap</b>
-			   <p>Bootstrap on kirjasto, johon on määritelty oletustyylejä sekä skriptejä valmiiksi, joka tekee sen käyttöönotosta nopeaa ja helppoa. Bootstrapin avulla verkkokäyttöliittymään on voitu luoda verkkosivujen responsiivisuus, jotta verkkokäyttöliittymä on käytettävä moderneilla selaimilla laitteen näyttökoosta riippumatta.</p>
-			   <b>Chart.js</b>
-			   <p>Verkkokäyttöliittymän kuvaajat ovat toteutettu Chart.js -JavaScript kirjastolla. Chart.js tarjoaa monia eri kuvaajatyyppejä, joista verkkokäyttöliittymässä on käytetty mixed-line charttia.</p>
-			   <br>
-			   <b>jQuery</b>
-			   <p>jQuery on yksinkertaistettu JavaScript-kirjasto, joka tarjoaa useita valmiita funktioita. jQueryn avulla voi esimerkiksi animoida painikkeen painallukset. </p>
-			   </div>
-			   </div>
-			   <br>
-			   <h6>MUUTA SIVUN TEKOON LIITTYEN</h6>
+               <br>
+               <img class="img-responsive d-block mx-auto" src="img/arkkitehtuurikuvaus.jpg" alt="Arkkitehtuuri" width="800">
+               <br>
+               <h6>Sensorit</h6>
+               <p>Projektissa käytetyt sensorit löytyvät <a href="sensorit.html">täältä</a>.</p>
+               <br>
+               <h6>Arduino</h6>
+               <div class="row">
+                  <div class="col-sm-1">
+                     <img class="img-responsive" src="img/arduino.jpg" alt="Arduino" width="100">
+                  </div>
+                  <div class="col-sm-11">
+                     <p>Projektissa on käytetty <a href="https://www.arduino.cc/">Arduino</a> UNO WiFi REV2 -mikrokontrolleria, joka kerää vesikasvatusympäristöstä sensoreilta kerätyn datan. Arduino UNO WiFi REV2 tulee sisäänrakennetun WiFi-moduulin kanssa, joka tekee langattomasta tiedonsiirrosta helppoa.
+                        Muistia mikrokontrollerissa on 48 kilotavun Flash Memory, 6 144 tavun SRAM sekä 256 tavun EEPROM. Arduino tarjoaa 14 digitaalista I/O pinniä sekä 6 analogista pinniä. Projektissa sensoreille on varattu X määrä pinnejä, joista vapaaksi pinnejä jää X muuhun käyttöön.
+                     </p>
+                  </div>
+               </div>
+               <br>			   
+               <h6>WiFi</h6>
+               <div class="row">
+                  <div class="col-sm-1">
+                     <img class="img-responsive" src="img/wifi.png" alt="WiFi" width="100">
+                  </div>
+                  <div class="col-sm-11">
+                     <p>Arduino on yhdistettynä langattomaan verkkoon, jonka avulla tiedot siirretään projektin tietokantaan. Tiedonsiirto vaatii langattoman yhteyden (<a href="https://www.wi-fi.org/">WiFi</a>), muuten tietoja ei saa siirrettyä tietokantaan. Arduino pystyy varastoimaan sensoreilta tulevaa dataa n. X tuntia, ennenkuin muisti täyttyy eikä uusia mittaustuloksia pystyy enää tallentamaan Arduinon muistiin. Tietojen siirtäminen onnistuu tällä hetkellä vain langatonta verkkoyhteyttä hyödyntäen. Arduino yhdistetään langattomaan verkkoon TEKEMÄLLÄ JOTAIN.</p>
+                  </div>
+               </div>
+               <br>
+               <h6>Tietokanta</h6>
+               <div class="row">
+                  <div class="col-sm-1">
+                     <img class="img-responsive" src="img/apache.png" alt="Apache" width="100">
+                     <img class="img-responsive" src="img/mysql.png" alt="MySQL" width="100">
+                  </div>
+                  <div class="col-sm-11">
+                     <p>Tietokanta on rakennettu <a href="https://www.mysql.com/">MySQL</a>-tietokantaa hyödyntäen ja se asennettuna Kokkolan Yliopistokeskus Chydeniuksen <a href="https://httpd.apache.org/">Apache</a>-palvelimelle. Tietokantaan varastoidaan Arduinolta tuleva sensoridata, joka voidaan lopulta hakea tietokannasta verkkokäyttöliittymään käyttäjän nähtäväksi. Tietokanta on rakennettu kahdesta taulukosta LISÄÄ TIETOKANNAN RAKENTEESTA</p>
+                  </div>
+               </div>
+               <br>
+               <h6>Verkkokäyttöliittymä</h6>
+               <div class="row">
+                  <div class="col-sm-1">
+                     <img class="img-responsive" src="img/html5.png" alt="HTML" width="100">
+                     <img class="img-responsive" src="img/bootstrap.svg" alt="Bootstrap" width="100">
+                     <img class="img-responsive" src="img/chartjs.svg" alt="Chart.js" width="100">
+                     <img class="img-responsive" src="img/jquery.png" alt="jQuery" width="100">
+                  </div>
+                  <div class="col-sm-11">
+                     <p>Verkkokäyttöliittymä hakee tiedot MySQL-tietokannasta TEKEMÄLLÄ JOTAIN. Verkkokäyttöliittymän sivut ovat rakennettu <a href="https://www.w3schools.com/html/">HTML</a>-kuvauskielellä, jonka rinnalla on käytetty <a href="https://getbootstrap.com/">Bootstrap v4.3.1</a>-kirjastoa. Verkkokäyttöliittymän kuvaajat ovat luotu hyödyntäen <a href="https://www.chartjs.org/">Chart.js v2.8.0</a> JavaScript-kirjastoa sekä käyttöliittymän painikkeiden toiminnalisuudet on luotu käyttäen <a href="https://jquery.com/">jQueryä</a>.</p>
+                     <br>
+                     <b>HTML ja CSS</b>
+                     <p>Verkkokäyttöliittymän runko on rakennettu HTML-kuvauskielellä sekä CSS-tyylikirjastoa hyödyntäen. Verkkokäyttöliittymä on testattu moderneilla selaimilla sekä validoitu käyttämällä W3C validaattoria. TÄHÄN TULOKSIA </p>
+                     <br>
+                     <b>Bootstrap</b>
+                     <p>Bootstrap on kirjasto, johon on määritelty oletustyylejä sekä skriptejä valmiiksi, joka tekee sen käyttöönotosta nopeaa ja helppoa. Bootstrapin avulla verkkokäyttöliittymään on voitu luoda verkkosivujen responsiivisuus, jotta verkkokäyttöliittymä on käytettävä moderneilla selaimilla laitteen näyttökoosta riippumatta.</p>
+                     <b>Chart.js</b>
+                     <p>Verkkokäyttöliittymän kuvaajat ovat toteutettu Chart.js -JavaScript kirjastolla. Chart.js tarjoaa monia eri kuvaajatyyppejä, joista verkkokäyttöliittymässä on käytetty mixed-line charttia.</p>
+                     <br>
+                     <b>jQuery</b>
+                     <p>jQuery on yksinkertaistettu JavaScript-kirjasto, joka tarjoaa useita valmiita funktioita. jQueryn avulla voi esimerkiksi animoida painikkeen painallukset. </p>
+                  </div>
+               </div>
+               <br>
+               <h6>MUUTA SIVUN TEKOON LIITTYEN</h6>
                <p>Tekstin täydennys, käyttöoppaan luonti ja tiedoston lataus, yksityiskohtaiset tiedot kirjastoista/käyttötavoista, arkkitehtuuri kuvasta thumbnail, jonka avaamalla isompi kuva, väliotsikoiden boldaus</p>
-			   <br>
-			   </div>
-			</main>
-         </div>
+               <br>
+            </div>
+         </main>
       </div>
       <!-- Javascript references -->
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
