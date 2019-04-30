@@ -13,24 +13,24 @@ $(document).ready(function(){
         var temp2 = [];
 
 
-        for(var i in data) {
-          tstamp.push(data[i].timeStamp);
-          temp1.push(data[i].temp1);
-          hum1.push(data[i].hum1);
-          ldr.push(data[i].ldr);
-          co2.push(data[i].co2);
-          temp2.push(data[i].temp2);
+        for(var i in data[0]) {
+          tstamp.push(data[0][i].timeStamp);
+          temp1.push(data[0][i].temp1);
+          hum1.push(data[0][i].hum1);
+          ldr.push(data[0][i].ldr);
+          co2.push(data[0][i].co2);
+          temp2.push(data[0][i].temp2);
         }
         
         const cards = [
-          {id: 1, title: "Lämpötila", min: 20, max: 30, lastValues: {val: data[data.length-1].temp1, stamp: data[data.length-1].timeStamp, unit: "C"}},
-          {id: 2, title: "Kosteus", min: 30, max: 80, lastValues: {val: data[data.length-1].hum1, stamp: data[data.length-1].timeStamp, unit: "%"}},
-          {id: 3, title: "Valoisuus", min: 100, max: 900, lastValues: {val: data[data.length-1].ldr, stamp: data[data.length-1].timeStamp, unit: "lx"}},
-          {id: 4, title: "Hiilidioksidipitoisuus", min: 400, max: 1200, lastValues: {val: data[data.length-1].co2, stamp: data[data.length-1].timeStamp, unit: "ppm"}},
-		  {id: 5, title: "Placeholder", min: 100, max: 900, lastValues: {val: data[data.length-1].ldr, stamp: data[data.length-1].timeStamp, unit: "lx"}},
-          {id: 6, title: "Placeholder", min: 400, max: 1200, lastValues: {val: data[data.length-1].co2, stamp: data[data.length-1].timeStamp, unit: "ppm"}},
-		  {id: 7, title: "Placeholder", min: 100, max: 900, lastValues: {val: data[data.length-1].ldr, stamp: data[data.length-1].timeStamp, unit: "lx"}},
-          {id: 8, title: "Placeholder", min: 400, max: 1200, lastValues: {val: data[data.length-1].co2, stamp: data[data.length-1].timeStamp, unit: "ppm"}}
+          {id: 1, title: "Lämpötila", min: 20, max: 30, lastValues: {val: data[0][data[0].length-1].temp1, stamp: data[0][data[0].length-1].timeStamp, unit: "C"}},
+          {id: 2, title: "Kosteus", min: 30, max: 80, lastValues: {val: data[0][data[0].length-1].hum1, stamp: data[0][data[0].length-1].timeStamp, unit: "%"}},
+          {id: 3, title: "Valoisuus", min: 100, max: 900, lastValues: {val: data[0][data[0].length-1].ldr, stamp: data[0][data[0].length-1].timeStamp, unit: "lx"}},
+          {id: 4, title: "Hiilidioksidipitoisuus", min: 400, max: 1200, lastValues: {val: data[0][data[0].length-1].co2, stamp: data[0][data[0].length-1].timeStamp, unit: "ppm"}},
+		      {id: 5, title: "Veden lämpötila", min: 10, max: 30, lastValues: {val: data[1][data[1].length-1].temp, stamp: data[1][data[1].length-1].timeStamp, unit: "C"}},
+          {id: 6, title: "Ravinneliuoksen PH", min: 5, max: 9, lastValues: {val: data[1][data[1].length-1].ph, stamp: data[1][data[1].length-1].timeStamp, unit: ""}},
+		      {id: 7, title: "Ravinneliuoksen sähkönjohtavuus", min: 10, max: 30, lastValues: {val: data[1][data[1].length-1].ec, stamp: data[1][data[1].length-1].timeStamp, unit: "mS/cm"}},
+          {id: 8, title: "Placeholder", min: 400, max: 1200, lastValues: {val: data[0][data[0].length-1].co2, stamp: data[0][data[0].length-1].timeStamp, unit: "xyz"}}
         ];
         
         const charts = [
