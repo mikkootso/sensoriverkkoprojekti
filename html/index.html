@@ -21,145 +21,138 @@
       <!-- Chart.js -->
       <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
       <!-- jQuery library -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <!-- Popper JS -->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-      <!-- Latest compiled JavaScript -->
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse" id="navbarsExample09">
-            <ul class="navbar-nav mr-auto">
-               <li class="nav-item">
-                  <a class="nav-link active" href="index.html">
-                  <span data-feather="activity"></span>
-                  Monitorointi<span class="sr-only">(current)</span>
-                  </a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="data.html">
-                  <span data-feather="database"></span>
-                  Data<span class="sr-only"></span>
-                  </a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="info.html">
-                  <span data-feather="info"></span>
-                  Info<span class="sr-only"></span>
-                  </a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="sensorit.html">
-                  <span data-feather="thermometer"></span>
-                  Sensorit<span class="sr-only"></span>
-                  </a>
-               </li>
-            </ul>
-            <form class="form-inline my-2 my-md-0">
-               <input class="form-control" type="text" placeholder="Hae" aria-label="Search">
-            </form>
-            <ul class="navbar-nav">
-               <li class="nav-item">
-                  <a class="nav-link" href="#">
-                  <span data-feather="user"></span>
-                  Login<span class="sr-only"></span>
-                  </a>
-               </li>
-            </ul>
-         </div>
-      </nav>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- Left side navbar -->
       <div class="container-fluid">
-         <!-- Main content -->
-         <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
-            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-               <h1 class="h2">Monitorointi</h1>
-               <div class="btn-toolbar mb-2 mb-md-0">
-                  <!-- Share and download buttons -->
-                  <div class="btn-group mr-2">
-                     <button type="button" class="btn btn-sm btn-outline-secondary">
-                     <span data-feather="share-2"></span>
-                     Jaa
-                     </button>
-                     <button onclick="window.print();return false;" type="button" class="btn btn-sm btn-outline-secondary">
-                     <span data-feather="printer"></span>
-                     Tulosta
-                     </button>
-                  </div>
+         <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+               <div class="sidebar-sticky">
+                  <ul class="nav flex-column">
+                     <li class="nav-item">
+                        <a class="nav-link active" href="index.html">
+                        <span data-feather="activity"></span>
+                        Monitorointi<span class="sr-only">(current)</span>
+                        </a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="data.html">
+                        <span data-feather="database"></span>
+                        Data<span class="sr-only"></span>
+                        </a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="info.html">
+                        <span data-feather="info"></span>
+                        Info<span class="sr-only"></span>
+                        </a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="sensorit.html">
+                        <span data-feather="thermometer"></span>
+                        Sensorit<span class="sr-only"></span>
+                        </a>
+                     </li>
+                  </ul>
                </div>
-               <!-- Time period drop-down -->
-               <div class="dropdown">
-                  <button type="button" class="btn btn-sm  btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
-                  <span data-feather="calendar"></span>
-                  Viimeiset 24h
-                  </button>
-                  <div class="dropdown-menu">
-                     <a class="dropdown-item" href="#">Viimeiset 24h</a>
-                     <a class="dropdown-item" href="#">Tämä viikko</a>
-                     <a class="dropdown-item" href="#">Tämä kuukausi</a>
-                     <a class="dropdown-item" href="#">Tämä vuosi</a>
-                  </div>
-               </div>
-            </div>
-            <!-- Main content text -->
-            <p>Tällä sivustolla seurataan kasvihuoneen olosuhteita. Seurattavia suureita ovat ilman lämpötila, kosteus, valoisuus ja hiilidioksidipitoisuus.</p>
-            <br>
-            <!--cards -->
-            <div id="cards"></div>
-            <!--charts -->
-            <div class="row">
-               <div class="col-md-6 ">
-                  <div class="border border-dark">
-                     <canvas id="temp1" width="400" height="300"></canvas>
-                  </div>
-               </div>
-               <div class="col-md-6 ">
-                  <div class="border border-dark">
-                     <canvas id="hum1" width="400" height="300"></canvas>
-                  </div>
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-6 ">
-                  <div class="border border-dark">
-                     <canvas id="ldr" width="400" height="300"></canvas>
-                  </div>
-               </div>
-               <div class="col-md-6 ">
-                  <div class="border border-dark">
-                     <canvas id="co2" width="400" height="300"></canvas>
-                  </div>
-               </div>
-            </div>
-            <!--
-               <div class="row">
-                     
-                     <div class="col-md-6 ">
-                           <div class="border border-dark">
-                                 <canvas id="temp2" width="400" height="300"></canvas>
-                           </div>
+            </nav>
+            <!-- Main content -->
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+               <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                  <h1 class="h2">Monitorointi</h1>
+                  <div class="btn-toolbar mb-2 mb-md-0">
+                     <!-- Share and download buttons -->
+                     <div class="btn-group mr-2">
+                        <button type="button" class="btn btn-sm btn-outline-secondary">
+                        <span data-feather="share-2"></span>
+                        Jaa
+                        </button>
+                        <button type="button" class="btn btn-sm btn-outline-secondary">
+                        <span data-feather="download"></span>
+                        Lataa
+                        </button>
                      </div>
+                  </div>
+                  <!-- Time period drop-down -->
+                  <div class="dropdown">
+                     <button type="button" class="btn btn-sm  btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+                     <span data-feather="calendar"></span>
+                     Viimeiset 24h
+                     </button>
+                     <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Viimeiset 24h</a>
+                        <a class="dropdown-item" href="#">Tämä viikko</a>
+                        <a class="dropdown-item" href="#">Tämä kuukausi</a>
+                        <a class="dropdown-item" href="#">Tämä vuosi</a>
+                     </div>
+                  </div>
                </div>
-               -->
-            <div>
-               <div class="border border-dark">
-                  <canvas id="mixed1" width="400" height="300"></canvas>
-               </div>
-            </div>
-            <div>
-               <div class="border border-dark">
-                  <canvas id="mixed2" width="400" height="300"></canvas>
-               </div>
-            </div>
-         </main>
+               <!-- Main content text -->
+               <p>Tällä sivustolla seurataan kasvihuoneen olosuhteita. Seurattavia suureita ovat ilman lämpötila, kosteus, valoisuus ja hiilidioksidipitoisuus.</p>
+               <br>
+
+               <!--cards -->
+               <div id = "cards"></div>
+
+               <!--charts -->
+                  <div class="row">
+                        <div class="col-md-6 ">
+                              <div class="border border-dark">
+                                    <canvas id="temp1" width="400" height="300"></canvas>
+                              </div>
+                        </div>
+                        <div class="col-md-6 ">
+                              <div class="border border-dark">
+                                    <canvas id="hum1" width="400" height="300"></canvas>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="row">
+                        <div class="col-md-6 ">
+                              <div class="border border-dark">
+                                    <canvas id="ldr" width="400" height="300"></canvas>
+                              </div>
+                        </div>
+                        <div class="col-md-6 ">
+                              <div class="border border-dark">
+                                    <canvas id="co2" width="400" height="300"></canvas>
+                              </div>
+                        </div>
+                  </div>
+                  <!--
+                  <div class="row">
+                        
+                        <div class="col-md-6 ">
+                              <div class="border border-dark">
+                                    <canvas id="temp2" width="400" height="300"></canvas>
+                              </div>
+                        </div>
+                  </div>
+                  -->
+                  <div>
+                        <div class="border border-dark">
+                              <canvas id="mixed1" width="400" height="300"></canvas>
+                        </div>
+                  </div>
+                  <div>
+                        <div class="border border-dark">
+                              <canvas id="mixed2" width="400" height="300"></canvas>
+                        </div>
+                  </div>
+            </main>
+         </div>
       </div>
       <!-- Javascript references -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
       <script> feather.replace() </script>
       <script src="js/linegraph.js"></script>
+      
 </html>
 </body>
 </html>
