@@ -1,4 +1,4 @@
-// HEikki Mattila 100419
+// HEikki Mattila 020519
 // Sending sensor data to Chydenius server
 // using Uno WiFi Rev2 board and Post method. 
 // Add.php handles data at the server side.
@@ -6,18 +6,31 @@
 //        DHT22 - temperature and humidity
 //        TEMT6000 - light intensity
 //        Gravity infrared CO2 sensor v1.1
+//        Gravity Analog Electrical Conductivity Sensor / Meter V2
+//        Gravity Waterproof DS18B20 Sensor Kit
+//        Gravity Analog pH Sensor / Meter Pro Kit
 
 
 #include <DHT.h>
 #include <SPI.h>
 #include <WiFiNINA.h>
+#include "DFRobot_EC.h"
+#include <OneWire.h>
+#include <DallasTemperature.h>
 
 #define DHTPIN 2 // temperature and humidity sensor pin
 #define DHTTYPE DHT22 // SENSOR TYPE - THE ADAFRUIT LIBRARY OFFERS SUPPORT FOR MORE MODELS
 #define CO2PIN A1 // co2 sensor pin
 #define LDRPIN A2 // light intensity sensor pin
+#define ONE_WIRE_BUS 3 // one wire bus pin
+#define PH_PIN A3 // ph sensor pin
+#define EC_PIN A4 // electrical conductivity pin
+#define PhOffset 0.0            //PH-deviation compensation
 
 DHT dht(DHTPIN, DHTTYPE); //Initialize DHT sensor
+DFRobot_EC ec; // initialize electrical conductivity library
+OneWire oneWire(ONE_WIRE_BUS); // Setup a oneWire instance to communicate with any OneWire devices
+DallasTemperature dt_sensors(&oneWire); // Pass our oneWire reference to Dallas Temperature. 
 
 #include "arduino_secrets.h" 
 ///////please enter your sensitive data in the Secret tab/arduino_secrets.h
@@ -25,21 +38,22 @@ char ssid[] = SECRET_SSID;        // your network SSID (name)
 char pass[] = SECRET_PASS;    // your network password (use for WPA, or use as key for WEP)
 int status = WL_IDLE_STATUS;
 
-// Initialize the Wifi client library
-WiFiClient client;
+WiFiClient client; // Initialize the Wifi client library
 
-// server address:
-char server[] = "luna.chydenius.fi";
+char server[] = "luna.chydenius.fi"; // server address:
 
 unsigned long lastConnectionTime = 0;            // last time you connected to the server, in milliseconds
 const unsigned long postingInterval = 300L * 1000L; // delay between updates, in milliseconds
 
-int t1 = 0;  // air temperature [C]
-int h1 = 0;  // air humidity  [%]
-int ldr = 0;  // light intensity [luksi]
-int co2 = 0;  // carbon dioxide  [ppm]
-int t2 = 0;  // water temperature [C]
-String data;
+// valiables for push button functionality
+unsigned long keyPrevMillis = 0;
+const unsigned long keySampleIntervalMs = 25;
+byte longKeyPressCountMax = 80;    // 80 * 25 = 2000 ms
+byte mediumKeyPressCountMin = 20;    // 20 * 25 = 500 ms
+byte KeyPressCount = 0;
+byte prevKeyState = HIGH;         // button is active low
+byte keyReset = 0;                // button key reseted when released or longKeyPress() executed
+const byte keyPin = 4;            // button is connected to this pin and GND
 
 void setup() {
   //Initialize serial and wait for port to open:
@@ -73,14 +87,12 @@ void setup() {
   // you're connected now, so print out the status:
   printWifiStatus();
 
-  dht.begin(); 
-  //delay(10000); // GIVE THE SENSOR SOME TIME TO START
-  //h1 = (int) dht.readHumidity(); 
-  //t1 = (int) dht.readTemperature(); 
-  //Serial.println(h1);
-  //Serial.println(t1);
-
-  randomSeed(analogRead(0));
+  dht.begin(); // Start up the dht library
+  
+  pinMode(keyPin, INPUT_PULLUP);
+  pinMode(LED_BUILTIN, OUTPUT);
+  ec.begin(); // Start up the DFRobot_EC library
+  dt_sensors.begin(); // Start up the DallasTemperature library
 }
 
 void loop() {
@@ -95,19 +107,45 @@ void loop() {
   // if xxx seconds have passed since your last connection,
   // then connect again and send data:
   if (millis() - lastConnectionTime > postingInterval) {
-    h1 = (int) dht.readHumidity();
-    t1 = (int) dht.readTemperature();
-    ldr = (int) lightIntensity(); //lux
-    co2 = (int) co2Concentration(); //ppm
-    t2 = 22 + random(3); //C  dummy data
-    
     httpRequest();
   }
-
+  // push button key management section
+  if (millis() - keyPrevMillis >= keySampleIntervalMs) {
+      keyPrevMillis = millis();
+      
+      byte currKeyState = digitalRead(keyPin);
+      
+      if ((prevKeyState == HIGH) && (currKeyState == LOW)) {
+          keyPress();
+      }
+      else if ((prevKeyState == LOW) && (currKeyState == HIGH)) {
+          keyRelease();
+      }
+      else if (currKeyState == LOW) {
+          KeyPressCount++;
+          if ((KeyPressCount >= longKeyPressCountMax) && (keyReset == 1)) {
+              longKeyPress();
+          }
+      }
+      prevKeyState = currKeyState;
+  }
 }
 
-// this method makes a HTTP connection to the server:
+// this method makes a HTTP connection to the server
 void httpRequest() {
+  int t1 = 0;  // air temperature [C]
+  int h1 = 0;  // air humidity  [%]
+  int ldr = 0;  // light intensity [luksi]
+  int co2 = 0;  // carbon dioxide  [ppm]
+  int t2 = 0;  // water temperature [C]
+  String data;
+
+  //measurements
+  h1 = (int) dht.readHumidity();
+  t1 = (int) dht.readTemperature();
+  ldr = (int) lightIntensity(); //lux
+  co2 = (int) co2Concentration(); //ppm
+  t2 = (int) readTemperature();
   // close any connection before send a new request.
   // This will free the socket on the Nina module
   client.stop();
@@ -129,6 +167,56 @@ void httpRequest() {
 
     // note the time that the connection was made:
     lastConnectionTime = millis();
+  } else {
+    // if you couldn't make a connection:
+    Serial.println("connection failed");
+  }
+  if (client.connected()) { 
+    Serial.println("disconnecting.");
+    client.stop();  // DISCONNECT FROM THE SERVER
+  }
+}
+
+// this method makes a HTTP connection to the server
+// sends water temperature, nutrient concentrations and pH values
+void httpRequestRL() {
+  
+  // close any connection before send a new request.
+  // This will free the socket on the Nina module
+  client.stop();
+
+  //dt_sensors.requestTemperatures(); // Send the command to get temperatures
+  //temperature = dt_sensors.getTempCByIndex(0); //get the temperature from the first sensor only
+  float temperature = readTemperature();                    // read your temperature sensor 
+  Serial.print("T:");
+  Serial.print(temperature,2);
+  Serial.print("C");//voltagePH = analogRead(PH_PIN); // read the ph voltage
+  //phValue    = 3.5*voltagePH*5.0/1024+PhOffset;       // convert voltage to pH 
+  float phValue = Ph();
+  Serial.print(", pH:");
+  Serial.print(phValue,2);
+  //voltageEC = analogRead(EC_PIN)/1024.0*5000;          // read the ec voltage
+  //ecValue    = ec.readEC(voltageEC,temperature);       // convert voltage to EC with temperature compensation
+  float ecValue = Ec(temperature);
+  Serial.print(", EC:");
+  Serial.print(ecValue,2);
+  Serial.println("ms/cm");
+  
+  String data =  String(String("ec=") + String(ecValue,1) + "&ph=" + String(phValue,1) + "&temp=" + String(temperature,1));
+
+  // if there's a successful connection:
+  if (client.connect(server, 80)) {
+    Serial.println("connecting...");
+    // send the HTTP POST :
+    client.println("POST /~sensoriverkkoproj/addrl.php HTTP/1.1"); 
+    client.println("Host: luna.chydenius.fi"); 
+    client.println("Content-Type: application/x-www-form-urlencoded"); 
+    client.print("Content-Length: "); 
+    client.println(data.length()); 
+    client.println(); 
+    client.print(data);
+    Serial.println(data);
+
   } else {
     // if you couldn't make a connection:
     Serial.println("connection failed");
@@ -195,3 +283,65 @@ float lightIntensity(){
   }
   return lux/n;
 }
+
+float readTemperature(){
+  int n = 10;
+  float val=0;
+  for(int i=0; i<n; i++){
+    dt_sensors.requestTemperatures(); // Send the command to get temperatures
+    val += dt_sensors.getTempCByIndex(0); //get the temperature from the first sensor only
+    delay(25);
+  }
+  return val/n;
+}
+
+
+
+// called when button is kept pressed for 2 seconds or more
+void longKeyPress() {
+    Serial.println("Start measurements...");
+    digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on
+    KeyPressCount = 0;
+    keyReset = 0;
+    httpRequestRL();
+    digitalWrite(LED_BUILTIN, LOW);   // turn the LED off
+}
+
+
+// called when key goes from not pressed to pressed
+void keyPress() {
+    Serial.println("key press");
+    KeyPressCount = 0;
+    keyReset = 1;
+}
+
+
+// called when key goes from pressed to not pressed
+void keyRelease() {
+    Serial.println("key release");
+    keyReset = 0;
+}
+
+// function return PH
+float Ph(){
+  int n = 100;
+  long val=0;
+  for(int i=0; i<n; i++){
+    val += analogRead(PH_PIN);
+    delay(25);
+  }
+  
+  return 3.5*val/n*5.0/1024+PhOffset;
+}
+
+// function return electrical conductivity
+float Ec(float temperature){
+  int n = 100;
+  long val=0;
+  for(int i=0; i<n; i++){
+    val += analogRead(EC_PIN);
+    delay(25);
+  }
+  return ec.readEC((val/n)/1024.0*5000,temperature);
+}
+

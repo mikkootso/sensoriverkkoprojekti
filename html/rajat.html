@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vesikasvastusympäristön monitorointi</title>
+</head>
+<body>
+    <form id="rajat">
+        <h2>Sensoreiden hälytysrajat</h2>
+        <fieldset>
+            <legend>Ilman lämpötila:</legend>
+            <div>
+                <label for="temp1_min">Min</label>
+                <input type="number" id="temp1_min" name="amount" value="1" min="0" max="100000">
+            </div>
+            <div>
+                <label for="temp1_max">Max</label>
+                <input type="number" id="temp1_max" name="amount" value="1" min="0" max="100000">
+            </div>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Ilman kosteus:</legend>
+            <div>
+                <label for="hum1_min">Min</label>
+                <input type="number" id="hum1_min" name="amount" value="1" min="0" max="100000">
+            </div>
+            <div>
+                <label for="hum1_max">Max</label>
+                <input type="number" id="hum1_max" name="amount" value="1" min="0" max="100000">
+            </div>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Valoisuus:</legend>
+            <div>
+                <label for="ldr_min">Min</label>
+                <input type="number" id="ldr_min" name="amount" value="1" min="0" max="100000">
+            </div>
+            <div>
+                <label for="ldr_max">Max</label>
+                <input type="number" id="ldr_max" name="amount" value="1" min="0" max="100000">
+            </div>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Hiilidioksidipitoisuus:</legend>
+            <div>
+                <label for="co2_min">Min</label>
+                <input type="number" id="co2_min" name="amount" value="1" min="0" max="100000">
+            </div>
+            <div>
+                <label for="co2_max">Max</label>
+                <input type="number" id="co2_max" name="amount" value="1" min="0" max="100000">
+            </div>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Ravinneliuoksen lämpötila:</legend>
+            <div>
+                <label for="temp2_min">Min</label>
+                <input type="number" id="temp2_min" name="amount" value="1" min="0" max="100000">
+            </div>
+            <div>
+                <label for="temp2_max">Max</label>
+                <input type="number" id="temp2_max" name="amount" value="1" min="0" max="100000">
+            </div>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Ravinneliuoksen PH:</legend>
+            <div>
+                <label for="ph_min">Min</label>
+                <input type="number" id="ph_min" name="amount" value="1" min="0" max="100000">
+            </div>
+            <div>
+                <label for="ph_max">Max</label>
+                <input type="number" id="ph_max" name="amount" value="1" min="0" max="100000">
+            </div>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Ravinneliuoksen sähkönjohtavuus:</legend>
+            <div>
+                <label for="ec_min">Min</label>
+                <input type="number" id="ec_min" name="amount" value="1" min="0" max="100000">
+            </div>
+            <div>
+                <label for="ec_max">Max</label>
+                <input type="number" id="ec_max" name="amount" value="1" min="0" max="100000">
+            </div>
+        </fieldset>
+        <input type="submit" value="Tallenna"/>
+        <input type="button" id="btn" value="Palauta oletusarvot"/>
+    </form>
+
+    
+
+    <script src="js/rajat.js"></script>
+</body>
+</html>
