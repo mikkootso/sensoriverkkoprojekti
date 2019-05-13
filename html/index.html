@@ -21,17 +21,17 @@
       <!-- Chart.js -->
       <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
       <!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <!-- Popper JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
       <!-- Navbar -->   
       <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
          </button>
          <div class="collapse navbar-collapse" id="navbarsExample09">
             <ul class="navbar-nav mr-auto">
@@ -73,34 +73,25 @@
             </ul>
          </div>
       </nav>
-	        <div class="container-fluid">
+      <div class="container-fluid">
             <!-- Main content -->
             <main class="col-md-12 ml-sm-auto col-lg-12 px-4">
-                        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                  <h1 class="h2">Monitorointi</h1>
-                  <div class="btn-toolbar mb-2 mb-md-0">
-                     <!-- Share and download buttons -->
-                     <div class="btn-group mr-2">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">
-                        <span data-feather="share-2"></span>
-                        Jaa
-                        </button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">
-                        <span data-feather="download"></span>
-                        Lataa
-                        </button>
-                     </div>
+                  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2">Monitorointi</h1>
+                        <div class="btn-toolbar mb-2 mb-md-0">
+                              <!-- Share and download buttons -->
+                              <div class="btn-group mr-2">
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                                    <span data-feather="share-2"></span>
+                                    Jaa
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">
+                                    <span data-feather="download"></span>
+                                    Lataa
+                                    </button>
+                              </div>
+                        </div>
                   </div>
-                  <!-- Time period drop-down -->
-                  <div>
-                        <select id="list" onchange="getSelectValue();">
-                              <option value="1">Viimeiset 24h</option>
-                              <option value="7">Viimeiset 7pv</option>
-                              <option value="30">Viimeiset 30pv</option>
-                              <option value="365">Viimeiset 365pv</option>
-                        </select>
-                  </div>
-               </div>
                <!-- Main content text -->
                <p>Tällä sivustolla seurataan "erään" kasvihuoneen olosuhteita. 
                   Sensoreiden viimeisimmät mittaustulokset löytyvät alla olevista korteista. 
@@ -111,8 +102,31 @@
 
                <!--cards -->
                <div id = "cards"></div>
-
+               <br><br>
                <!--charts -->
+               <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-top">
+                        <h3 class="h3">Viivakaaviot</h3>
+                        <!-- Time period drop-down -->
+                        <div>
+                              <select id="list" onchange="getSelectValue();">
+                                    <option value="1">Viimeiset 24h</option>
+                                    <option value="7">Viimeiset 7pv</option>
+                                    <option value="30">Viimeiset 30pv</option>
+                                    <option value="365">Viimeiset 365pv</option>
+                              </select>
+                        </div>
+                        <!-- Calender inputs-->
+                        <form>
+                              <div>
+                                    <label for="alku">Alku:</label>
+                                    <input type="date" id="alku" name="alku" required>
+                                    <label for="loppu">Loppu:</label>
+                                    <input type="date" id="loppu" name="loppu" required>
+                                    <span class="validity"></span>
+                                    <input type="submit">
+                              </div>
+                        </form>
+                  </div>
                   <div class="row">
                         <div class="col-md-6 ">
                               <div class="border border-dark">
