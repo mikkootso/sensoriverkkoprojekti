@@ -1,4 +1,5 @@
 
+(function INIT() {
     document.getElementById('rajat').addEventListener('submit', tallennaRajat);
     document.getElementById('btn').addEventListener('click', oletusRajat);
     var rajat;
@@ -50,7 +51,7 @@
             console.log("rajat2");
                 console.log(rajat);
         }
-    }
+    };
     
     //talletetaan rajat localStorageen
     function tallennaRajat(e){
@@ -66,13 +67,13 @@
         window.localStorage.setItem("rajat", JSON.stringify(uudetRajat));
         // haetaan uudet rajat lomakkeeseen
         //lataaRajat();
-      }
+      };
 
       //palautetaan oletusarvot: tyhjennetään localStorage, ladataan arvot tiedostosta
     function oletusRajat(){
         console.log("oletusRajat");
         localStorage.removeItem("rajat");
         lataaRajat();
-      }
-  
+      };
+}());
       

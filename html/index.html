@@ -79,17 +79,13 @@
                      </div>
                   </div>
                   <!-- Time period drop-down -->
-                  <div class="dropdown">
-                     <button type="button" class="btn btn-sm  btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
-                     <span data-feather="calendar"></span>
-                     Viimeiset 24h
-                     </button>
-                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Viimeiset 24h</a>
-                        <a class="dropdown-item" href="#">Tämä viikko</a>
-                        <a class="dropdown-item" href="#">Tämä kuukausi</a>
-                        <a class="dropdown-item" href="#">Tämä vuosi</a>
-                     </div>
+                  <div>
+                        <select id="list" onchange="getSelectValue();">
+                              <option value="1">Viimeiset 24h</option>
+                              <option value="7">Viimeiset 7pv</option>
+                              <option value="30">Viimeiset 30pv</option>
+                              <option value="365">Viimeiset 365pv</option>
+                        </select>
                   </div>
                </div>
                <!-- Main content text -->

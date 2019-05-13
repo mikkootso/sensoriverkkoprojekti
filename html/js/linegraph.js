@@ -1,7 +1,10 @@
-$(document).ready(function(){
+getSelectValue();
+function piirra(selectedValue){
     $.ajax({
       url : "./kantas.php",
       type : "GET",
+      dataType: "json",
+      data: {msg: selectedValue},
       success : function(data){
         console.log(data);
         
@@ -11,7 +14,6 @@ $(document).ready(function(){
         var ldr = [];
         var co2 = [];
         var temp2 = [];
-
 
         for(var i in data[0]) {
           tstamp.push(data[0][i].timeStamp);
@@ -45,16 +47,21 @@ $(document).ready(function(){
 
         function drawCards(rajat){
           const cards = [
-            {id: 1, title: "Ilman lämpötila", min: parseInt(rajat["temp1"].min), max: parseInt(rajat["temp1"].max), lastValues: {val: data[0][data[0].length-1].temp1, stamp: data[0][data[0].length-1].timeStamp, unit: "C"}},
-            {id: 2, title: "Ilman kosteus", min: parseInt(rajat["hum1"].min), max: parseInt(rajat["hum1"].max), lastValues: {val: data[0][data[0].length-1].hum1, stamp: data[0][data[0].length-1].timeStamp, unit: "%"}},
-            {id: 3, title: "Valoisuus", min: parseInt(rajat["ldr"].min), max: parseInt(rajat["ldr"].max), lastValues: {val: data[0][data[0].length-1].ldr, stamp: data[0][data[0].length-1].timeStamp, unit: "lx"}},
-            {id: 4, title: "Hiilidioksidipitoisuus", min: parseInt(rajat["co2"].min), max: parseInt(rajat["co2"].max), lastValues: {val: data[0][data[0].length-1].co2, stamp: data[0][data[0].length-1].timeStamp, unit: "ppm"}},
+            {id: 1, title: "Ilman lämpötila", min: parseInt(rajat["temp1"].min), max: parseInt(rajat["temp1"].max), lastValues: {val: data[2][data[2].length-1].temp1, stamp: data[2][data[2].length-1].timeStamp, unit: "C"}},
+            {id: 2, title: "Ilman kosteus", min: parseInt(rajat["hum1"].min), max: parseInt(rajat["hum1"].max), lastValues: {val: data[2][data[2].length-1].hum1, stamp: data[2][data[2].length-1].timeStamp, unit: "%"}},
+            {id: 3, title: "Valoisuus", min: parseInt(rajat["ldr"].min), max: parseInt(rajat["ldr"].max), lastValues: {val: data[2][data[2].length-1].ldr, stamp: data[2][data[2].length-1].timeStamp, unit: "lx"}},
+            {id: 4, title: "Hiilidioksidipitoisuus", min: parseInt(rajat["co2"].min), max: parseInt(rajat["co2"].max), lastValues: {val: data[2][data[2].length-1].co2, stamp: data[2][data[2].length-1].timeStamp, unit: "ppm"}},
             {id: 5, title: "Ravinneliuoksen lämpötila", min: parseInt(rajat["temp2"].min), max: parseInt(rajat["temp2"].max), lastValues: {val: data[1][data[1].length-1].temp, stamp: data[1][data[1].length-1].timeStamp, unit: "C"}},
             {id: 6, title: "Ravinneliuoksen PH", min: parseInt(rajat["ph"].min), max: parseInt(rajat["ph"].max), lastValues: {val: data[1][data[1].length-1].ph, stamp: data[1][data[1].length-1].timeStamp, unit: ""}},
             {id: 7, title: "Ravinneliuoksen sähkönjohtavuus", min: parseInt(rajat["ec"].min), max: parseInt(rajat["ec"].max), lastValues: {val: data[1][data[1].length-1].ec, stamp: data[1][data[1].length-1].timeStamp, unit: "mS/cm"}}
           ];
           
-          
+          // remove old cards
+          var cds = document.getElementById("cards");
+          for(var i = cds.childNodes.length - 1; i >= 0; --i) {
+            cds.removeChild(cds.childNodes[i]);
+          }
+
           // create cards
           var newRowDiv = document.createElement("div");
           newRowDiv.className = "card-columns";
@@ -97,13 +104,29 @@ $(document).ready(function(){
           });
         }
 
+        //create charts
         function drawCharts(){
+          
           const charts = [
             {cid: "#temp1", label: "Ilman lämpötila [C]", yData: temp1, color: "rgba(59, 89, 152, 1)", suggestedMin: 10, suggestedMax: 30},
             {cid: "#hum1", label: "Ilman kosteus [%]", yData: hum1, color: "rgba(29, 202, 255, 1)", suggestedMin: 20, suggestedMax: 80},
             {cid: "#ldr", label: "Valoisuus [lx]", yData: ldr, color: "rgba(229, 202, 25, 1)", suggestedMin: 100, suggestedMax: 1000},
             {cid: "#co2", label: "Hiilidioksidipitoisuus [ppm]", yData: co2, color: "rgba(0, 255, 0, 1)", suggestedMin: 400, suggestedMax: 1400}
           ];
+
+          // check if sql query has returned empty array
+          if(data[0].length === 0){
+            const chrts = ["#temp1","#hum1","#ldr","#co2","#mixed1","#mixed2"];
+            chrts.forEach(function(element){
+              var canvas = $(element).get(0); //document.getElementById("temp1");
+              var ctx = canvas.getContext("2d");
+              ctx.clearRect(0,0,canvas.width, canvas.height);
+              ctx.font = "30px Arial";
+              ctx.strokeText("Ei mittaustuloksia",20,50);
+            });
+
+            return;
+          }
 
           // modify timestamp for charts #1
           var xAxis = [];
@@ -323,9 +346,15 @@ $(document).ready(function(){
 
     }
   });
-
   
-});
+  
+  
+};
+function getSelectValue(){
+      var selectedValue = document.getElementById("list").value;
+      console.log(selectedValue);
+      piirra(selectedValue);
+}
 
 
   
