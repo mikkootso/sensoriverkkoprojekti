@@ -1,10 +1,11 @@
+document.getElementById('kalenterit').addEventListener('submit', kalenterit);
 getSelectValue();
-function piirra(selectedValue){
+function piirra(selectedValue, alku, loppu){
     $.ajax({
       url : "./kantas.php",
       type : "GET",
       dataType: "json",
-      data: {msg: selectedValue},
+      data: {msg: selectedValue, alku: alku, loppu: loppu},
       success : function(data){
         console.log(data);
         
@@ -226,6 +227,11 @@ function piirra(selectedValue){
 
           //chart 1 
 
+          var ctxLine = document.getElementById("mixed2").getContext("2d");
+          if(window.ctx != undefined)
+              window.ctx.destroy();
+          window.ctx = new Chart(ctxLine, {});
+
           var ctx = $("#mixed2");
           var LineGraph = new Chart(ctx, {
             type: 'line',
@@ -353,7 +359,20 @@ function piirra(selectedValue){
 function getSelectValue(){
       var selectedValue = document.getElementById("list").value;
       console.log(selectedValue);
-      piirra(selectedValue);
+      document.getElementById("list").options.length = 4;
+      document.getElementById("alku").value = "";
+      document.getElementById("loppu").value = "";
+      piirra(selectedValue, null, null);
+}
+
+function kalenterit(e){
+  e.preventDefault();
+  document.getElementById("list").options[4]=new Option("", null, false, true);
+  var alku = document.getElementById("alku").value.concat(" 00:00:00");
+  var loppu = document.getElementById("loppu").value.concat(" 23:59:59");
+  console.log(alku);
+  console.log(loppu);
+  piirra("0", alku, loppu);
 }
 
 
