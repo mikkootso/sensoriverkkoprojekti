@@ -1,0 +1,9 @@
+$(document).ready(function(){
+	$("#rajathide").hide();
+  $("#hide").click(function(){
+    $("#rajathide").hide();
+  });
+  $("#show").click(function(){
+    $("#rajathide").show();
+  });
+});
