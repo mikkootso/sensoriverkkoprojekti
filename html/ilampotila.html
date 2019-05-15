@@ -30,21 +30,21 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
       <!-- Navbar -->   
       <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
          </button>
-         <div class="collapse navbar-collapse" id="navbarsExample09">
+         <div class="collapse navbar-collapse" id="nav">
             <ul class="navbar-nav mr-auto">
                <li class="nav-item">
-                  <a class="nav-link active" href="index.html">
+                  <a class="nav-link" href="index.html">
                   <span data-feather="activity"></span>
-                  Monitorointi<span class="sr-only">(current)</span>
+                  Monitorointi<span class="sr-only"></span>
                   </a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="ilampotila.html">
+                  <a class="nav-link active" href="ilampotila.html">
                   <span data-feather="sun"></span>
-                  Ilman lämpötila<span class="sr-only"></span>
+                  Ilman lämpötila<span class="sr-only">(current)</span>
                   </a>
                </li>
 			   <li class="nav-item">
@@ -88,7 +88,7 @@
                   <span data-feather="cpu"></span>
                   Sensorit<span class="sr-only"></span>
                   </a>
-               </li>			   
+               </li>
 			   <li class="nav-item">
                   <a class="nav-link" href="info.html">
                   <span data-feather="info"></span>
@@ -113,7 +113,7 @@
             <!-- Main content -->
             <main class="col-md-12 ml-sm-auto col-lg-12 px-4">
                   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">Monitorointi</h1>
+                        <h1 class="h2">Ilman lämpötila</h1>
                         <div class="btn-toolbar mb-2 mb-md-0">
                               <!-- Share and download buttons -->
                               <div class="btn-group mr-2">
@@ -129,84 +129,7 @@
                         </div>
                   </div>
                <!-- Main content text -->
-               <p>Tällä sivustolla seurataan "erään" kasvihuoneen olosuhteita. 
-                  Sensoreiden viimeisimmät mittaustulokset löytyvät alla olevista korteista. 
-                  Olosuhteiden muutosta voi seurata viivakaavioista.</p>
-               <p>Korttien hälytysrajoja voi muuttaa <a href="rajat.html" target="_blank" >tästä</a>.</p>
-               
-               <br>
-
-               <!--cards -->
-               <div id = "cards"></div>
-               <br><br>
-               <!--charts -->
-               <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-top">
-                        <h3 class="h3">Viivakaaviot</h3>
-                        <!-- Time period drop-down -->
-                        <div>
-                              <select id="list" onchange="getSelectValue();">
-                                    <option value="1">Viimeiset 24h</option>
-                                    <option value="7">Viimeiset 7pv</option>
-                                    <option value="30">Viimeiset 30pv</option>
-                                    <option value="365">Viimeiset 365pv</option>
-                              </select>
-                        </div>
-                        <!-- Calender inputs-->
-                        <form id="kalenterit">
-                              <div>
-                                    <label for="alku">Alku:</label>
-                                    <input type="date" id="alku" name="alku" required>
-                                    <label for="loppu">Loppu:</label>
-                                    <input type="date" id="loppu" name="loppu" required>
-                                    <span class="validity"></span>
-                                    <input type="submit" value="Piirrä">
-                              </div>
-                        </form>
-                  </div>
-                  <div class="row">
-                        <div class="col-md-6 ">
-                              <div class="border border-dark">
-                                    <canvas id="temp1" width="400" height="300"></canvas>
-                              </div>
-                        </div>
-                        <div class="col-md-6 ">
-                              <div class="border border-dark">
-                                    <canvas id="hum1" width="400" height="300"></canvas>
-                              </div>
-                        </div>
-                  </div>
-                  <div class="row">
-                        <div class="col-md-6 ">
-                              <div class="border border-dark">
-                                    <canvas id="ldr" width="400" height="300"></canvas>
-                              </div>
-                        </div>
-                        <div class="col-md-6 ">
-                              <div class="border border-dark">
-                                    <canvas id="co2" width="400" height="300"></canvas>
-                              </div>
-                        </div>
-                  </div>
-                  <!--
-                  <div class="row">
-                        
-                        <div class="col-md-6 ">
-                              <div class="border border-dark">
-                                    <canvas id="temp2" width="400" height="300"></canvas>
-                              </div>
-                        </div>
-                  </div>
-                  -->
-                  <div>
-                        <div class="border border-dark">
-                              <canvas id="mixed1" width="400" height="300"></canvas>
-                        </div>
-                  </div>
-                  <div>
-                        <div class="border border-dark">
-                              <canvas id="mixed2" width="400" height="300"></canvas>
-                        </div>
-                  </div>
+               <p>Täältä näet ilman lämpötilan.</p>           
             </main>
       </div>
       <!-- Javascript references -->
