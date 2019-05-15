@@ -21,7 +21,7 @@
       <!-- Chart.js -->
       <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
       <!-- jQuery library -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
       <!-- Popper JS -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -121,10 +121,10 @@
                                     <span data-feather="share-2"></span>
                                     Jaa
                                     </button>
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">
-                                    <span data-feather="download"></span>
-                                    Lataa
-                                    </button>
+									<button onclick="window.print();return false;" type="button" class="btn btn-sm btn-outline-secondary">
+									<span data-feather="printer"></span>
+									Tulosta
+									</button>
                               </div>
                         </div>
                   </div>
@@ -132,10 +132,7 @@
                <p>Tällä sivustolla seurataan "erään" kasvihuoneen olosuhteita. 
                   Sensoreiden viimeisimmät mittaustulokset löytyvät alla olevista korteista. 
                   Olosuhteiden muutosta voi seurata viivakaavioista.</p>
-               <p>Korttien hälytysrajoja voi muuttaa <a href="rajat.html" target="_blank" >tästä</a>.</p>
-               
-               <br>
-
+               <p>Korttien hälytysrajoja voi muuttaa <a href="rajat.html" target="_blank" >tästä</a>. 
                <!--cards -->
                <div id = "cards"></div>
                <br><br>
@@ -159,9 +156,9 @@
                                     <label for="loppu">Loppu:</label>
                                     <input type="date" id="loppu" name="loppu" required>
                                     <span class="validity"></span>
-                                    <input type="submit" value="Piirrä">
                               </div>
                         </form>
+						<button type="submit" form="kalenterit" class="btn btn-sm btn-outline-secondary" value="Submit">Piirrä</button>
                   </div>
                   <div class="row">
                         <div class="col-md-6 ">
@@ -214,6 +211,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
       <script> feather.replace() </script>
       <script src="js/linegraph.js"></script>
+	  <script src="js/rajathide.js"></script>
       
 </body>
 </html>
