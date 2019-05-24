@@ -136,37 +136,11 @@
                <h5>Käytetyt laitteet ja teknologiat</h5>
                <p>Alle on listattu projektissa käytetyt laitteet ja teknologiat, joiden avulla koko projekti toimii. Listattujen laitteiden ja teknologioiden avulla käyttäjä ymmärtää kuinka projekti on rakennettu ja kuinka projektia voidaan mahdollisesti jatkokehittää.</p>
 				<br>
-				<img id="Arkkitehtuuri" src="img/arkkitehtuurikuvaus.jpg" alt="Arkkitehtuurikuvaus" style="max-width:500px">
+				<img src="img/arkkitehtuurikuvaus.jpg" style="max-width:500px" onclick="document.getElementById('arkkitehtuuri').style.display='block'" class="hover-opacity">
 
-				<!-- The Modal -->
-				<div id="modalArkkitehtuuri" class="modal">
-				  <span class="close">&times;</span>
-				  <img class="modal-content" id="img01">
-				  <div id="caption"></div>
+				<div id="arkkitehtuuri" class="modal animate-zoom" onclick="this.style.display='none'">
+				<img class="modal-content" style="height:100%"  src="img/arkkitehtuurikuvaus.jpg">
 				</div>
-
-				<script>
-				// Get the modal
-				var modal = document.getElementById('modalArkkitehtuuri');
-
-				// Get the image and insert it inside the modal - use its "alt" text as a caption
-				var img = document.getElementById('Arkkitehtuuri');
-				var modalImg = document.getElementById("img01");
-				var captionText = document.getElementById("caption");
-				img.onclick = function(){
-				  modal.style.display = "block";
-				  modalImg.src = this.src;
-				  captionText.innerHTML = this.alt;
-				}
-
-				// Get the <span> element that closes the modal
-				var span = document.getElementsByClassName("close")[0];
-
-				// When the user clicks on <span> (x), close the modal
-				span.onclick = function() { 
-				  modal.style.display = "none";
-				}
-				</script>
                <br>
 			   <p>Järjestelmän arkkitehtuuri ja laitteisto koostuu sensoreista, mikrokontrollerista, web-palvelimesta ja loppukäyttäjälle suunnatusta web-sovelluksesta edellä olevan kuvan mukaisesti. Mitattavia suureita on yhteensä 7, joista 4 liittyy kasvihuoneympäristön monitorointiin ja 3 ravinneliuoksen tarkkailuun. Ympäristöstä saadaan tietoa lämpötila-, kosteus-, valoisuus- ja hiilidioksidisensoreiden kautta ja ravinneliuoksesta sen lämpötilan, pH-arvon ja sähkönjohtavuuden avulla. Sensoreilta data kerätään Arduino Uno Rev2 -mikrokontrolleriin, jossa sisäänrakennettu WiFi-moduuli mahdollistaa tietojen lähettämisen eteenpäin langattoman verkon kautta Internetin yli web-palvelimelle. Palvelimella tieto kerätään MySQL-pohjaiseen relaatiotietokantaan, josta tiedot poimitaan loppukäyttäjälle mittaukset visualisoivaan selainpohjaiseen web-sovellukseen.</p>
                <h6>Sensorit</h6>
