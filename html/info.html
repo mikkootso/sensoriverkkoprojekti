@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fi">
    <head>
       <!-- Required meta tags -->
       <meta charset="utf-8">
@@ -34,7 +34,7 @@
 	  <script src="js/bootstrap.js"></script>
       <!-- Navbar -->   
       <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="Nav" aria-expanded="false" aria-label="Toggle navigation">
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
          </button>
          <div class="collapse navbar-collapse" id="nav">
@@ -136,10 +136,10 @@
                <h5>Käytetyt laitteet ja teknologiat</h5>
                <p>Alle on listattu projektissa käytetyt laitteet ja teknologiat, joiden avulla koko projekti toimii. Listattujen laitteiden ja teknologioiden avulla käyttäjä ymmärtää kuinka projekti on rakennettu ja kuinka projektia voidaan mahdollisesti jatkokehittää.</p>
 				<br>
-				<img src="img/arkkitehtuurikuvaus.jpg" style="max-width:500px" onclick="document.getElementById('arkkitehtuuri').style.display='block'" class="hover-opacity">
+				<img src="img/arkkitehtuurikuvaus.jpg" style="max-width:500px" onclick="document.getElementById('arkkitehtuuri').style.display='block'" class="hover-opacity" alt="Arkkitehtuurikuvaus">
 
 				<div id="arkkitehtuuri" class="modal animate-zoom" onclick="this.style.display='none'">
-				<img class="modal-content" style="height:100%"  src="img/arkkitehtuurikuvaus.jpg">
+				<img class="modal-content" style="height:100%"  src="img/arkkitehtuurikuvaus.jpg" alt="Arkkitehtuurikuvaus">
 				</div>
                <br>
 			   <p>Järjestelmän arkkitehtuuri ja laitteisto koostuu sensoreista, mikrokontrollerista, web-palvelimesta ja loppukäyttäjälle suunnatusta web-sovelluksesta edellä olevan kuvan mukaisesti. Mitattavia suureita on yhteensä 7, joista 4 liittyy kasvihuoneympäristön monitorointiin ja 3 ravinneliuoksen tarkkailuun. Ympäristöstä saadaan tietoa lämpötila-, kosteus-, valoisuus- ja hiilidioksidisensoreiden kautta ja ravinneliuoksesta sen lämpötilan, pH-arvon ja sähkönjohtavuuden avulla. Sensoreilta data kerätään Arduino Uno Rev2 -mikrokontrolleriin, jossa sisäänrakennettu WiFi-moduuli mahdollistaa tietojen lähettämisen eteenpäin langattoman verkon kautta Internetin yli web-palvelimelle. Palvelimella tieto kerätään MySQL-pohjaiseen relaatiotietokantaan, josta tiedot poimitaan loppukäyttäjälle mittaukset visualisoivaan selainpohjaiseen web-sovellukseen.</p>
@@ -224,6 +224,5 @@
 	  <!-- Optional JavaScript -->	  
       <script> feather.replace() </script>
       <script src="js/linegraph.js"></script>
-</html>
 </body>
 </html>
