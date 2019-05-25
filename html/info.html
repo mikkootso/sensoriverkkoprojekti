@@ -156,7 +156,7 @@
 				  </div>
                   <div class="col-sm-10">
                      <p>Projektissa on käytetty <a href="https://www.arduino.cc/">Arduino</a> UNO WiFi REV2 -mikrokontrolleria, joka kerää vesikasvatusympäristöstä sensoreilta kerätyn datan. Arduino UNO WiFi REV2 tulee sisäänrakennetun WiFi-moduulin kanssa, joka tekee langattomasta tiedonsiirrosta helppoa.
-                        Muistia mikrokontrollerissa on 48 kilotavun Flash Memory, 6 144 tavun SRAM sekä 256 tavun EEPROM. Arduino tarjoaa 14 digitaalista I/O pinniä sekä 6 analogista pinniä. Projektissa sensoreille on varattu X määrä pinnejä, joista vapaaksi pinnejä jää X muuhun käyttöön.
+                        Muistia mikrokontrollerissa on 48 kilotavun Flash Memory, 6 144 tavun SRAM sekä 256 tavun EEPROM. Arduino tarjoaa 13 digitaalista I/O pinniä sekä 5 analogista pinniä. Projektissa sensoreille on varattu 7 pinniä, joista vapaaksi pinnejä jää 12 muuhun käyttöön.
                      </p>
                   </div>
                </div>
@@ -170,7 +170,7 @@
 				  <br>
 				  </div>
                   <div class="col-sm-10">
-                     <p>Arduino on yhdistettynä langattomaan verkkoon, jonka avulla tiedot siirretään projektin tietokantaan. Tiedonsiirto vaatii langattoman yhteyden (<a href="https://www.wi-fi.org/">WiFi</a>), muuten tietoja ei saa siirrettyä tietokantaan. Arduino pystyy varastoimaan sensoreilta tulevaa dataa n. X tuntia, ennenkuin muisti täyttyy eikä uusia mittaustuloksia pystyy enää tallentamaan Arduinon muistiin. Tietojen siirtäminen onnistuu tällä hetkellä vain langatonta verkkoyhteyttä hyödyntäen. Arduino yhdistetään langattomaan verkkoon TEKEMÄLLÄ JOTAIN.</p>
+                     <p>Arduino on yhdistettynä langattomaan verkkoon, jonka avulla tiedot siirretään projektin tietokantaan. Tiedonsiirto vaatii langattoman yhteyden (<a href="https://www.wi-fi.org/">WiFi</a>), muuten tietoja ei saa siirrettyä tietokantaan. Tietojen siirtäminen onnistuu tällä hetkellä vain langatonta verkkoyhteyttä hyödyntäen. Arduino yhdistetään langattomaan verkkoon käyttöoppaan kappaleen 1.1. antamien ohjeiden mukaisesti.</p>
                   </div>
                </div>
                <br>
@@ -204,10 +204,10 @@
 				  <br>
 				  </div>
                   <div class="col-sm-10">
-                     <p>Verkkokäyttöliittymä hakee tiedot MySQL-tietokannasta TEKEMÄLLÄ JOTAIN. Verkkokäyttöliittymän sivut ovat rakennettu <a href="https://www.w3schools.com/html/">HTML</a>-kuvauskielellä, jonka rinnalla on käytetty <a href="https://getbootstrap.com/">Bootstrap v4.3.1</a>-kirjastoa. Verkkokäyttöliittymän kuvaajat ovat luotu hyödyntäen <a href="https://www.chartjs.org/">Chart.js v2.8.0</a> JavaScript-kirjastoa sekä käyttöliittymän painikkeiden toiminnalisuudet on luotu käyttäen <a href="https://jquery.com/">jQueryä</a>.</p>
+                     <p>Verkkokäyttöliittymä hakee tiedot MySQL-tietokannasta. Verkkokäyttöliittymän sivut ovat rakennettu <a href="https://www.w3schools.com/html/">HTML</a>-kuvauskielellä, jonka rinnalla on käytetty <a href="https://getbootstrap.com/">Bootstrap v4.3.1</a>-kirjastoa. Verkkokäyttöliittymän kuvaajat ovat luotu hyödyntäen <a href="https://www.chartjs.org/">Chart.js v2.8.0</a> JavaScript-kirjastoa sekä käyttöliittymän painikkeiden toiminnalisuudet on luotu käyttäen <a href="https://jquery.com/">jQueryä</a>.</p>
                      <br>
                      <b>HTML ja CSS</b>
-                     <p>Verkkokäyttöliittymän runko on rakennettu HTML-kuvauskielellä sekä CSS-tyylikirjastoa hyödyntäen. Verkkokäyttöliittymä on testattu moderneilla selaimilla sekä validoitu käyttämällä W3C validaattoria. TÄHÄN TULOKSIA </p>
+                     <p>Verkkokäyttöliittymän runko on rakennettu HTML-kuvauskielellä sekä CSS-tyylikirjastoa hyödyntäen. Verkkokäyttöliittymä on testattu moderneilla selaimilla sekä validoitu käyttämällä W3C validaattoria.</p>
                      <br>
                      <b>Bootstrap</b>
                      <p>Bootstrap on kirjasto, johon on määritelty oletustyylejä sekä skriptejä valmiiksi, joka tekee sen käyttöönotosta nopeaa ja helppoa. Bootstrapin avulla verkkokäyttöliittymään on voitu luoda verkkosivujen responsiivisuus, jotta verkkokäyttöliittymä on käytettävä moderneilla selaimilla laitteen näyttökoosta riippumatta.</p>
