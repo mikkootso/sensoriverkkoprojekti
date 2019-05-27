@@ -80,10 +80,29 @@ function piirra(selectedValue, alku, loppu){
             h5.innerHTML = element.title;     //
             h5.className = "card-title"
             newDiv3.appendChild(h5);
+
             var p = document.createElement("p");
             p.innerHTML = element.lastValues.val + " " + element.lastValues.unit;   //
             p.className = "card-text";
             newDiv3.appendChild(p);
+            if(element.lastValues.val < element.min || element.lastValues.val > element.max){
+              var newValueRow = document.createElement("div");
+              newValueRow.className = "row";
+              newValueRow.id = "varoitusRivi";
+              newDiv3.appendChild(newValueRow);
+            
+              var img = document.createElement('img');
+              img.src = 'img/Simple_Alert.png';
+              img.alt = "Varoitus";
+              img.className = "img-fluid";
+              img.style.width = "30px";
+              img.style.height = "30px";
+              newValueRow.appendChild(img);
+              
+              var p1 = document.createElement("p");
+              p1.innerHTML = (element.lastValues.val < element.min ) ?  "Arvo on matala" : element.lastValues.val > element.max ?  "Arvo on korkea":"ok"; //
+              newValueRow.appendChild(p1);
+            }
             var p2 = document.createElement("p");
             p2.className = "card-text";
             var small = document.createElement("small");
@@ -92,17 +111,9 @@ function piirra(selectedValue, alku, loppu){
             p2.appendChild(small);
             newDiv3.appendChild(p2);
             document.getElementById("cards").appendChild(newRowDiv);
-            if(element.lastValues.val < element.min || element.lastValues.val > element.max){
-              var img = document.createElement('img');
-              img.src = 'img/Simple_Alert.png';
-              img.alt = "Varoitus";
-              img.className = "img-fluid";
-              newDiv3.appendChild(img);
-              var p1 = document.createElement("p");
-              p1.innerHTML = (element.lastValues.val < element.min ) ? element.title + " on matala" : element.lastValues.val > element.max ? element.title + " on korkea":"ok"; //
-              newDiv3.appendChild(p1);
-            }
+            
           });
+          console.log(newRowDiv);
         }
 
         //create charts
