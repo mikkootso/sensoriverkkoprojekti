@@ -283,6 +283,21 @@ function piirra(selectedValue, alku, loppu){
                     suggestedMax: 1000,
                     suggestedMin: 0
                   }
+                }],
+                xAxes: [{
+                  ticks: {
+                    maxTicksLimit: 11
+                  },
+                  type: 'time',
+                  time: {
+                    displayFormats: {
+                      'minute': 'HH:MM',
+                      'hour': 'HH:MM',
+                      'day': 'MMM DD',
+                      
+                    }
+                },
+                  distribution: 'linear'
                 }]
               }
             }
@@ -293,7 +308,7 @@ function piirra(selectedValue, alku, loppu){
             var LineGraph2 = new Chart($(element.cid), {  //
               type: 'line',
               data: {
-                labels: xAxis,
+                labels: tstamp,
                 datasets: [
                   {
                     label: element.label,   //
@@ -318,7 +333,17 @@ function piirra(selectedValue, alku, loppu){
                     xAxes: [{
                       ticks: {
                         maxTicksLimit: 11
-                      }
+                      },
+                      type: 'time',
+                  time: {
+                    displayFormats: {
+                      'minute': 'HH:MM',
+                      'hour': 'HH:MM',
+                      'day': 'MMM DD',
+                      
+                    }
+                },
+                  distribution: 'linear'
                     }]
                 }
               }
