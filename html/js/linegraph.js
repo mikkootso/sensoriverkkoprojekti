@@ -1,5 +1,7 @@
 document.getElementById('kalenterit').addEventListener('submit', kalenterit);
-getSelectValue();
+getSelectValueFirstTime();
+setInterval(getSelectValueFirstTime, 120000); // refresh data every x ms
+
 function piirra(selectedValue, alku, loppu){
     $.ajax({
       url : "./kantas.php",
@@ -398,22 +400,50 @@ function piirra(selectedValue, alku, loppu){
   
   
 };
+function getSelectValueFirstTime(){
+      if (window.JSON.parse(localStorage.getItem("kalenteri")) !== null) { // onko kalenterivalinta käytössä
+        //kalenterivalinta on käytössä
+        var arr = window.JSON.parse(localStorage.getItem("kalenteri"));
+        //kirjoitetaan muistissa olevat päivämäärät valintalaatikoihin
+        var al = arr[0].split(" ");
+        var lo = arr[1].split(" ");
+        document.getElementById("alku").value = al[0];
+        document.getElementById("loppu").value = lo[0];
+        document.getElementById("list").options[4]=new Option("", null, false, true); //valikon valinta tyhjäksi
+        piirra("0", arr[0], arr[1]);
+        return;      }
+      else{ 
+        //ei ole kalenterivalintaa käytössä
+        var selectedValue = window.JSON.parse(localStorage.getItem("selectedValue")); //haetaan local storagesta
+        if (selectedValue === null) {
+          selectedValue = document.getElementById("list").value;
+        }
+        document.getElementById("list").options.length = 4;
+        document.getElementById("alku").value = "";
+        document.getElementById("loppu").value = "";
+        document.getElementById(selectedValue).selected = 'selected';
+        piirra(selectedValue, null, null);
+      }
+      
+}
+
 function getSelectValue(){
-      var selectedValue = document.getElementById("list").value;
-      console.log(selectedValue);
-      document.getElementById("list").options.length = 4;
-      document.getElementById("alku").value = "";
-      document.getElementById("loppu").value = "";
-      piirra(selectedValue, null, null);
+  var selectedValue = document.getElementById("list").value;
+  window.localStorage.setItem("selectedValue", JSON.stringify(selectedValue)); //tallennetaan local storageen
+  document.getElementById("list").options.length = 4;
+  document.getElementById("alku").value = "";
+  document.getElementById("loppu").value = "";
+  window.localStorage.removeItem("kalenteri");
+  piirra(selectedValue, null, null);
 }
 
 function kalenterit(e){
   e.preventDefault();
-  document.getElementById("list").options[4]=new Option("", null, false, true);
+  document.getElementById("list").options[4]=new Option("", null, false, true); //valikon valinta tyhjäksi
   var alku = document.getElementById("alku").value.concat(" 00:00:00");
   var loppu = document.getElementById("loppu").value.concat(" 23:59:59");
-  console.log(alku);
-  console.log(loppu);
+  window.localStorage.setItem("kalenteri", JSON.stringify([alku, loppu])); //tallennetaan local storageen
+  window.localStorage.removeItem("selectedValue");
   piirra("0", alku, loppu);
 }
 
