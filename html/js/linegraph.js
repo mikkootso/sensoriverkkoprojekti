@@ -183,6 +183,7 @@ function piirra(selectedValue, alku, loppu){
                   borderColor: "rgba(59, 89, 152, 1)",
                   pointHoverBackgroundColor: "rgba(59, 89, 152, 1)", //
                   pointHoverBorderColor: "rgba(59, 89, 152, 1)",
+                  pointRadius: 0,
                   data: temp1  //
                 },
                 {
@@ -194,6 +195,7 @@ function piirra(selectedValue, alku, loppu){
                   borderColor: "rgba(29, 202, 255, 1)",
                   pointHoverBackgroundColor: "rgba(29, 202, 255, 1)",
                   pointHoverBorderColor: "rgba(29, 202, 255, 1)",
+                  pointRadius: 0,
                   data: hum1
                 },
                 {
@@ -205,6 +207,7 @@ function piirra(selectedValue, alku, loppu){
                   borderColor: "rgba(255, 0, 0, 1)",
                   pointHoverBackgroundColor: "rgba(255, 0, 0, 1)",
                   pointHoverBorderColor: "rgba(255, 0, 0, 1)",
+                  pointRadius: 0,
                   data: temp2
                 }
               ]
@@ -258,6 +261,7 @@ function piirra(selectedValue, alku, loppu){
                   borderColor: "rgba(229, 202, 25, 1)",
                   pointHoverBackgroundColor: "rgba(229, 202, 25, 1)",
                   pointHoverBorderColor: "rgba(229, 202, 25, 1)",
+                  pointRadius: 0,
                   data: ldr
                 },
                 {
@@ -269,6 +273,7 @@ function piirra(selectedValue, alku, loppu){
                   borderColor: "rgba(0, 255, 0, 1)",
                   pointHoverBackgroundColor: "rgba(0, 255, 0, 1)",
                   pointHoverBorderColor: "rgba(0, 255, 0, 1)",
+                  pointRadius: 0,
                   data: co2
                 }
               ]
@@ -318,6 +323,7 @@ function piirra(selectedValue, alku, loppu){
                     borderColor: element.color,
                     pointHoverBackgroundColor: element.color,  //
                     pointHoverBorderColor: element.color,
+                    pointRadius: 0,
                     data: element.yData   //
                   }
                 ]
