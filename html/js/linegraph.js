@@ -1,3 +1,5 @@
+'use strict'
+
 document.getElementById('kalenterit').addEventListener('submit', kalenterit);
 getSelectValueFirstTime();
 setInterval(getSelectValueFirstTime, 120000); // refresh data every x ms
@@ -26,7 +28,7 @@ function piirra(selectedValue, alku, loppu){
           co2.push(data[0][i].co2);
           temp2.push(data[0][i].temp2);
         }
-        if (window.localStorage.getItem("rajat") == null) {
+        if (window.localStorage.getItem("rajat") === null) {
           $.ajax({
             url : "./json/rajat.json",
             type : "GET",
@@ -369,12 +371,12 @@ function piirra(selectedValue, alku, loppu){
             "ph",
             "ec"
           ];
-          if (window.localStorage.getItem("rajat") == null) {
+          if (window.localStorage.getItem("rajat") === null) {
               // ladataan rajat tiedostosta
               var xhr = new XMLHttpRequest();
               xhr.open('GET', 'json/rajat.json', false);
               xhr.onload = function(){
-                if(this.status == 200){
+                if(this.status === 200){
                     rajat = JSON.parse(this.responseText);
                     console.log("rajat1");
                     console.log(rajat);
