@@ -118,15 +118,12 @@ function piirra(selectedValue, alku, loppu){
         function drawCharts(){
           
           const charts = [
-            {cid: "#temp1", label: "Ilman lämpötila [C]", yData: temp1, color: "rgba(59, 89, 152, 1)", suggestedMin: 10, suggestedMax: 30},
-            {cid: "#hum1", label: "Ilman kosteus [%]", yData: hum1, color: "rgba(29, 202, 255, 1)", suggestedMin: 20, suggestedMax: 80},
-            {cid: "#ldr", label: "Valoisuus [lx]", yData: ldr, color: "rgba(229, 202, 25, 1)", suggestedMin: 100, suggestedMax: 1000},
-            {cid: "#co2", label: "Hiilidioksidipitoisuus [ppm]", yData: co2, color: "rgba(0, 255, 0, 1)", suggestedMin: 400, suggestedMax: 1400}
+            {cid: "#temp2", label: "Ravinneliuoksen lämpötila [&#176C]", yData: temp1, color: "rgba(59, 89, 152, 1)", suggestedMin: 10, suggestedMax: 30}
           ];
 
           // check if sql query has returned empty array
           if(data[0].length === 0){
-            const chrts = ["#temp1","#hum1","#ldr","#co2","#mixed1","#mixed2"];
+            const chrts = ["#temp2"];
             chrts.forEach(function(element){
               var canvas = $(element).get(0); //document.getElementById("temp1");
               var ctx = canvas.getContext("2d");
