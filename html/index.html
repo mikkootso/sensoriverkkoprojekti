@@ -138,8 +138,8 @@
 	  <h4 class="modal-title">Sensoreiden hälytysrajat</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
+	  <form id="rajat">
       <div class="modal-body">
-                    <form id="rajat">
 							<h6>Ilman lämpötila:</h6>
                             <label for="temp1_min">Min</label>
                             <input type="number" id="temp1_min" name="amount" value="1" min="0" max="100000">
@@ -175,15 +175,13 @@
                             <input type="number" id="ec_min" name="amount" value="1" min="0" max="100000">
                             <label for="ec_max">Max</label>
                             <input type="number" id="ec_max" name="amount" value="1" min="0" max="100000">
-						<br><br>
-                        <input type="button" id="btn" class="btn btn-sm btn-outline-info" value="Palauta oletusarvot" />
-						&nbsp;
-						<input type="submit" class="btn btn-sm btn-outline-success" value="Tallenna" />
-                    </form>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer justify-content-between">
+        <input type="button" id="btn" class="btn btn-sm btn-outline-info" value="Palauta oletusarvot" />
+		<input type="submit" class="btn btn-sm btn-outline-success" value="Tallenna" />  
         <button type="button" class="btn btn-sm btn-outline-danger" data-dismiss="modal">Sulje</button>
       </div>
+	 </form>
     </div>
   </div>
 </div>
