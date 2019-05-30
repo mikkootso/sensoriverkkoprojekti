@@ -123,11 +123,6 @@
             </div>
             <!-- Main content text -->
             <p>Tällä sivustolla seurataan "erään" kasvihuoneen olosuhteita. Sensoreiden viimeisimmät mittaustulokset löytyvät alla olevista korteista. Olosuhteiden muutosta voi seurata viivakaavioista.</p>
-            <p>Korttien hälytysrajoja voi muuttaa <a href="rajat.html" target="_blank">tästä</a>.
-			<br><br>
-			<!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#rajatmodal">Muokkaa hälytysrajoja tästä</button>
-
 <!-- Modal -->
 <div id="rajatmodal" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -191,7 +186,8 @@
                 <br>
                 <!--charts -->
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-top">
-                    <h3 class="h3">Viivakaaviot</h3>
+			<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#rajatmodal">Muokkaa hälytysrajoja tästä</button>
                     <!-- Time period drop-down -->
                     <div>
                         <select id="list" onchange="getSelectValue();">
