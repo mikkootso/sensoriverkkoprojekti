@@ -120,10 +120,76 @@
                   </div>
                <!-- Main content text -->
                <p>Täältä näet ravinneliuoksen sähköjohtavuuden.</p>           
-            </main>
+<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#rajatmodal">Muokkaa hälytysrajoja tästä</button>
+			<br><br>
+<!-- Modal -->
+<div id="rajatmodal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+	  <h4 class="modal-title">Sensoreiden hälytysrajat</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
+      <div class="modal-body">
+                    <form id="rajat">
+                            <h6>Ravinneliuoksen sähkönjohtavuus:</h6>
+                            <label for="ec_min">Min</label>
+                            <input type="number" id="ec_min" name="amount" value="1" min="0" max="100000">
+                            <label for="ec_max">Max</label>
+                            <input type="number" id="ec_max" name="amount" value="1" min="0" max="100000">
+						<br><br>
+                        <input type="button" id="btn" class="btn btn-sm btn-outline-info" value="Palauta oletusarvot" />
+						&nbsp;
+						<input type="submit" class="btn btn-sm btn-outline-success" value="Tallenna" />
+                    </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-sm btn-outline-danger" data-dismiss="modal">Sulje</button>
+      </div>
+    </div>
+  </div>
+</div>
+                <!--cards -->
+                <div id="cards"></div>
+                <br>
+                <br>
+                <!--charts -->
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-top">
+                    <h3 class="h3">Viivakaavio</h3>
+                    <!-- Time period drop-down -->
+                    <div>
+                        <select id="list" onchange="getSelectValue();">
+                            <option id = "1" value="1">Viimeiset 24h</option>
+                            <option id = "7" value="7">Viimeiset 7pv</option>
+                            <option id = "30" value="30">Viimeiset 30pv</option>
+                            <option id = "365" value="365">Viimeiset 365pv</option>
+                        </select>
+                    </div>
+                    <!-- Calender inputs-->
+                    <form id="kalenterit">
+                        <div>
+                            <label for="alku">Alku:</label>
+                            <input type="date" id="alku" name="alku" required>
+                            <label for="loppu">Loppu:</label>
+                            <input type="date" id="loppu" name="loppu" required>
+                            <span class="validity"></span>
+                        </div>
+                    </form>
+                    <button type="submit" form="kalenterit" class="btn btn-sm btn-outline-secondary" value="Submit"><span data-feather="filter"></span> Päivitä</button>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 ">
+                        <div class="border border-dark">
+                            <canvas id="temp1" width="800" height="300"></canvas>
+                        </div>
+                    </div>
+        </main>
+    </div>
 	  <!-- Optional JavaScript -->	  
       <script> feather.replace() </script>
-      <script src="js/linegraph.js"></script> 
+      <script src="js/sahkonjohtavuus.js"></script> 
 </body>
 </html>
