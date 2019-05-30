@@ -120,8 +120,7 @@
                   </div>
                <!-- Main content text -->
                <p>Täältä näet ilman lämpötilan.</p>           
-			<!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#rajatmodal">Muokkaa hälytysrajoja tästä</button>
+
 			<br><br>
 <!-- Modal -->
 <div id="rajatmodal" class="modal fade" role="dialog">
@@ -150,13 +149,10 @@
     </div>
   </div>
 </div>
-                <!--cards -->
-                <div id="cards"></div>
-                <br>
-                <br>
                 <!--charts -->
                 <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-top">
-                    <h3 class="h3">Viivakaavio</h3>
+			<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#rajatmodal">Muokkaa hälytysrajoja tästä</button>
                     <!-- Time period drop-down -->
                     <div>
                         <select id="list" onchange="getSelectValue();">
@@ -183,7 +179,13 @@
                         <div class="border border-dark">
                             <canvas id="temp1" width="800" height="300"></canvas>
                         </div>
+						<br>
                     </div>
+					<div class="col-md-6 ">
+						<!--cards -->
+						<div id="cards"></div>
+						<br>
+					</div>
         </main>
     </div>
 	  <!-- Optional JavaScript -->	  

@@ -1,204 +1,100 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-    <link rel="manifest" href="favicon/site.webmanifest">
-      <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="css/bootstrap.min.css">
-      <!-- Custom styles for this template -->
-      <link href="css/styles.css" rel="stylesheet">
-      <title>Vesikasvastusympäristön monitorointi</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vesikasvastusympäristön monitorointi</title>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="nav">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" href="index.html">
-                        <span data-feather="activity"></span> Monitorointi
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="ilampotila.html">
-                        <span data-feather="sun"></span> Ilman lämpötila<span class="sr-only"></span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="kosteus.html">
-                        <span data-feather="droplet"></span> Kosteus
-                        <span class="sr-only"></span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="valoisuus.html">
-                        <span data-feather="eye"></span> Valoisuus
-                        <span class="sr-only"></span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="hiilidioksidi.html">
-                        <span data-feather="cloud-snow"></span> Hiilidioksidi
-                        <span class="sr-only"></span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="rlampotila.html">
-                        <span data-feather="thermometer"></span> Ravinneliuoksen lämpötila<span class="sr-only"></span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="ph.html">
-                        <span data-feather="bar-chart-2"></span> pH
-                        <span class="sr-only"></span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="sahkonjohtavuus.html">
-                        <span data-feather="zap"></span> Sähkönjohtavuus
-                        <span class="sr-only"></span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="sensorit.html">
-                        <span data-feather="cpu"></span> Sensorit
-                        <span class="sr-only"></span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="info.html">
-                        <span data-feather="info"></span> Info
-                        <span class="sr-only"></span>
-                    </a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-md-0">
-                <input class="form-control" type="text" placeholder="Hae" aria-label="Search">
-            </form>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <span data-feather="user"></span> Login
-                        <span class="sr-only"></span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-    <div class="container-fluid">
-            <!-- Main content -->
-            <main class="col-md-12 ml-sm-auto col-lg-12 px-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Sensoreiden hälytysrajat</h1>
-                </div>
-                <!--Lomake-->
-                <form id="rajat">
-                    <div class="row">
-                        <div class="col-md-6">
-                                <fieldset>
-                                        <legend>Ilman lämpötila:</legend>
-                                        <div>
-                                            <label for="temp1_min">Min</label>
-                                            <input type="number" id="temp1_min" name="amount" value="1" min="0" max="100000">
-                                        </div>
-                                        <div>
-                                            <label for="temp1_max">Max</label>
-                                            <input type="number" id="temp1_max" name="amount" value="1" min="0" max="100000">
-                                        </div>
-                                    </fieldset>
-                                    <br>
-                                    <fieldset>
-                                        <legend>Ilman kosteus:</legend>
-                                        <div>
-                                            <label for="hum1_min">Min</label>
-                                            <input type="number" id="hum1_min" name="amount" value="1" min="0" max="100000">
-                                        </div>
-                                        <div>
-                                            <label for="hum1_max">Max</label>
-                                            <input type="number" id="hum1_max" name="amount" value="1" min="0" max="100000">
-                                        </div>
-                                    </fieldset>
-                                    <br>
-                                    <fieldset>
-                                        <legend>Valoisuus:</legend>
-                                        <div>
-                                            <label for="ldr_min">Min</label>
-                                            <input type="number" id="ldr_min" name="amount" value="1" min="0" max="100000">
-                                        </div>
-                                        <div>
-                                            <label for="ldr_max">Max</label>
-                                            <input type="number" id="ldr_max" name="amount" value="1" min="0" max="100000">
-                                        </div>
-                                    </fieldset>
-                                    <br>
-                                    <fieldset>
-                                        <legend>Hiilidioksidipitoisuus:</legend>
-                                        <div>
-                                            <label for="co2_min">Min</label>
-                                            <input type="number" id="co2_min" name="amount" value="1" min="0" max="100000">
-                                        </div>
-                                        <div>
-                                            <label for="co2_max">Max</label>
-                                            <input type="number" id="co2_max" name="amount" value="1" min="0" max="100000">
-                                        </div>
-                                    </fieldset>                        </div>
-                        <div class="col-md-6">
-                                <fieldset>
-                                        <legend>Ravinneliuoksen lämpötila:</legend>
-                                        <div>
-                                            <label for="temp2_min">Min</label>
-                                            <input type="number" id="temp2_min" name="amount" value="1" min="0" max="100000">
-                                        </div>
-                                        <div>
-                                            <label for="temp2_max">Max</label>
-                                            <input type="number" id="temp2_max" name="amount" value="1" min="0" max="100000">
-                                        </div>
-                                    </fieldset>
-                                    <br>
-                                    <fieldset>
-                                        <legend>Ravinneliuoksen PH:</legend>
-                                        <div>
-                                            <label for="ph_min">Min</label>
-                                            <input type="number" id="ph_min" name="amount" value="1" min="0" max="100000">
-                                        </div>
-                                        <div>
-                                            <label for="ph_max">Max</label>
-                                            <input type="number" id="ph_max" name="amount" value="1" min="0" max="100000">
-                                        </div>
-                                    </fieldset>
-                                    <br>
-                                    <fieldset>
-                                        <legend>Ravinneliuoksen sähkönjohtavuus:</legend>
-                                        <div>
-                                            <label for="ec_min">Min</label>
-                                            <input type="number" id="ec_min" name="amount" value="1" min="0" max="100000">
-                                        </div>
-                                        <div>
-                                            <label for="ec_max">Max</label>
-                                            <input type="number" id="ec_max" name="amount" value="1" min="0" max="100000">
-                                        </div>
-                                    </fieldset>
-                                    <br><br>
-                                    <input type="submit" class="btn btn-sm btn-success" value="Tallenna"/>
-                                    <input type="button" id="btn" class="btn btn-sm btn-outline-secondary" value="Palauta oletusarvot"/>
-                                    <br><br>
-                                        </div>
-                    </div>
-                </form>
-            </main>
-        </div>
-    
+    <form id="rajat">
+        <h2>Sensoreiden hälytysrajat</h2>
+        <fieldset>
+            <legend>Ilman lämpötila:</legend>
+            <div>
+                <label for="temp1_min">Min</label>
+                <input type="number" id="temp1_min" name="amount" value="1" min="0" max="100000">
+            </div>
+            <div>
+                <label for="temp1_max">Max</label>
+                <input type="number" id="temp1_max" name="amount" value="1" min="0" max="100000">
+            </div>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Ilman kosteus:</legend>
+            <div>
+                <label for="hum1_min">Min</label>
+                <input type="number" id="hum1_min" name="amount" value="1" min="0" max="100000">
+            </div>
+            <div>
+                <label for="hum1_max">Max</label>
+                <input type="number" id="hum1_max" name="amount" value="1" min="0" max="100000">
+            </div>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Valoisuus:</legend>
+            <div>
+                <label for="ldr_min">Min</label>
+                <input type="number" id="ldr_min" name="amount" value="1" min="0" max="100000">
+            </div>
+            <div>
+                <label for="ldr_max">Max</label>
+                <input type="number" id="ldr_max" name="amount" value="1" min="0" max="100000">
+            </div>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Hiilidioksidipitoisuus:</legend>
+            <div>
+                <label for="co2_min">Min</label>
+                <input type="number" id="co2_min" name="amount" value="1" min="0" max="100000">
+            </div>
+            <div>
+                <label for="co2_max">Max</label>
+                <input type="number" id="co2_max" name="amount" value="1" min="0" max="100000">
+            </div>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Ravinneliuoksen lämpötila:</legend>
+            <div>
+                <label for="temp2_min">Min</label>
+                <input type="number" id="temp2_min" name="amount" value="1" min="0" max="100000">
+            </div>
+            <div>
+                <label for="temp2_max">Max</label>
+                <input type="number" id="temp2_max" name="amount" value="1" min="0" max="100000">
+            </div>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Ravinneliuoksen PH:</legend>
+            <div>
+                <label for="ph_min">Min</label>
+                <input type="number" id="ph_min" name="amount" value="1" min="0" max="100000">
+            </div>
+            <div>
+                <label for="ph_max">Max</label>
+                <input type="number" id="ph_max" name="amount" value="1" min="0" max="100000">
+            </div>
+        </fieldset>
+        <br>
+        <fieldset>
+            <legend>Ravinneliuoksen sähkönjohtavuus:</legend>
+            <div>
+                <label for="ec_min">Min</label>
+                <input type="number" id="ec_min" name="amount" value="1" min="0" max="100000">
+            </div>
+            <div>
+                <label for="ec_max">Max</label>
+                <input type="number" id="ec_max" name="amount" value="1" min="0" max="100000">
+            </div>
+        </fieldset>
+        <input type="submit" value="Tallenna"/>
+        <input type="button" id="btn" value="Palauta oletusarvot"/>
+    </form>
 
     
 
