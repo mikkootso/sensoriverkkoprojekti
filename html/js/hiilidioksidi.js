@@ -21,7 +21,12 @@ function piirra(selectedValue, alku, loppu){
         var temp2 = [];
 
         for(var i in data[0]) {
+          tstamp.push(data[0][i].timeStamp);
+          temp1.push(data[0][i].temp1);
+          hum1.push(data[0][i].hum1);
+          ldr.push(data[0][i].ldr);
           co2.push(data[0][i].co2);
+          temp2.push(data[0][i].temp2);
         }
         if (window.localStorage.getItem("rajat") === null) {
           $.ajax({
