@@ -52,12 +52,12 @@ function piirra(selectedValue, alku, loppu){
 
         function drawCards(rajat){
           const cards = [
-            {id: 1, title: "Ilman lämpötila", min: parseInt(rajat["temp1"].min), max: parseInt(rajat["temp1"].max), lastValues: {val: data[2][data[2].length-1].temp1, stamp: data[2][data[2].length-1].timeStamp, unit: "C"}},
+            {id: 1, title: "Ilman lämpötila", min: parseInt(rajat["temp1"].min), max: parseInt(rajat["temp1"].max), lastValues: {val: data[2][data[2].length-1].temp1, stamp: data[2][data[2].length-1].timeStamp, unit: "&#176C"}},
             {id: 2, title: "Ilman kosteus", min: parseInt(rajat["hum1"].min), max: parseInt(rajat["hum1"].max), lastValues: {val: data[2][data[2].length-1].hum1, stamp: data[2][data[2].length-1].timeStamp, unit: "%"}},
             {id: 3, title: "Valoisuus", min: parseInt(rajat["ldr"].min), max: parseInt(rajat["ldr"].max), lastValues: {val: data[2][data[2].length-1].ldr, stamp: data[2][data[2].length-1].timeStamp, unit: "lx"}},
             {id: 4, title: "Hiilidioksidipitoisuus", min: parseInt(rajat["co2"].min), max: parseInt(rajat["co2"].max), lastValues: {val: data[2][data[2].length-1].co2, stamp: data[2][data[2].length-1].timeStamp, unit: "ppm"}},
-            {id: 5, title: "Ravinneliuoksen lämpötila", min: parseInt(rajat["temp2"].min), max: parseInt(rajat["temp2"].max), lastValues: {val: data[1][data[1].length-1].temp, stamp: data[1][data[1].length-1].timeStamp, unit: "C"}},
-            {id: 6, title: "Ravinneliuoksen PH", min: parseInt(rajat["ph"].min), max: parseInt(rajat["ph"].max), lastValues: {val: data[1][data[1].length-1].ph, stamp: data[1][data[1].length-1].timeStamp, unit: ""}},
+            {id: 5, title: "Ravinneliuoksen lämpötila", min: parseInt(rajat["temp2"].min), max: parseInt(rajat["temp2"].max), lastValues: {val: data[1][data[1].length-1].temp, stamp: data[1][data[1].length-1].timeStamp, unit: "&#176C"}},
+            {id: 6, title: "Ravinneliuoksen pH", min: parseInt(rajat["ph"].min), max: parseInt(rajat["ph"].max), lastValues: {val: data[1][data[1].length-1].ph, stamp: data[1][data[1].length-1].timeStamp, unit: "pH"}},
             {id: 7, title: "Ravinneliuoksen sähkönjohtavuus", min: parseInt(rajat["ec"].min), max: parseInt(rajat["ec"].max), lastValues: {val: data[1][data[1].length-1].ec, stamp: data[1][data[1].length-1].timeStamp, unit: "mS/cm"}}
           ];
           
