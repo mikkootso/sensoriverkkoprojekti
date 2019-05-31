@@ -124,7 +124,7 @@ function piirra(selectedValue, alku, loppu){
         function drawCharts(){
           
           const charts = [
-            {cid: "#temp1", label: "Ilman lämpötila [&#176C]", yData: temp1, color: "rgba(0, 0, 128, 1)", suggestedMin: 10, suggestedMax: 30},
+            {cid: "#temp1", label: "Ilman lämpötila [C]", yData: temp1, color: "rgba(0, 0, 128, 1)", suggestedMin: 10, suggestedMax: 30},
             {cid: "#hum1", label: "Ilman kosteus [%]", yData: hum1, color: "rgba(29, 202, 255, 1)", suggestedMin: 20, suggestedMax: 80},
             {cid: "#ldr", label: "Valoisuus [lx]", yData: ldr, color: "rgba(255, 255, 25, 1)", suggestedMin: 100, suggestedMax: 1000},
             {cid: "#co2", label: "Hiilidioksidipitoisuus [ppm]", yData: co2, color: "rgba(0, 255, 0, 1)", suggestedMin: 400, suggestedMax: 1400}

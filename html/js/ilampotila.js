@@ -118,7 +118,7 @@ function piirra(selectedValue, alku, loppu){
         function drawCharts(){
           
           const charts = [
-            {cid: "#temp1", label: "Ilman lämpötila [&#176C]", yData: temp1, color: "rgba(59, 89, 152, 1)", suggestedMin: 10, suggestedMax: 30}
+            {cid: "#temp1", label: "Ilman lämpötila [C]", yData: temp1, color: "rgba(0, 0, 128, 1)", suggestedMin: 10, suggestedMax: 30}
           ];
 
           // check if sql query has returned empty array
