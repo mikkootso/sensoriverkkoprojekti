@@ -118,7 +118,7 @@ function piirra(selectedValue, alku, loppu){
         function drawCharts(){
           
           const charts = [
-            {cid: "#ec", label: "Ravinneliuoksen sähkönjohtavuus [S/cm]", yData: ec, color: "rgba(245, 130, 48, 1)", suggestedMin: 10, suggestedMax: 30}
+            {cid: "#ec", label: "Ravinneliuoksen sähkönjohtavuus [mS/cm]", yData: ec, color: "rgba(245, 130, 48, 1)", suggestedMin: 10, suggestedMax: 30}
           ];
 
           // check if sql query has returned empty array
