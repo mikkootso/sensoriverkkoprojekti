@@ -118,7 +118,7 @@ function piirra(selectedValue, alku, loppu){
         function drawCharts(){
           
           const charts = [
-            {cid: "#ph", label: "Ravinneliuoksen pH [pH]", yData: ph, color: "rgba(59, 89, 152, 1)", suggestedMin: 4, suggestedMax: 9}
+            {cid: "#ph", label: "Ravinneliuoksen pH [pH]", yData: ph, color: "rgba(240, 50, 230, 1)", suggestedMin: 4, suggestedMax: 9}
           ];
 
           // check if sql query has returned empty array

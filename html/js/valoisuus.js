@@ -118,7 +118,7 @@ function piirra(selectedValue, alku, loppu){
         function drawCharts(){
           
           const charts = [
-            {cid: "#ldr", label: "Valoisuus [lx]", yData: ldr, color: "rgba(229, 202, 25, 1)", suggestedMin: 100, suggestedMax: 1000}
+            {cid: "#ldr", label: "Valoisuus [lx]", yData: ldr, color: "rgba(255, 255, 25, 1)", suggestedMin: 100, suggestedMax: 1000}
           ];
 
           // check if sql query has returned empty array
