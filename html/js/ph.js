@@ -14,19 +14,15 @@ function piirra(selectedValue, alku, loppu){
         console.log(data);
         
         var tstamp = [];
-        var temp1 = [];
-        var hum1 = [];
-        var ldr = [];
-        var co2 = [];
-        var temp2 = [];
+        var ec = [];
+        var ph = [];
+        var temp = [];
 
-        for(var i in data[0]) {
-          tstamp.push(data[0][i].timeStamp);
-          temp1.push(data[0][i].temp1);
-          hum1.push(data[0][i].hum1);
-          ldr.push(data[0][i].ldr);
-          co2.push(data[0][i].co2);
-          temp2.push(data[0][i].temp2);
+        for(var i in data[1]) {
+          tstamp.push(data[1][i].timeStamp);
+          ec.push(data[1][i].ec);
+          ph.push(data[1][i].ph);
+          temp.push(data[1][i].temp);
         }
         if (window.localStorage.getItem("rajat") === null) {
           $.ajax({
@@ -122,7 +118,7 @@ function piirra(selectedValue, alku, loppu){
           ];
 
           // check if sql query has returned empty array
-          if(data[0].length === 0){
+          if(data[1].length === 0){
             const chrts = ["#ph"];
             chrts.forEach(function(element){
               var canvas = $(element).get(0); //document.getElementById("temp1");
