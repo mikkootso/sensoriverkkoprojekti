@@ -11,7 +11,7 @@ function piirra(selectedValue, alku, loppu){
       dataType: "json",
       data: {msg: selectedValue, alku: alku, loppu: loppu},
       success : function(data){
-        console.log(data);
+        //console.log(data);
         
         var tstamp = [];
         var temp1 = [];
@@ -28,13 +28,13 @@ function piirra(selectedValue, alku, loppu){
           co2.push(data[0][i].co2);
           temp2.push(data[0][i].temp2);
         }
-        if (window.localStorage.getItem("rajat") === null) {
+        if (window.localStorage.getItem("rajat") == null) {
           $.ajax({
             url : "./json/rajat.json",
             type : "GET",
             success : function(rajat){
-              console.log("rajat1");
-              console.log(rajat);
+              //console.log("rajat1");
+              //console.log(rajat);
               drawCards(rajat)
               drawCharts()
             }, // end of success
@@ -44,8 +44,8 @@ function piirra(selectedValue, alku, loppu){
         } else {
             //ladataan rajat localStoragesta
             rajat = window.JSON.parse(localStorage.getItem("rajat"));
-            console.log("rajat2");
-            console.log(rajat);
+            //console.log("rajat2");
+            //console.log(rajat);
             drawCards(rajat)
             drawCharts()
           } 
@@ -57,7 +57,7 @@ function piirra(selectedValue, alku, loppu){
             {id: 3, title: "Valoisuus", min: parseInt(rajat["ldr"].min), max: parseInt(rajat["ldr"].max), lastValues: {val: data[2][data[2].length-1].ldr, stamp: data[2][data[2].length-1].timeStamp, unit: "lx"}},
             {id: 4, title: "Hiilidioksidipitoisuus", min: parseInt(rajat["co2"].min), max: parseInt(rajat["co2"].max), lastValues: {val: data[2][data[2].length-1].co2, stamp: data[2][data[2].length-1].timeStamp, unit: "ppm"}},
             {id: 5, title: "Ravinneliuoksen lämpötila", min: parseInt(rajat["temp2"].min), max: parseInt(rajat["temp2"].max), lastValues: {val: data[1][data[1].length-1].temp, stamp: data[1][data[1].length-1].timeStamp, unit: "&#176C"}},
-            {id: 6, title: "Ravinneliuoksen pH", min: parseInt(rajat["ph"].min), max: parseInt(rajat["ph"].max), lastValues: {val: data[1][data[1].length-1].ph, stamp: data[1][data[1].length-1].timeStamp, unit: "pH"}},
+            {id: 6, title: "Ravinneliuoksen pH-arvo", min: parseInt(rajat["ph"].min), max: parseInt(rajat["ph"].max), lastValues: {val: data[1][data[1].length-1].ph, stamp: data[1][data[1].length-1].timeStamp, unit: ""}},
             {id: 7, title: "Ravinneliuoksen sähkönjohtavuus", min: parseInt(rajat["ec"].min), max: parseInt(rajat["ec"].max), lastValues: {val: data[1][data[1].length-1].ec, stamp: data[1][data[1].length-1].timeStamp, unit: "mS/cm"}}
           ];
           
@@ -117,21 +117,21 @@ function piirra(selectedValue, alku, loppu){
             document.getElementById("cards").appendChild(newRowDiv);
             
           });
-          console.log(newRowDiv);
+          //console.log(newRowDiv);
         }
 
         //create charts
         function drawCharts(){
           
           const charts = [
-            {cid: "#temp1", label: "Ilman lämpötila [&#176C]", yData: temp1, color: "rgba(59, 89, 152, 1)", suggestedMin: 10, suggestedMax: 30},
+            {cid: "#temp1", label: "Ilman lämpötila [C]", yData: temp1, color: "rgba(0, 0, 128, 1)", suggestedMin: 10, suggestedMax: 30},
             {cid: "#hum1", label: "Ilman kosteus [%]", yData: hum1, color: "rgba(29, 202, 255, 1)", suggestedMin: 20, suggestedMax: 80},
-            {cid: "#ldr", label: "Valoisuus [lx]", yData: ldr, color: "rgba(229, 202, 25, 1)", suggestedMin: 100, suggestedMax: 1000},
+            {cid: "#ldr", label: "Valoisuus [lx]", yData: ldr, color: "rgba(255, 255, 25, 1)", suggestedMin: 100, suggestedMax: 1000},
             {cid: "#co2", label: "Hiilidioksidipitoisuus [ppm]", yData: co2, color: "rgba(0, 255, 0, 1)", suggestedMin: 400, suggestedMax: 1400}
           ];
 
           // check if sql query has returned empty array
-          if(data[0].length === 0){
+          if(data[0].length == 0){
             const chrts = ["#temp1","#hum1","#ldr","#co2","#mixed1","#mixed2"];
             chrts.forEach(function(element){
               var canvas = $(element).get(0); //document.getElementById("temp1");
@@ -171,7 +171,7 @@ function piirra(selectedValue, alku, loppu){
           }
           //console.log(jsDate);
 
-          //chart 0 
+          //chart 1 
           var ctx = $("#mixed1");
           var LineGraph = new Chart(ctx, {
             type: 'line',
@@ -182,36 +182,39 @@ function piirra(selectedValue, alku, loppu){
                   label: "Ilman lämpötila [C]", //
                   yAxisID: 'A',  //
                   fill: false,
-                  lineTension: 0.1,
+                  lineTension: 0,
                   backgroundColor: "rgba(59, 89, 152, 0.75)",
                   borderColor: "rgba(59, 89, 152, 1)",
                   pointHoverBackgroundColor: "rgba(59, 89, 152, 1)", //
                   pointHoverBorderColor: "rgba(59, 89, 152, 1)",
-                  pointRadius: 0,
+                  borderWidth: 1,
+                  pointRadius: 2,
                   data: temp1  //
                 },
                 {
                   label: "Ilman kosteus [%]",
                   yAxisID: 'A',
                   fill: false,
-                  lineTension: 0.1,
+                  lineTension: 0,
                   backgroundColor: "rgba(29, 202, 255, 0.75)",
                   borderColor: "rgba(29, 202, 255, 1)",
                   pointHoverBackgroundColor: "rgba(29, 202, 255, 1)",
                   pointHoverBorderColor: "rgba(29, 202, 255, 1)",
-                  pointRadius: 0,
+                  borderWidth: 1,
+                  pointRadius: 2,
                   data: hum1
                 },
                 {
                   label: "Ravinneliuoksen lämpötila [C]",
                   yAxisID: 'A',
                   fill: false,
-                  lineTension: 0.1,
+                  lineTension: 0,
                   backgroundColor: "rgba(255, 0, 0, 0.75)",
                   borderColor: "rgba(255, 0, 0, 1)",
                   pointHoverBackgroundColor: "rgba(255, 0, 0, 1)",
                   pointHoverBorderColor: "rgba(255, 0, 0, 1)",
-                  pointRadius: 0,
+                  borderWidth: 1,
+                  pointRadius: 2,
                   data: temp2
                 }
               ]
@@ -243,7 +246,7 @@ function piirra(selectedValue, alku, loppu){
             }
           });
 
-          //chart 1 
+          //chart 2 
 
           var ctxLine = document.getElementById("mixed2").getContext("2d");
           if(window.ctx != undefined)
@@ -260,24 +263,26 @@ function piirra(selectedValue, alku, loppu){
                   label: "Valoisuus [lx]",
                   yAxisID: 'B',
                   fill: false,
-                  lineTension: 0.1,
+                  lineTension: 0,
                   backgroundColor: "rgba(229, 202, 25, 0.75)",
                   borderColor: "rgba(229, 202, 25, 1)",
                   pointHoverBackgroundColor: "rgba(229, 202, 25, 1)",
                   pointHoverBorderColor: "rgba(229, 202, 25, 1)",
-                  pointRadius: 0,
+                  borderWidth: 1,
+                  pointRadius: 2,
                   data: ldr
                 },
                 {
                   label: "Hiilidioksidipitoisuus [ppm]",
                   yAxisID: 'B',
                   fill: false,
-                  lineTension: 0.1,
+                  lineTension: 0,
                   backgroundColor: "rgba(0, 255, 0, 0.75)",
                   borderColor: "rgba(0, 255, 0, 1)",
                   pointHoverBackgroundColor: "rgba(0, 255, 0, 1)",
                   pointHoverBorderColor: "rgba(0, 255, 0, 1)",
-                  pointRadius: 0,
+                  borderWidth: 1,
+                  pointRadius: 2,
                   data: co2
                 }
               ]
@@ -322,12 +327,13 @@ function piirra(selectedValue, alku, loppu){
                   {
                     label: element.label,   //
                     fill: false,
-                    lineTension: 0.1,
+                    lineTension: 0,
                     backgroundColor: element.color,
                     borderColor: element.color,
                     pointHoverBackgroundColor: element.color,  //
                     pointHoverBorderColor: element.color,
-                    pointRadius: 0,
+                    borderWidth: 1,
+                    pointRadius: 2,
                     data: element.yData   //
                   }
                 ]
@@ -371,15 +377,15 @@ function piirra(selectedValue, alku, loppu){
             "ph",
             "ec"
           ];
-          if (window.localStorage.getItem("rajat") === null) {
+          if (window.localStorage.getItem("rajat") == null) {
               // ladataan rajat tiedostosta
               var xhr = new XMLHttpRequest();
               xhr.open('GET', 'json/rajat.json', false);
               xhr.onload = function(){
-                if(this.status === 200){
+                if(this.status == 200){
                     rajat = JSON.parse(this.responseText);
-                    console.log("rajat1");
-                    console.log(rajat);
+                    //console.log("rajat1");
+                    //console.log(rajat);
                 }
               }
               xhr.send();
@@ -387,9 +393,9 @@ function piirra(selectedValue, alku, loppu){
           else {
               //ladataan rajat localStoragesta
               rajat = window.JSON.parse(localStorage.getItem("rajat"));
-              console.log("rajat2");
-              console.log(rajat);
-             // console.log(rajat["temp1"].min);
+              //console.log("rajat2");
+              //console.log(rajat);
+              //console.log(rajat["temp1"].min);
           }
         }
       
@@ -403,7 +409,7 @@ function piirra(selectedValue, alku, loppu){
   
 };
 function getSelectValueFirstTime(){
-      if (window.JSON.parse(localStorage.getItem("kalenteri")) !== null) { // onko kalenterivalinta käytössä
+      if (window.JSON.parse(localStorage.getItem("kalenteri")) != null) { // onko kalenterivalinta käytössä
         //kalenterivalinta on käytössä
         var arr = window.JSON.parse(localStorage.getItem("kalenteri"));
         //kirjoitetaan muistissa olevat päivämäärät valintalaatikoihin
@@ -417,7 +423,7 @@ function getSelectValueFirstTime(){
       else{ 
         //ei ole kalenterivalintaa käytössä
         var selectedValue = window.JSON.parse(localStorage.getItem("selectedValue")); //haetaan local storagesta
-        if (selectedValue === null) {
+        if (selectedValue == null) {
           selectedValue = document.getElementById("list").value;
         }
         document.getElementById("list").options.length = 4;

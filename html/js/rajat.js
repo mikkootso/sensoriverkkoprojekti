@@ -32,8 +32,8 @@
     
                 });
     
-                console.log("rajat1");
-                console.log(rajat);
+                //console.log("rajat1");
+                //console.log(rajat);
                 //console.log(rajat[sensorit[1]].min);
                 
             }
@@ -48,22 +48,22 @@
                 document.getElementById(element+"_min").value = rajat[element].min;
                 document.getElementById(element+"_max").value = rajat[element].max;
             });
-            console.log("rajat2");
-                console.log(rajat);
+            //console.log("rajat2");
+            //console.log(rajat);
         }
     };
     
     //talletetaan rajat localStorageen
     function tallennaRajat(e){
         e.preventDefault();
-        console.log("tallenna");
+        //console.log("tallenna");
         const uudetRajat = rajat;
         sensorit.forEach(function(element){
             uudetRajat[element].min = document.getElementById(element+"_min").value;
             uudetRajat[element].max = document.getElementById(element+"_max").value;
         })
-        console.log("uudetRajat");
-        console.log(uudetRajat);
+        //console.log("uudetRajat");
+        //console.log(uudetRajat);
         window.localStorage.setItem("rajat", JSON.stringify(uudetRajat));
         // haetaan uudet rajat lomakkeeseen
         //lataaRajat();
@@ -71,7 +71,7 @@
 
       //palautetaan oletusarvot: tyhjennetään localStorage, ladataan arvot tiedostosta
     function oletusRajat(){
-        console.log("oletusRajat");
+        //console.log("oletusRajat");
         localStorage.removeItem("rajat");
         lataaRajat();
       };
