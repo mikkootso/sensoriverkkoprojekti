@@ -43,7 +43,7 @@ function piirra(selectedValue, alku, loppu){
           });
         } else {
             //ladataan rajat localStoragesta
-            rajat = window.JSON.parse(localStorage.getItem("rajat"));
+            var rajat = window.JSON.parse(localStorage.getItem("rajat"));
             console.log("rajat2");
             console.log(rajat);
             drawCards(rajat)
