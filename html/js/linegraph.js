@@ -87,11 +87,11 @@ function piirra(selectedValue, alku, loppu){
 
             var p = document.createElement("p");
             p.innerHTML = element.lastValues.val + " " + element.lastValues.unit;   //
-            p.className = "card-text";
+            p.className = "card-text text-center";
             newDiv3.appendChild(p);
             if(element.lastValues.val < element.min || element.lastValues.val > element.max){
               var newValueRow = document.createElement("div");
-              newValueRow.className = "row";
+              newValueRow.className = "row justify-content-center";
               newValueRow.id = "varoitusRivi";
               newDiv3.appendChild(newValueRow);
             
