@@ -1,241 +1,246 @@
 <!doctype html>
 <html lang="fi">
-   <head>
-      <!-- Required meta tags -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <!-- Favicon -->
-      <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-      <link rel="manifest" href="favicon/site.webmanifest">
-      <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="css/bootstrap.min.css">
-      <!-- Custom styles for this template -->
-      <link href="css/styles.css" rel="stylesheet">
-      <title>Vesikasvastusympäristön monitorointi</title>
-   </head>
-   <body>
-      <!-- Javascript references -->
-      <!-- Chart.js -->
-      <script src="js/chart.js"></script>
-      <script src="js/Chart.min.js"></script>
-	  <script src="js/Chart.bundle.min.js"></script>
-      <!-- jQuery -->
-      <script src="js/jquery-3.4.1.min.js"></script>
-	  <!-- Feather icons -->
-	  <script src="js/feather.js"></script>
-	  <script src="js/feather.min.js"></script>
-	  <!-- Popper -->
-      <script src="js/popper.min.js"></script>
-	  <!-- Bootstrap -->
-      <script src="js/bootstrap.min.js"></script>
-	  <script src="js/bootstrap.bundle.min.js"></script>
-	  <script src="js/bootstrap.js"></script>
-      <!-- Navbar -->   
-      <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse" id="nav">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Custom styles for this template -->
+    <link href="css/styles.css" rel="stylesheet">
+    <title>Vesikasvastusympäristön monitorointi</title>
+</head>
+
+<body>
+    <!-- Javascript references -->
+    <!-- Chart.js -->
+    <script src="js/chart.js"></script>
+    <script src="js/Chart.min.js"></script>
+    <script src="js/Chart.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- Feather icons -->
+    <script src="js/feather.js"></script>
+    <script src="js/feather.min.js"></script>
+    <!-- Popper -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
             <ul class="navbar-nav mr-auto">
-               <li class="nav-item">
-                  <a class="nav-link" href="index.html">
-                  <span data-feather="activity"></span>
-                  Monitorointi<span class="sr-only"></span>
-                  </a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="ilampotila.html">
-                  <span data-feather="sun"></span>
-                  Ilman lämpötila<span class="sr-only"></span>
-                  </a>
-               </li>
-			   <li class="nav-item">
-                  <a class="nav-link" href="kosteus.html">
-                  <span data-feather="droplet"></span>
-                  Kosteus<span class="sr-only"></span>
-                  </a>
-               </li>
-			   <li class="nav-item">
-                  <a class="nav-link" href="valoisuus.html">
-                  <span data-feather="eye"></span>
-                  Valoisuus<span class="sr-only"></span>
-                  </a>
-               </li>
-			   <li class="nav-item">
-                  <a class="nav-link" href="hiilidioksidi.html">
-                  <span data-feather="cloud-snow"></span>
-                  Hiilidioksidi<span class="sr-only"></span>
-                  </a>
-               </li>
-			   <li class="nav-item">
-                  <a class="nav-link" href="rlampotila.html">
-                  <span data-feather="thermometer"></span>
-                  Ravinneliuoksen lämpötila<span class="sr-only"></span>
-                  </a>
-               </li>
-			   <li class="nav-item">
-                  <a class="nav-link" href="ph.html">
-                  <span data-feather="bar-chart-2"></span>
-                  pH<span class="sr-only"></span>
-                  </a>
-               </li>
-			   <li class="nav-item">
-                  <a class="nav-link" href="sahkonjohtavuus.html">
-                  <span data-feather="zap"></span>
-                  Sähkönjohtavuus<span class="sr-only"></span>
-                  </a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="sensorit.html">
-                  <span data-feather="cpu"></span>
-                  Sensorit<span class="sr-only"></span>
-                  </a>
-               </li>
-			   <li class="nav-item">
-                  <a class="nav-link active" href="info.html">
-                  <span data-feather="info"></span>
-                  Info<span class="sr-only">(current)</span>
-                  </a>
-               </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span data-feather="activity"></span> Monitorointi
+                        <span class="sr-only"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ilampotila.html">
+                        <span data-feather="sun"></span> Ilman lämpötila<span class="sr-only"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="kosteus.html">
+                        <span data-feather="droplet"></span> Kosteus
+                        <span class="sr-only"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="valoisuus.html">
+                        <span data-feather="eye"></span> Valoisuus
+                        <span class="sr-only"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="hiilidioksidi.html">
+                        <span data-feather="cloud-snow"></span> Hiilidioksidi
+                        <span class="sr-only"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="rlampotila.html">
+                        <span data-feather="thermometer"></span> Ravinneliuoksen lämpötila<span class="sr-only"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ph.html">
+                        <span data-feather="bar-chart-2"></span> pH
+                        <span class="sr-only"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="sahkonjohtavuus.html">
+                        <span data-feather="zap"></span> Sähkönjohtavuus
+                        <span class="sr-only"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="sensorit.html">
+                        <span data-feather="cpu"></span> Sensorit
+                        <span class="sr-only"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="info.html">
+                        <span data-feather="info"></span> Info
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
             </ul>
-         </div>
-      </nav>
-      <div class="container-fluid">
-         <!-- Main content -->
-            <main class="col-md-12 ml-sm-auto col-lg-12 px-4">
-                  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">Info</h1>
-                        <div class="btn-toolbar mb-2 mb-md-0">
-                  <!-- Share and download buttons -->
-					<div class="btn-group mr-2">
-									<a class="btn btn-sm btn-outline-secondary" href="mailto:?subject=Vesikasvatusympäristön%20monitorointi&amp;body=Katso%20seuraava%20linkki%20http://luna.chydenius.fi/~sensoriverkkoproj/info.html"><span data-feather="mail"></span> Lähetä linkki</a>
-                     <button onclick="window.print();return false;" type="button" class="btn btn-sm btn-outline-secondary">
-                     <span data-feather="printer"></span>
-                     Tulosta
-                     </button>
-                  </div>
-               </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <!-- Main content -->
+        <main class="col-md-12 ml-sm-auto col-lg-12 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Info</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <!-- Share and download buttons -->
+                    <div class="btn-group mr-2">
+                        <a class="btn btn-sm btn-outline-secondary" href="mailto:?subject=Vesikasvatusympäristön%20monitorointi&amp;body=Katso%20seuraava%20linkki%20http://luna.chydenius.fi/~sensoriverkkoproj/info.html"><span data-feather="mail"></span> Lähetä linkki</a>
+                        <button onclick="window.print();return false;" type="button" class="btn btn-sm btn-outline-secondary">
+                            <span data-feather="printer"></span> Tulosta
+                        </button>
+                    </div>
+                </div>
             </div>
             <!-- Main content text -->
-               <h5>Käyttöopas</h5>
-               <p>Laitteen käyttöoppaasta löytyy yksityiskohtaiset ohjeet kuinka laitetta pystytään käyttämään sekä tunnistetut virhetilanteet ja kuinka niistä käyttäjä pystyy pääsemään eroon.</p>
-               <a class="btn btn-sm btn-outline-secondary" href="files/Kayttoopas.pdf" download="Käyttöopas"><span data-feather="file-text"></span> Käyttöopas</a>
-			   <br><br>
-			   <p>Laitteen käyttöönotto</p>
-			   <a class="btn btn-sm btn-outline-secondary" href="files/ArduinoIDEAsennus.pdf" download="Arduino IDE asennus"><span data-feather="file-text"></span> Arduino IDE asennus</a>
-			   <br>
-			   <a class="btn btn-sm btn-outline-secondary" href="files/ConnectWithWPA.pdf" download="ConnectWithWPA"><span data-feather="file-text"></span> ConnectWithWPA</a>
-			   <br><br>
-			   <p>Sensoreiden kalibrointiohjeet</p>
-			   <a class="btn btn-sm btn-outline-secondary" href="files/pHSensorinKalibrointi.pdf" download="pH-sensorin kalibrointiohje"><span data-feather="file-text"></span> pH-sensorin kalibrointiohje</a>
-			   <br>
-			   <a class="btn btn-sm btn-outline-secondary" href="files/Sahkonjohtavuussensorinkalibrointi.pdf" download="Sahkonjohtavuussensorin kalibrointiohje"><span data-feather="file-text"></span> Sahkonjohtavuussensorin kalibrointiohje</a>
-			   <br><br>
-			   <p>Sensoreiden asennusohjeet</p>
-			   <a class="btn btn-sm btn-outline-secondary" href="files/DHT22.pdf" download="DHT22 Temperature and Humidity Sensor"><span data-feather="file-text"></span> DHT22 Temperature and Humidity Sensor</a>
-			   <br>
-			   <a class="btn btn-sm btn-outline-secondary" href="files/InfraredCO2Sensor.pdf" download="Gravity: Analog Infrared CO2 Sensor for Arduino (0~5000 ppm)"><span data-feather="file-text"></span> Gravity: Analog Infrared CO2 Sensor for Arduino (0~5000 ppm)</a>
-			   <br>
-			   <a class="btn btn-sm btn-outline-secondary" href="files/PHSensor.pdf" download="Gravity: Analog pH Sensor / Meter Pro Kit For Arduino"><span data-feather="file-text"></span> Gravity: Analog pH Sensor / Meter Pro Kit For Arduino</a>
-			   <br>
-			   <a class="btn btn-sm btn-outline-secondary" href="files/TEMT6000AmbientLightSensor.pdf" download="Gravity: Analog Ambient Light Sensor"><span data-feather="file-text"></span> Gravity: Analog Ambient Light Sensor</a>
-			   <br>
-			   <a class="btn btn-sm btn-outline-secondary" href="files/WaterproofDS18B20SensorKit.pdf" download="Gravity: Waterproof DS18B20 Sensor Kit"><span data-feather="file-text"></span> Gravity: Waterproof DS18B20 Sensor Kit</a>
-			   <br>
-			   <a class="btn btn-sm btn-outline-secondary" href="files/AnalogElectricalConductivitySensor.pdf" download="Gravity: Analog Electrical Conductivity Sensor / Meter V2 (K=1)"><span data-feather="file-text"></span> Gravity: Analog Electrical Conductivity Sensor / Meter V2 (K=1)</a>
-			   <br><br>
-               <h5>Käytetyt laitteet ja teknologiat</h5>
-               <p>Alle on listattu projektissa käytetyt laitteet ja teknologiat, joiden avulla koko projekti toimii. Listattujen laitteiden ja teknologioiden avulla käyttäjä ymmärtää kuinka projekti on rakennettu ja kuinka projektia voidaan mahdollisesti jatkokehittää.</p>
-				<br>
-				<img src="img/arkkitehtuurikuvaus.jpg" style="max-width:500px" onclick="document.getElementById('arkkitehtuuri').style.display='block'" class="hover-opacity" alt="Arkkitehtuurikuvaus">
-				<div id="arkkitehtuuri" class="modal animate-zoom" onclick="this.style.display='none'">
-				<img class="modal-content" style="height:100%"  src="img/arkkitehtuurikuvaus.jpg" alt="Arkkitehtuurikuvaus">
-				</div>
-               <br>
-			   <p>Järjestelmän arkkitehtuuri ja laitteisto koostuu sensoreista, mikrokontrollerista, web-palvelimesta ja loppukäyttäjälle suunnatusta web-sovelluksesta edellä olevan kuvan mukaisesti. Mitattavia suureita on yhteensä 7, joista 4 liittyy kasvihuoneympäristön monitorointiin ja 3 ravinneliuoksen tarkkailuun. Ympäristöstä saadaan tietoa lämpötila-, kosteus-, valoisuus- ja hiilidioksidisensoreiden kautta ja ravinneliuoksesta sen lämpötilan, pH-arvon ja sähkönjohtavuuden avulla. Sensoreilta data kerätään Arduino Uno Rev2 -mikrokontrolleriin, jossa sisäänrakennettu WiFi-moduuli mahdollistaa tietojen lähettämisen eteenpäin langattoman verkon kautta Internetin yli web-palvelimelle. Palvelimella tieto kerätään MySQL-pohjaiseen relaatiotietokantaan, josta tiedot poimitaan loppukäyttäjälle mittaukset visualisoivaan selainpohjaiseen web-sovellukseen.</p>
-               <h6>Sensorit</h6>
-               <p>Projektissa käytetyt sensorit löytyvät painamalla alla olevaa painiketta.</p>
-			   <a class="btn btn-sm btn-outline-secondary" href="sensorit.html"><span data-feather="link"></span> Sensorit</a>
-			   <br>
-               <br>
-               <h6>Arduino</h6>
-               <div class="row">
-                  <div class="col-sm-1">
-                     <img src="img/arduino.jpg" alt="Arduino" width="100">
-                  </div>
-				  <div class="col-sm-1">
-				  <br>
-				  </div>
-                  <div class="col-sm-10">
-                     <p>Projektissa on käytetty <a href="https://www.arduino.cc/">Arduino</a> UNO WiFi REV2 -mikrokontrolleria, joka kerää vesikasvatusympäristöstä sensoreilta kerätyn datan. Arduino UNO WiFi REV2 tulee sisäänrakennetun WiFi-moduulin kanssa, joka tekee langattomasta tiedonsiirrosta helppoa.
-                        Muistia mikrokontrollerissa on 48 kilotavun Flash Memory, 6 144 tavun SRAM sekä 256 tavun EEPROM. Arduino tarjoaa 13 digitaalista I/O pinniä sekä 5 analogista pinniä. Projektissa sensoreille on varattu 7 pinniä, joista vapaaksi pinnejä jää 12 muuhun käyttöön.
-                     </p>
-                  </div>
-               </div>
-               <br>			   
-               <h6>WiFi</h6>
-               <div class="row">
-                  <div class="col-sm-1">
-                     <img src="img/wifi.png" alt="WiFi" width="150">
-                  </div>
-				  <div class="col-sm-1">
-				  <br>
-				  </div>
-                  <div class="col-sm-10">
-                     <p>Arduino on yhdistettynä langattomaan verkkoon, jonka avulla tiedot siirretään projektin tietokantaan. Tiedonsiirto vaatii langattoman yhteyden (<a href="https://www.wi-fi.org/">WiFi</a>), muuten tietoja ei saa siirrettyä tietokantaan. Tietojen siirtäminen onnistuu tällä hetkellä vain langatonta verkkoyhteyttä hyödyntäen. Arduino yhdistetään langattomaan verkkoon käyttöoppaan kappaleen 1.1. antamien ohjeiden mukaisesti.</p>
-                  </div>
-               </div>
-               <br>
-               <h6>Tietokanta</h6>
-               <div class="row">
-                  <div class="col-sm-1">
-                     <img src="img/apache.png" alt="Apache" width="150">
-                     <img src="img/mysql.png" alt="MySQL" width="150">
-                  </div>
-				  <div class="col-sm-1">
-				  <br>
-				  </div>
-                  <div class="col-sm-10">
-                     <p>Tietokanta on rakennettu <a href="https://www.mysql.com/">MySQL</a>-tietokantaa hyödyntäen ja se asennettuna Kokkolan Yliopistokeskus Chydeniuksen <a href="https://httpd.apache.org/">Apache</a>-palvelimelle. Tietokantaan varastoidaan Arduinolta tuleva sensoridata, joka voidaan lopulta hakea tietokannasta verkkokäyttöliittymään käyttäjän nähtäväksi. Tietokanta on rakennettu kahdesta taulukosta, joista ensimmäisessä taulussa on säännöllisen mittauksen tulokset. Mittausväli on 5 min.</p>
-                     <img src="img/grow.PNG" alt="grow" width="200">
-					 <p>Säännöllisesti mitattavaa sensoridataa ovat: ilman lämpötila, kosteus, valoisuus, hiilidioksidipitoisuus. Tauluun tallennetaan myös mittauksen aikaleima. </p>
-                     <img src="img/water.PNG" alt="water" width="200">
-					 <p>Toinen taulu sisältää niiden sensorimittausten tulokset, jotka käyttäjä käynnistää itse: aikaleima, sähkönjohtavuus ja pH.</p>
-                  </div>
-               </div>
-               <br>
-               <h6>Verkkokäyttöliittymä</h6>
-               <div class="row">
-                  <div class="col-sm-1">
-                     <img src="img/html5.png" alt="HTML" width="100">
-                     <img src="img/bootstrap.svg" alt="Bootstrap" width="100">
-                     <img src="img/chartjs.svg" alt="Chart.js" width="150">
-                     <img src="img/jquery.png" alt="jQuery" width="150">
-                  </div>
-				  <div class="col-sm-1">
-				  <br>
-				  </div>
-                  <div class="col-sm-10">
-                     <p>Verkkokäyttöliittymä hakee tiedot MySQL-tietokannasta. Verkkokäyttöliittymän sivut ovat rakennettu <a href="https://www.w3schools.com/html/">HTML</a>-kuvauskielellä, jonka rinnalla on käytetty <a href="https://getbootstrap.com/">Bootstrap v4.3.1</a>-kirjastoa. Verkkokäyttöliittymän kuvaajat ovat luotu hyödyntäen <a href="https://www.chartjs.org/">Chart.js v2.8.0</a> JavaScript-kirjastoa sekä käyttöliittymän painikkeiden toiminnalisuudet on luotu käyttäen <a href="https://jquery.com/">jQueryä</a>.</p>
-                     <br>
-                     <b>HTML ja CSS</b>
-                     <p>Verkkokäyttöliittymän runko on rakennettu HTML-kuvauskielellä sekä CSS-tyylikirjastoa hyödyntäen. Verkkokäyttöliittymä on testattu moderneilla selaimilla sekä validoitu käyttämällä W3C validaattoria.</p>
-                     <br>
-                     <b>Bootstrap</b>
-                     <p>Bootstrap on kirjasto, johon on määritelty oletustyylejä sekä skriptejä valmiiksi, joka tekee sen käyttöönotosta nopeaa ja helppoa. Bootstrapin avulla verkkokäyttöliittymään on voitu luoda verkkosivujen responsiivisuus, jotta verkkokäyttöliittymä on käytettävä moderneilla selaimilla laitteen näyttökoosta riippumatta.</p>
-                     <b>Chart.js</b>
-                     <p>Verkkokäyttöliittymän kuvaajat ovat toteutettu Chart.js -JavaScript kirjastolla. Chart.js tarjoaa monia eri kuvaajatyyppejä, joista verkkokäyttöliittymässä on käytetty mixed-line charttia.</p>
-                     <br>
-                     <b>jQuery</b>
-                     <p>jQuery on yksinkertaistettu JavaScript-kirjasto, joka tarjoaa useita valmiita funktioita. jQueryn avulla voi esimerkiksi animoida painikkeen painallukset. </p>
-					 <br>
-                  </div>
-               </div>
-         </main>
-      </div>
-	  <!-- Optional JavaScript -->	  
-      <script> feather.replace() </script>
+            <h5>Käyttöopas</h5>
+            <p>Laitteen käyttöoppaasta löytyy yksityiskohtaiset ohjeet kuinka laitetta pystytään käyttämään sekä tunnistetut virhetilanteet ja kuinka niistä käyttäjä pystyy pääsemään eroon.</p>
+            <a class="btn btn-sm btn-outline-secondary" href="files/Kayttoopas.pdf" download="Käyttöopas"><span data-feather="file-text"></span> Käyttöopas</a>
+            <br>
+            <br>
+            <p>Laitteen käyttöönotto</p>
+            <a class="btn btn-sm btn-outline-secondary" href="files/ArduinoIDEAsennus.pdf" download="Arduino IDE asennus"><span data-feather="file-text"></span> Arduino IDE asennus</a>
+            <br>
+            <a class="btn btn-sm btn-outline-secondary" href="files/ConnectWithWPA.pdf" download="ConnectWithWPA"><span data-feather="file-text"></span> ConnectWithWPA</a>
+            <br>
+            <br>
+            <p>Sensoreiden kalibrointiohjeet</p>
+            <a class="btn btn-sm btn-outline-secondary" href="files/pHSensorinKalibrointi.pdf" download="pH-sensorin kalibrointiohje"><span data-feather="file-text"></span> pH-sensorin kalibrointiohje</a>
+            <br>
+            <a class="btn btn-sm btn-outline-secondary" href="files/Sahkonjohtavuussensorinkalibrointi.pdf" download="Sahkonjohtavuussensorin kalibrointiohje"><span data-feather="file-text"></span> Sahkonjohtavuussensorin kalibrointiohje</a>
+            <br>
+            <br>
+            <p>Sensoreiden asennusohjeet</p>
+            <a class="btn btn-sm btn-outline-secondary" href="files/DHT22.pdf" download="DHT22 Temperature and Humidity Sensor"><span data-feather="file-text"></span> DHT22 Temperature and Humidity Sensor</a>
+            <br>
+            <a class="btn btn-sm btn-outline-secondary" href="files/InfraredCO2Sensor.pdf" download="Gravity: Analog Infrared CO2 Sensor for Arduino (0~5000 ppm)"><span data-feather="file-text"></span> Gravity: Analog Infrared CO2 Sensor for Arduino (0~5000 ppm)</a>
+            <br>
+            <a class="btn btn-sm btn-outline-secondary" href="files/PHSensor.pdf" download="Gravity: Analog pH Sensor / Meter Pro Kit For Arduino"><span data-feather="file-text"></span> Gravity: Analog pH Sensor / Meter Pro Kit For Arduino</a>
+            <br>
+            <a class="btn btn-sm btn-outline-secondary" href="files/TEMT6000AmbientLightSensor.pdf" download="Gravity: Analog Ambient Light Sensor"><span data-feather="file-text"></span> Gravity: Analog Ambient Light Sensor</a>
+            <br>
+            <a class="btn btn-sm btn-outline-secondary" href="files/WaterproofDS18B20SensorKit.pdf" download="Gravity: Waterproof DS18B20 Sensor Kit"><span data-feather="file-text"></span> Gravity: Waterproof DS18B20 Sensor Kit</a>
+            <br>
+            <a class="btn btn-sm btn-outline-secondary" href="files/AnalogElectricalConductivitySensor.pdf" download="Gravity: Analog Electrical Conductivity Sensor / Meter V2 (K=1)"><span data-feather="file-text"></span> Gravity: Analog Electrical Conductivity Sensor / Meter V2 (K=1)</a>
+            <br>
+            <br>
+            <h5>Käytetyt laitteet ja teknologiat</h5>
+            <p>Alle on listattu projektissa käytetyt laitteet ja teknologiat, joiden avulla koko projekti toimii. Listattujen laitteiden ja teknologioiden avulla käyttäjä ymmärtää kuinka projekti on rakennettu ja kuinka projektia voidaan mahdollisesti jatkokehittää.</p>
+            <br>
+            <img src="img/arkkitehtuurikuvaus.jpg" style="max-width:500px" onclick="document.getElementById('arkkitehtuuri').style.display='block'" class="hover-opacity" alt="Arkkitehtuurikuvaus">
+            <div id="arkkitehtuuri" class="modal animate-zoom" onclick="this.style.display='none'">
+                <img class="modal-content" style="height:100%" src="img/arkkitehtuurikuvaus.jpg" alt="Arkkitehtuurikuvaus">
+            </div>
+            <br>
+            <p>Järjestelmän arkkitehtuuri ja laitteisto koostuu sensoreista, mikrokontrollerista, web-palvelimesta ja loppukäyttäjälle suunnatusta web-sovelluksesta edellä olevan kuvan mukaisesti. Mitattavia suureita on yhteensä 7, joista 4 liittyy kasvihuoneympäristön monitorointiin ja 3 ravinneliuoksen tarkkailuun. Ympäristöstä saadaan tietoa lämpötila-, kosteus-, valoisuus- ja hiilidioksidisensoreiden kautta ja ravinneliuoksesta sen lämpötilan, pH-arvon ja sähkönjohtavuuden avulla. Sensoreilta data kerätään Arduino Uno Rev2 -mikrokontrolleriin, jossa sisäänrakennettu WiFi-moduuli mahdollistaa tietojen lähettämisen eteenpäin langattoman verkon kautta Internetin yli web-palvelimelle. Palvelimella tieto kerätään MySQL-pohjaiseen relaatiotietokantaan, josta tiedot poimitaan loppukäyttäjälle mittaukset visualisoivaan selainpohjaiseen web-sovellukseen.</p>
+            <h6>Sensorit</h6>
+            <p>Projektissa käytetyt sensorit löytyvät painamalla alla olevaa painiketta.</p>
+            <a class="btn btn-sm btn-outline-secondary" href="sensorit.html"><span data-feather="link"></span> Sensorit</a>
+            <br>
+            <br>
+            <h6>Arduino</h6>
+            <div class="row">
+                <div class="col-sm-1">
+                    <img src="img/arduino.jpg" alt="Arduino" width="100">
+                </div>
+                <div class="col-sm-1">
+                    <br>
+                </div>
+                <div class="col-sm-10">
+                    <p>Projektissa on käytetty <a href="https://www.arduino.cc/">Arduino</a> UNO WiFi REV2 -mikrokontrolleria, joka kerää vesikasvatusympäristöstä sensoreilta kerätyn datan. Arduino UNO WiFi REV2 tulee sisäänrakennetun WiFi-moduulin kanssa, joka tekee langattomasta tiedonsiirrosta helppoa. Muistia mikrokontrollerissa on 48 kilotavun Flash Memory, 6 144 tavun SRAM sekä 256 tavun EEPROM. Arduino tarjoaa 13 digitaalista I/O pinniä sekä 5 analogista pinniä. Projektissa sensoreille on varattu 7 pinniä, joista vapaaksi pinnejä jää 12 muuhun käyttöön.
+                    </p>
+                </div>
+            </div>
+            <br>
+            <h6>WiFi</h6>
+            <div class="row">
+                <div class="col-sm-1">
+                    <img src="img/wifi.png" alt="WiFi" width="150">
+                </div>
+                <div class="col-sm-1">
+                    <br>
+                </div>
+                <div class="col-sm-10">
+                    <p>Arduino on yhdistettynä langattomaan verkkoon, jonka avulla tiedot siirretään projektin tietokantaan. Tiedonsiirto vaatii langattoman yhteyden (<a href="https://www.wi-fi.org/">WiFi</a>), muuten tietoja ei saa siirrettyä tietokantaan. Tietojen siirtäminen onnistuu tällä hetkellä vain langatonta verkkoyhteyttä hyödyntäen. Arduino yhdistetään langattomaan verkkoon käyttöoppaan kappaleen 1.1. antamien ohjeiden mukaisesti.</p>
+                </div>
+            </div>
+            <br>
+            <h6>Tietokanta</h6>
+            <div class="row">
+                <div class="col-sm-1">
+                    <img src="img/apache.png" alt="Apache" width="150">
+                    <img src="img/mysql.png" alt="MySQL" width="150">
+                </div>
+                <div class="col-sm-1">
+                    <br>
+                </div>
+                <div class="col-sm-10">
+                    <p>Tietokanta on rakennettu <a href="https://www.mysql.com/">MySQL</a>-tietokantaa hyödyntäen ja se asennettuna Kokkolan Yliopistokeskus Chydeniuksen <a href="https://httpd.apache.org/">Apache</a>-palvelimelle. Tietokantaan varastoidaan Arduinolta tuleva sensoridata, joka voidaan lopulta hakea tietokannasta verkkokäyttöliittymään käyttäjän nähtäväksi. Tietokanta on rakennettu kahdesta taulukosta, joista ensimmäisessä taulussa on säännöllisen mittauksen tulokset. Mittausväli on 5 min.</p>
+                    <img src="img/grow.PNG" alt="grow" width="200">
+                    <p>Säännöllisesti mitattavaa sensoridataa ovat: ilman lämpötila, kosteus, valoisuus, hiilidioksidipitoisuus. Tauluun tallennetaan myös mittauksen aikaleima. </p>
+                    <img src="img/water.PNG" alt="water" width="200">
+                    <p>Toinen taulu sisältää niiden sensorimittausten tulokset, jotka käyttäjä käynnistää itse: aikaleima, sähkönjohtavuus ja pH.</p>
+                </div>
+            </div>
+            <br>
+            <h6>Verkkokäyttöliittymä</h6>
+            <div class="row">
+                <div class="col-sm-1">
+                    <img src="img/html5.png" alt="HTML" width="100">
+                    <img src="img/bootstrap.svg" alt="Bootstrap" width="100">
+                    <img src="img/chartjs.svg" alt="Chart.js" width="150">
+                    <img src="img/jquery.png" alt="jQuery" width="150">
+                </div>
+                <div class="col-sm-1">
+                    <br>
+                </div>
+                <div class="col-sm-10">
+                    <p>Verkkokäyttöliittymä hakee tiedot MySQL-tietokannasta. Verkkokäyttöliittymän sivut ovat rakennettu <a href="https://www.w3schools.com/html/">HTML</a>-kuvauskielellä, jonka rinnalla on käytetty <a href="https://getbootstrap.com/">Bootstrap v4.3.1</a>-kirjastoa. Verkkokäyttöliittymän kuvaajat ovat luotu hyödyntäen <a href="https://www.chartjs.org/">Chart.js v2.8.0</a> JavaScript-kirjastoa sekä käyttöliittymän painikkeiden toiminnalisuudet on luotu käyttäen <a href="https://jquery.com/">jQueryä</a>.</p>
+                    <br>
+                    <b>HTML ja CSS</b>
+                    <p>Verkkokäyttöliittymän runko on rakennettu HTML-kuvauskielellä sekä CSS-tyylikirjastoa hyödyntäen. Verkkokäyttöliittymä on testattu moderneilla selaimilla sekä validoitu käyttämällä W3C validaattoria.</p>
+                    <br>
+                    <b>Bootstrap</b>
+                    <p>Bootstrap on kirjasto, johon on määritelty oletustyylejä sekä skriptejä valmiiksi, joka tekee sen käyttöönotosta nopeaa ja helppoa. Bootstrapin avulla verkkokäyttöliittymään on voitu luoda verkkosivujen responsiivisuus, jotta verkkokäyttöliittymä on käytettävä moderneilla selaimilla laitteen näyttökoosta riippumatta.</p>
+                    <b>Chart.js</b>
+                    <p>Verkkokäyttöliittymän kuvaajat ovat toteutettu Chart.js -JavaScript kirjastolla. Chart.js tarjoaa monia eri kuvaajatyyppejä, joista verkkokäyttöliittymässä on käytetty mixed-line charttia.</p>
+                    <br>
+                    <b>jQuery</b>
+                    <p>jQuery on yksinkertaistettu JavaScript-kirjasto, joka tarjoaa useita valmiita funktioita. jQueryn avulla voi esimerkiksi animoida painikkeen painallukset. </p>
+                    <br>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- Optional JavaScript -->
+    <script>
+        feather.replace()
+    </script>
 </body>
+
 </html>
