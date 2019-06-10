@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="fi">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -9,35 +10,36 @@
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
     <link rel="manifest" href="favicon/site.webmanifest">
-      <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="css/bootstrap.min.css">
-      <!-- Custom styles for this template -->
-      <link href="css/styles.css" rel="stylesheet">
-      <title>Vesikasvastusympäristön monitorointi</title>
-      <style>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Custom styles for this template -->
+    <link href="css/styles.css" rel="stylesheet">
+    <title>Vesikasvastusympäristön monitorointi</title>
+    <style>
         .card-text {
             font-weight: bold;
             font-size: 20px;
         }
-      </style>
-   </head>
-   <body>
-      <!-- Javascript references -->
-      <!-- Chart.js -->
-      <script src="js/chart.js"></script>
-      <script src="js/Chart.min.js"></script>
-	  <script src="js/Chart.bundle.min.js"></script>
-      <!-- jQuery -->
-      <script src="js/jquery-3.4.1.min.js"></script>
-	  <!-- Feather icons -->
-	  <script src="js/feather.js"></script>
-	  <script src="js/feather.min.js"></script>
-	  <!-- Popper -->
-      <script src="js/popper.min.js"></script>
-	  <!-- Bootstrap -->
-      <script src="js/bootstrap.min.js"></script>
-	  <script src="js/bootstrap.bundle.min.js"></script>
-	  <script src="js/bootstrap.js"></script>
+    </style>
+</head>
+
+<body>
+    <!-- Javascript references -->
+    <!-- Chart.js -->
+    <script src="js/chart.js"></script>
+    <script src="js/Chart.min.js"></script>
+    <script src="js/Chart.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- Feather icons -->
+    <script src="js/feather.js"></script>
+    <script src="js/feather.min.js"></script>
+    <!-- Popper -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.js"></script>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -113,8 +115,8 @@
                 <h1 class="h2">Monitorointi</h1>
                 <div class="btn-toolbar mb-2 mb-md-0">
                     <!-- Share and download buttons -->
-						<div class="btn-group mr-2">
-									<a class="btn btn-sm btn-outline-secondary" href="mailto:?subject=Vesikasvatusympäristön%20monitorointi&amp;body=Katso%20seuraava%20linkki%20http://luna.chydenius.fi/~sensoriverkkoproj/index.html"><span data-feather="mail"></span> Lähetä linkki</a>
+                    <div class="btn-group mr-2">
+                        <a class="btn btn-sm btn-outline-secondary" href="mailto:?subject=Vesikasvatusympäristön%20monitorointi&amp;body=Katso%20seuraava%20linkki%20http://luna.chydenius.fi/~sensoriverkkoproj/index.html"><span data-feather="mail"></span> Lähetä linkki</a>
                         <button onclick="window.print();return false;" type="button" class="btn btn-sm btn-outline-secondary">
                             <span data-feather="printer"></span> Tulosta
                         </button>
@@ -123,117 +125,117 @@
             </div>
             <!-- Main content text -->
             <p>Tällä sivustolla seurataan Kokkolan kasvihuoneen olosuhteita. Sensoreiden viimeisimmät mittaustulokset löytyvät alla olevista korteista. Olosuhteiden muutosta voi seurata viivakaavioista.</p>
-<!-- Modal -->
-<div id="rajatmodal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+            <!-- Modal -->
+            <div id="rajatmodal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-	  <h4 class="modal-title">Sensoreiden hälytysrajat</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-	  <form id="rajat">
-      <div class="modal-body">
-							<h6>Ilman lämpötila:</h6>
-                            <label for="temp1_min">Min</label>
-                            <input type="number" id="temp1_min" name="amount" value="1" min="0" max="100000">
-                            <label for="temp1_max">Max</label>
-                            <input type="number" id="temp1_max" name="amount" value="1" min="0" max="100000">
-                            <h6>Ilman kosteus:</h6>
-                            <label for="hum1_min">Min</label>
-                            <input type="number" id="hum1_min" name="amount" value="1" min="0" max="100000">
-                            <label for="hum1_max">Max</label>
-                            <input type="number" id="hum1_max" name="amount" value="1" min="0" max="100000">
-                            <h6>Valoisuus:</h6>
-                            <label for="ldr_min">Min</label>
-                            <input type="number" id="ldr_min" name="amount" value="1" min="0" max="100000">
-                            <label for="ldr_max">Max</label>
-                            <input type="number" id="ldr_max" name="amount" value="1" min="0" max="100000">
-                            <h6>Hiilidioksidipitoisuus:</h6>
-                            <label for="co2_min">Min</label>
-                            <input type="number" id="co2_min" name="amount" value="1" min="0" max="100000">
-                            <label for="co2_max">Max</label>
-                            <input type="number" id="co2_max" name="amount" value="1" min="0" max="100000">	
-                            <h6>Ravinneliuoksen lämpötila:</h6>
-                            <label for="temp2_min">Min</label>
-                            <input type="number" id="temp2_min" name="amount" value="1" min="0" max="100000">
-                            <label for="temp2_max">Max</label>
-                            <input type="number" id="temp2_max" name="amount" value="1" min="0" max="100000">
-                            <h6>Ravinneliuoksen PH:</h6>
-                            <label for="ph_min">Min</label>
-                            <input type="number" id="ph_min" name="amount" value="1" min="0" max="100000">
-                            <label for="ph_max">Max</label>
-                            <input type="number" id="ph_max" name="amount" value="1" min="0" max="100000">
-                            <h6>Ravinneliuoksen sähkönjohtavuus:</h6>
-                            <label for="ec_min">Min</label>
-                            <input type="number" id="ec_min" name="amount" value="1" min="0" max="100000">
-                            <label for="ec_max">Max</label>
-                            <input type="number" id="ec_max" name="amount" value="1" min="0" max="100000">
-      </div>
-      <div class="modal-footer justify-content-between">
-        <input type="button" id="btn" class="btn btn-sm btn-outline-info" value="Palauta oletusarvot" />
-		<input type="submit" class="btn btn-sm btn-outline-success" value="Tallenna" />  
-        <button type="button" class="btn btn-sm btn-outline-danger" data-dismiss="modal">Sulje</button>
-      </div>
-	 </form>
-    </div>
-  </div>
-</div>
-                <!--cards -->
-                <div id="cards"></div>
-                <br>
-                <br>
-                <!--charts -->
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-top">
-			<!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#rajatmodal">Muokkaa hälytysrajoja tästä</button>
-                    <!-- Time period drop-down -->
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Sensoreiden hälytysrajat</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <form id="rajat">
+                            <div class="modal-body">
+                                <h6>Ilman lämpötila:</h6>
+                                <label for="temp1_min">Min</label>
+                                <input type="number" id="temp1_min" name="amount" value="1" min="0" max="100000">
+                                <label for="temp1_max">Max</label>
+                                <input type="number" id="temp1_max" name="amount" value="1" min="0" max="100000">
+                                <h6>Ilman kosteus:</h6>
+                                <label for="hum1_min">Min</label>
+                                <input type="number" id="hum1_min" name="amount" value="1" min="0" max="100000">
+                                <label for="hum1_max">Max</label>
+                                <input type="number" id="hum1_max" name="amount" value="1" min="0" max="100000">
+                                <h6>Valoisuus:</h6>
+                                <label for="ldr_min">Min</label>
+                                <input type="number" id="ldr_min" name="amount" value="1" min="0" max="100000">
+                                <label for="ldr_max">Max</label>
+                                <input type="number" id="ldr_max" name="amount" value="1" min="0" max="100000">
+                                <h6>Hiilidioksidipitoisuus:</h6>
+                                <label for="co2_min">Min</label>
+                                <input type="number" id="co2_min" name="amount" value="1" min="0" max="100000">
+                                <label for="co2_max">Max</label>
+                                <input type="number" id="co2_max" name="amount" value="1" min="0" max="100000">
+                                <h6>Ravinneliuoksen lämpötila:</h6>
+                                <label for="temp2_min">Min</label>
+                                <input type="number" id="temp2_min" name="amount" value="1" min="0" max="100000">
+                                <label for="temp2_max">Max</label>
+                                <input type="number" id="temp2_max" name="amount" value="1" min="0" max="100000">
+                                <h6>Ravinneliuoksen PH:</h6>
+                                <label for="ph_min">Min</label>
+                                <input type="number" id="ph_min" name="amount" value="1" min="0" max="100000">
+                                <label for="ph_max">Max</label>
+                                <input type="number" id="ph_max" name="amount" value="1" min="0" max="100000">
+                                <h6>Ravinneliuoksen sähkönjohtavuus:</h6>
+                                <label for="ec_min">Min</label>
+                                <input type="number" id="ec_min" name="amount" value="1" min="0" max="100000">
+                                <label for="ec_max">Max</label>
+                                <input type="number" id="ec_max" name="amount" value="1" min="0" max="100000">
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <input type="button" id="btn" class="btn btn-sm btn-outline-info" value="Palauta oletusarvot" />
+                                <input type="submit" class="btn btn-sm btn-outline-success" value="Tallenna" />
+                                <button type="button" class="btn btn-sm btn-outline-danger" data-dismiss="modal">Sulje</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--cards -->
+            <div id="cards"></div>
+            <br>
+            <br>
+            <!--charts -->
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-top">
+                <!-- Trigger the modal with a button -->
+                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#rajatmodal">Muokkaa hälytysrajoja tästä</button>
+                <!-- Time period drop-down -->
+                <div>
+                    <select id="list" onchange="getSelectValue();">
+                        <option id="1" value="1">Viimeiset 24h</option>
+                        <option id="7" value="7">Viimeiset 7pv</option>
+                        <option id="30" value="30">Viimeiset 30pv</option>
+                        <option id="365" value="365">Viimeiset 365pv</option>
+                    </select>
+                </div>
+                <!-- Calender inputs-->
+                <form id="kalenterit">
                     <div>
-                        <select id="list" onchange="getSelectValue();">
-                            <option id = "1" value="1">Viimeiset 24h</option>
-                            <option id = "7" value="7">Viimeiset 7pv</option>
-                            <option id = "30" value="30">Viimeiset 30pv</option>
-                            <option id = "365" value="365">Viimeiset 365pv</option>
-                        </select>
+                        <label for="alku">Alku:</label>
+                        <input type="date" id="alku" name="alku" required>
+                        <label for="loppu">Loppu:</label>
+                        <input type="date" id="loppu" name="loppu" required>
+                        <span class="validity"></span>
                     </div>
-                    <!-- Calender inputs-->
-                    <form id="kalenterit">
-                        <div>
-                            <label for="alku">Alku:</label>
-                            <input type="date" id="alku" name="alku" required>
-                            <label for="loppu">Loppu:</label>
-                            <input type="date" id="loppu" name="loppu" required>
-                            <span class="validity"></span>
-                        </div>
-                    </form>
-                    <button type="submit" form="kalenterit" class="btn btn-sm btn-outline-secondary" value="Submit"><span data-feather="filter"></span> Päivitä</button>
-                </div>
-                <div class="row">
-                    <div class="col-md-6 ">
-                        <div class="border border-dark">
-                            <canvas id="temp1" width="400" height="300"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-                        <div class="border border-dark">
-                            <canvas id="hum1" width="400" height="300"></canvas>
-                        </div>
+                </form>
+                <button type="submit" form="kalenterit" class="btn btn-sm btn-outline-secondary" value="Submit"><span data-feather="filter"></span> Päivitä</button>
+            </div>
+            <div class="row">
+                <div class="col-md-6 ">
+                    <div class="border border-dark">
+                        <canvas id="temp1" width="400" height="300"></canvas>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6 ">
-                        <div class="border border-dark">
-                            <canvas id="ldr" width="400" height="300"></canvas>
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-                        <div class="border border-dark">
-                            <canvas id="co2" width="400" height="300"></canvas>
-                        </div>
+                <div class="col-md-6 ">
+                    <div class="border border-dark">
+                        <canvas id="hum1" width="400" height="300"></canvas>
                     </div>
                 </div>
-                <!--
+            </div>
+            <div class="row">
+                <div class="col-md-6 ">
+                    <div class="border border-dark">
+                        <canvas id="ldr" width="400" height="300"></canvas>
+                    </div>
+                </div>
+                <div class="col-md-6 ">
+                    <div class="border border-dark">
+                        <canvas id="co2" width="400" height="300"></canvas>
+                    </div>
+                </div>
+            </div>
+            <!--
                   <div class="row">
 
                         <div class="col-md-6 ">
@@ -243,21 +245,23 @@
                         </div>
                   </div>
                   -->
-                <div>
-                    <div class="border border-dark">
-                        <canvas id="mixed1" width="400" height="300"></canvas>
-                    </div>
+            <div>
+                <div class="border border-dark">
+                    <canvas id="mixed1" width="400" height="300"></canvas>
                 </div>
-                <div>
-                    <div class="border border-dark">
-                        <canvas id="mixed2" width="400" height="300"></canvas>
-                    </div>
+            </div>
+            <div>
+                <div class="border border-dark">
+                    <canvas id="mixed2" width="400" height="300"></canvas>
                 </div>
+            </div>
         </main>
     </div>
-	  <!-- Optional JavaScript -->	  
-      <script> feather.replace() </script>
-      <script src="js/linegraph.js"></script>
+    <!-- Optional JavaScript -->
+    <script>
+        feather.replace()
+    </script>
+    <script src="js/linegraph.js"></script>
     <script src="js/rajat.js"></script>
 </body>
 
