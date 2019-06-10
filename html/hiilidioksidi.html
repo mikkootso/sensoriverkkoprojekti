@@ -1,188 +1,194 @@
 <!doctype html>
 <html lang="fi">
-   <head>
-      <!-- Required meta tags -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <!-- Favicon -->
-      <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
-      <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
-      <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-      <link rel="manifest" href="favicon/site.webmanifest">
-      <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="css/bootstrap.min.css">
-      <!-- Custom styles for this template -->
-      <link href="css/styles.css" rel="stylesheet">
-      <title>Vesikasvastusympäristön monitorointi</title>
-   </head>
-   <body>
-      <!-- Javascript references -->
-      <!-- Chart.js -->
-      <script src="js/chart.js"></script>
-      <script src="js/Chart.min.js"></script>
-	  <script src="js/Chart.bundle.min.js"></script>
-      <!-- jQuery -->
-      <script src="js/jquery-3.4.1.min.js"></script>
-	  <!-- Feather icons -->
-	  <script src="js/feather.js"></script>
-	  <script src="js/feather.min.js"></script>
-	  <!-- Popper -->
-      <script src="js/popper.min.js"></script>
-	  <!-- Bootstrap -->
-      <script src="js/bootstrap.min.js"></script>
-	  <script src="js/bootstrap.bundle.min.js"></script>
-	  <script src="js/bootstrap.js"></script>
-      <!-- Navbar -->   
-      <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse" id="nav">
-            <ul class="navbar-nav mr-auto">
-               <li class="nav-item">
-                  <a class="nav-link" href="index.html">
-                  <span data-feather="activity"></span>
-                  Monitorointi<span class="sr-only"></span>
-                  </a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="ilampotila.html">
-                  <span data-feather="sun"></span>
-                  Ilman lämpötila<span class="sr-only"></span>
-                  </a>
-               </li>
-			   <li class="nav-item">
-                  <a class="nav-link" href="kosteus.html">
-                  <span data-feather="droplet"></span>
-                  Kosteus<span class="sr-only"></span>
-                  </a>
-               </li>
-			   <li class="nav-item">
-                  <a class="nav-link" href="valoisuus.html">
-                  <span data-feather="eye"></span>
-                  Valoisuus<span class="sr-only"></span>
-                  </a>
-               </li>
-			   <li class="nav-item">
-                  <a class="nav-link active" href="hiilidioksidi.html">
-                  <span data-feather="cloud-snow"></span>
-                  Hiilidioksidi<span class="sr-only">(current)</span>
-                  </a>
-               </li>
-			   <li class="nav-item">
-                  <a class="nav-link" href="rlampotila.html">
-                  <span data-feather="thermometer"></span>
-                  Ravinneliuoksen lämpötila<span class="sr-only"></span>
-                  </a>
-               </li>
-			   <li class="nav-item">
-                  <a class="nav-link" href="ph.html">
-                  <span data-feather="bar-chart-2"></span>
-                  pH<span class="sr-only"></span>
-                  </a>
-               </li>
-			   <li class="nav-item">
-                  <a class="nav-link" href="sahkonjohtavuus.html">
-                  <span data-feather="zap"></span>
-                  Sähkönjohtavuus<span class="sr-only"></span>
-                  </a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="sensorit.html">
-                  <span data-feather="cpu"></span>
-                  Sensorit<span class="sr-only"></span>
-                  </a>
-               </li>
-			   <li class="nav-item">
-                  <a class="nav-link" href="info.html">
-                  <span data-feather="info"></span>
-                  Info<span class="sr-only"></span>
-                  </a>
-               </li>
-            </ul>
-         </div>
-      </nav>
-      <div class="container-fluid">
-            <!-- Main content -->
-            <main class="col-md-12 ml-sm-auto col-lg-12 px-4">
-                  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                        <h1 class="h2">Hiilidioksidipitoisuus</h1>
-                        <div class="btn-toolbar mb-2 mb-md-0">
-                              <!-- Share and download buttons -->
-									<div class="btn-group mr-2">
-									<a class="btn btn-sm btn-outline-secondary" href="mailto:?subject=Vesikasvatusympäristön%20monitorointi&amp;body=Katso%20seuraava%20linkki%20http://luna.chydenius.fi/~sensoriverkkoproj/hiilidioksidi.html"><span data-feather="mail"></span> Lähetä linkki</a>
-									<button onclick="window.print();return false;" type="button" class="btn btn-sm btn-outline-secondary">
-									<span data-feather="printer"></span>
-									Tulosta
-									</button>
-                              </div>
-                        </div>
-                  </div>
-               <!-- Main content text -->
-               <p>Täältä näet hiilidioksidipitoisuuden.</p> 
-				<!--cards -->
-				<div id="cards"></div>
-				<br>			   
-<!-- Modal -->
-<div id="rajatmodal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-	  <h4 class="modal-title">Sensoreiden hälytysrajat</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-	  <form id="rajat">
-      <div class="modal-body">
-                            <h6>Hiilidioksidipitoisuus:</h6>
-                            <label for="co2_min">Min</label>
-                            <input type="number" id="co2_min" name="amount" value="1" min="0" max="100000">
-                            <label for="co2_max">Max</label>
-                            <input type="number" id="co2_max" name="amount" value="1" min="0" max="100000">	
-      </div>
-      <div class="modal-footer justify-content-between">
-        <input type="button" id="btn" class="btn btn-sm btn-outline-info" value="Palauta oletusarvot" />
-		<input type="submit" class="btn btn-sm btn-outline-success" value="Tallenna" />  
-        <button type="button" class="btn btn-sm btn-outline-danger" data-dismiss="modal">Sulje</button>
-      </div>
-	</form>
-    </div>
-  </div>
-</div>
-                <!--charts -->
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-top">
-<!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#rajatmodal">Muokkaa hälytysrajoja tästä</button>
-                    <!-- Time period drop-down -->
-                    <div>
-                        <select id="list" onchange="getSelectValue();">
-                            <option id = "1" value="1">Viimeiset 24h</option>
-                            <option id = "7" value="7">Viimeiset 7pv</option>
-                            <option id = "30" value="30">Viimeiset 30pv</option>
-                            <option id = "365" value="365">Viimeiset 365pv</option>
-                        </select>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Custom styles for this template -->
+    <link href="css/styles.css" rel="stylesheet">
+    <title>Vesikasvastusympäristön monitorointi</title>
+</head>
+
+<body>
+    <!-- Javascript references -->
+    <!-- Chart.js -->
+    <script src="js/chart.js"></script>
+    <script src="js/Chart.min.js"></script>
+    <script src="js/Chart.bundle.min.js"></script>
+    <!-- jQuery -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- Feather icons -->
+    <script src="js/feather.js"></script>
+    <script src="js/feather.min.js"></script>
+    <!-- Popper -->
+    <script src="js/popper.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light rounded">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">
+                        <span data-feather="activity"></span> Monitorointi
+                        <span class="sr-only"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ilampotila.html">
+                        <span data-feather="sun"></span> Ilman lämpötila<span class="sr-only"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="kosteus.html">
+                        <span data-feather="droplet"></span> Kosteus
+                        <span class="sr-only"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="valoisuus.html">
+                        <span data-feather="eye"></span> Valoisuus
+                        <span class="sr-only"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="hiilidioksidi.html">
+                        <span data-feather="cloud-snow"></span> Hiilidioksidi
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="rlampotila.html">
+                        <span data-feather="thermometer"></span> Ravinneliuoksen lämpötila<span class="sr-only"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ph.html">
+                        <span data-feather="bar-chart-2"></span> pH
+                        <span class="sr-only"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="sahkonjohtavuus.html">
+                        <span data-feather="zap"></span> Sähkönjohtavuus
+                        <span class="sr-only"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="sensorit.html">
+                        <span data-feather="cpu"></span> Sensorit
+                        <span class="sr-only"></span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="info.html">
+                        <span data-feather="info"></span> Info
+                        <span class="sr-only"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <!-- Main content -->
+        <main class="col-md-12 ml-sm-auto col-lg-12 px-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Hiilidioksidipitoisuus</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <!-- Share and download buttons -->
+                    <div class="btn-group mr-2">
+                        <a class="btn btn-sm btn-outline-secondary" href="mailto:?subject=Vesikasvatusympäristön%20monitorointi&amp;body=Katso%20seuraava%20linkki%20http://luna.chydenius.fi/~sensoriverkkoproj/hiilidioksidi.html"><span data-feather="mail"></span> Lähetä linkki</a>
+                        <button onclick="window.print();return false;" type="button" class="btn btn-sm btn-outline-secondary">
+                            <span data-feather="printer"></span> Tulosta
+                        </button>
                     </div>
-                    <!-- Calender inputs-->
-                    <form id="kalenterit">
-                        <div>
-                            <label for="alku">Alku:</label>
-                            <input type="date" id="alku" name="alku" required>
-                            <label for="loppu">Loppu:</label>
-                            <input type="date" id="loppu" name="loppu" required>
-                            <span class="validity"></span>
-                        </div>
-                    </form>
-                    <button type="submit" form="kalenterit" class="btn btn-sm btn-outline-secondary" value="Submit"><span data-feather="filter"></span> Päivitä</button>
                 </div>
-                        <div class="border border-dark">
-                            <canvas id="co2" width="800" height="300"></canvas>
-						<br>
-					</div>
+            </div>
+            <!-- Main content text -->
+            <p>Täältä näet hiilidioksidipitoisuuden vesikasvatusympäristössä.</p>
+            <!--cards -->
+            <div id="cards"></div>
+            <br>
+            <!-- Modal -->
+            <div id="rajatmodal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Sensoreiden hälytysrajat</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <form id="rajat">
+                            <div class="modal-body">
+                                <h6>Hiilidioksidipitoisuus:</h6>
+                                <label for="co2_min">Min</label>
+                                <input type="number" id="co2_min" name="amount" value="1" min="0" max="100000">
+                                <label for="co2_max">Max</label>
+                                <input type="number" id="co2_max" name="amount" value="1" min="0" max="100000">
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <input type="button" id="btn" class="btn btn-sm btn-outline-info" value="Palauta oletusarvot" />
+                                <input type="submit" class="btn btn-sm btn-outline-success" value="Tallenna" />
+                                <button type="button" class="btn btn-sm btn-outline-danger" data-dismiss="modal">Sulje</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--charts -->
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-top">
+
+                <!-- Time period drop-down -->
+                <div>
+                    <select id="list" onchange="getSelectValue();">
+                        <option id="1" value="1">Viimeiset 24h</option>
+                        <option id="7" value="7">Viimeiset 7pv</option>
+                        <option id="30" value="30">Viimeiset 30pv</option>
+                        <option id="365" value="365">Viimeiset 365pv</option>
+                    </select>
+                </div>
+                <!-- Calender inputs-->
+                <form id="kalenterit">
+                    <div>
+                        <label for="alku">Alku:</label>
+                        <input type="date" id="alku" name="alku" required>
+                        <label for="loppu">Loppu:</label>
+                        <input type="date" id="loppu" name="loppu" required>
+                        <span class="validity"></span>
+                    </div>
+                </form>
+                <button type="submit" form="kalenterit" class="btn btn-sm btn-outline-secondary" value="Submit"><span data-feather="filter"></span> Päivitä</button>
+                <!-- Trigger the modal with a button -->
+                <span> </span>
+                <!-- <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#rajatmodal">Muokkaa hälytysrajoja tästä</button> -->
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <canvas id="co2" width="800" height="300"></canvas>
+                    <br>
+                </div>
+            </div>
         </main>
     </div>
-	  <!-- Optional JavaScript -->	  
-      <script> feather.replace() </script>
-      <script src="js/hiilidioksidi.js"></script>	  
+    <!-- Optional JavaScript -->
+    <script>
+        feather.replace()
+    </script>
+    <script src="js/hiilidioksidi.js"></script>
 </body>
+
 </html>
