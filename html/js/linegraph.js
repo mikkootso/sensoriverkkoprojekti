@@ -1,4 +1,4 @@
-'use strict'
+
 
 document.getElementById('kalenterit').addEventListener('submit', kalenterit);
 getSelectValueFirstTime();
@@ -172,8 +172,12 @@ function piirra(selectedValue, alku, loppu){
           //console.log(jsDate);
 
           //chart 1 
-          var ctx = $("#mixed1");
-          var LineGraph = new Chart(ctx, {
+          var ctx = document.getElementById('mixed1').getContext('2d');
+          if(window.LineGraph1 != undefined) {
+            window.LineGraph1.destroy();
+            console.log("tuhottu");
+          }
+          LineGraph1 = new Chart(ctx, {
             type: 'line',
             data: {
               labels: jsDate,
@@ -248,13 +252,12 @@ function piirra(selectedValue, alku, loppu){
 
           //chart 2 
 
-          var ctxLine = document.getElementById("mixed2").getContext("2d");
-          if(window.ctx != undefined)
-              window.ctx.destroy();
-          window.ctx = new Chart(ctxLine, {});
+          var ctx = document.getElementById("mixed2").getContext("2d");
+          if(window.LineGraph2 != undefined) {
+            window.LineGraph2.destroy();
+          }
 
-          var ctx = $("#mixed2");
-          var LineGraph = new Chart(ctx, {
+          LineGraph2 = new Chart(ctx, {
             type: 'line',
             data: {
               labels: tstamp,
@@ -318,8 +321,11 @@ function piirra(selectedValue, alku, loppu){
           });
 
           //charts 
+          if(window.LineGraph3 != undefined) {
+            window.LineGraph3.destroy();
+          }
           charts.forEach(function(element){
-            var LineGraph2 = new Chart($(element.cid), {  //
+            LineGraph3 = new Chart($(element.cid), {  //
               type: 'line',
               data: {
                 labels: tstamp,
