@@ -175,7 +175,6 @@ function piirra(selectedValue, alku, loppu){
           var ctx = document.getElementById('mixed1').getContext('2d');
           if(window.LineGraph1 != undefined) {
             window.LineGraph1.destroy();
-            console.log("tuhottu");
           }
           LineGraph1 = new Chart(ctx, {
             type: 'line',
@@ -320,56 +319,212 @@ function piirra(selectedValue, alku, loppu){
             }
           });
 
-          //charts 
+          //chart3
+          var ctx = document.getElementById("temp1").getContext("2d");
           if(window.LineGraph3 != undefined) {
             window.LineGraph3.destroy();
           }
-          charts.forEach(function(element){
-            LineGraph3 = new Chart($(element.cid), {  //
-              type: 'line',
-              data: {
-                labels: tstamp,
-                datasets: [
-                  {
-                    label: element.label,   //
-                    fill: false,
-                    lineTension: 0,
-                    backgroundColor: element.color,
-                    borderColor: element.color,
-                    pointHoverBackgroundColor: element.color,  //
-                    pointHoverBorderColor: element.color,
-                    borderWidth: 1,
-                    pointRadius: 2,
-                    data: element.yData   //
-                  }
-                ]
-              },
-              options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            suggestedMin: element.suggestedMin,   //
-                            suggestedMax: element.suggestedMax   //
-                        }
-                    }],
-                    xAxes: [{
-                      ticks: {
-                        maxTicksLimit: 11
-                      },
-                      type: 'time',
-                  time: {
-                    displayFormats: {
-                      'minute': 'HH:MM',
-                      'hour': 'HH:MM',
-                      'day': 'MMM DD',
-                      
-                    }
-                },
-                  distribution: 'linear'
-                    }]
+
+          LineGraph3 = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: tstamp,
+              datasets: [
+                {
+                  label: "Ilman lämpötila [C]",   //
+                  fill: false,
+                  lineTension: 0,
+                  backgroundColor: "rgba(0, 0, 128, 1)",
+                  borderColor: "rgba(0, 0, 128, 1)",
+                  pointHoverBackgroundColor: "rgba(0, 0, 128, 1)",  //
+                  pointHoverBorderColor: "rgba(0, 0, 128, 1)",
+                  borderWidth: 1,
+                  pointRadius: 2,
+                  data: temp1   //
                 }
+              ]
+            },
+            options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          suggestedMin: 10,   //
+                          suggestedMax: 30   //
+                      }
+                  }],
+                  xAxes: [{
+                    ticks: {
+                      maxTicksLimit: 11
+                    },
+                    type: 'time',
+                time: {
+                  displayFormats: {
+                    'minute': 'HH:MM',
+                    'hour': 'HH:MM',
+                    'day': 'MMM DD',
+                    
+                  }
+              },
+                distribution: 'linear'
+                  }]
               }
-            });
+            }
+          });
+
+          //chart4
+          var ctx = document.getElementById("hum1").getContext("2d");
+          if(window.LineGraph4 != undefined) {
+            window.LineGraph4.destroy();
+          }
+
+          LineGraph4 = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: tstamp,
+              datasets: [
+                {
+                  label: "Ilman kosteus [%]",   //
+                  fill: false,
+                  lineTension: 0,
+                  backgroundColor: "rgba(29, 202, 255, 1)",
+                  borderColor: "rgba(29, 202, 255, 1)",
+                  pointHoverBackgroundColor: "rgba(29, 202, 255, 1)",  //
+                  pointHoverBorderColor: "rgba(29, 202, 255, 1)",
+                  borderWidth: 1,
+                  pointRadius: 2,
+                  data: hum1   //
+                }
+              ]
+            },
+            options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          suggestedMin: 20,   //
+                          suggestedMax: 80   //
+                      }
+                  }],
+                  xAxes: [{
+                    ticks: {
+                      maxTicksLimit: 11
+                    },
+                    type: 'time',
+                time: {
+                  displayFormats: {
+                    'minute': 'HH:MM',
+                    'hour': 'HH:MM',
+                    'day': 'MMM DD',
+                    
+                  }
+              },
+                distribution: 'linear'
+                  }]
+              }
+            }
+          });
+
+          //chart5
+          var ctx = document.getElementById("ldr").getContext("2d");
+          if(window.LineGraph5 != undefined) {
+            window.LineGraph5.destroy();
+          }
+
+          LineGraph5 = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: tstamp,
+              datasets: [
+                {
+                  label: "Valoisuus [lx]",   //
+                  fill: false,
+                  lineTension: 0,
+                  backgroundColor: "rgba(255, 255, 25, 1)",
+                  borderColor: "rgba(255, 255, 25, 1)",
+                  pointHoverBackgroundColor: "rgba(255, 255, 25, 1)",  //
+                  pointHoverBorderColor: "rgba(255, 255, 25, 1)",
+                  borderWidth: 1,
+                  pointRadius: 2,
+                  data: ldr   //
+                }
+              ]
+            },
+            options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          suggestedMin: 100,   //
+                          suggestedMax: 1000   //
+                      }
+                  }],
+                  xAxes: [{
+                    ticks: {
+                      maxTicksLimit: 11
+                    },
+                    type: 'time',
+                time: {
+                  displayFormats: {
+                    'minute': 'HH:MM',
+                    'hour': 'HH:MM',
+                    'day': 'MMM DD',
+                    
+                  }
+              },
+                distribution: 'linear'
+                  }]
+              }
+            }
+          });
+
+          //chart6
+          var ctx = document.getElementById("co2").getContext("2d");
+          if(window.LineGraph6 != undefined) {
+            window.LineGraph6.destroy();
+          }
+
+          LineGraph6 = new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: tstamp,
+              datasets: [
+                {
+                  label: "Hiilidioksidipitoisuus [ppm]",   //
+                  fill: false,
+                  lineTension: 0,
+                  backgroundColor: "rgba(0, 255, 0, 1)",
+                  borderColor: "rgba(0, 255, 0, 1)",
+                  pointHoverBackgroundColor: "rgba(0, 255, 0, 1)",  //
+                  pointHoverBorderColor: "rgba(0, 255, 0, 1)",
+                  borderWidth: 1,
+                  pointRadius: 2,
+                  data: co2   //
+                }
+              ]
+            },
+            options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          suggestedMin: 400,   //
+                          suggestedMax: 1400   //
+                      }
+                  }],
+                  xAxes: [{
+                    ticks: {
+                      maxTicksLimit: 11
+                    },
+                    type: 'time',
+                time: {
+                  displayFormats: {
+                    'minute': 'HH:MM',
+                    'hour': 'HH:MM',
+                    'day': 'MMM DD',
+                    
+                  }
+              },
+                distribution: 'linear'
+                  }]
+              }
+            }
           });
         }
 
