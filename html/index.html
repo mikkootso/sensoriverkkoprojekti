@@ -176,7 +176,7 @@
                             <div class="modal-footer justify-content-between">
                                 <input type="button" id="btn" class="btn btn-sm btn-outline-info" value="Palauta oletusarvot" />
                                 <input type="submit" class="btn btn-sm btn-outline-success" value="Tallenna" />
-                                <button type="button" class="btn btn-sm btn-outline-danger" data-dismiss="modal">Sulje</button>
+                                <button type="button" class="btn btn-sm btn-outline-danger" onclick="javascript:window.location.reload()" data-dismiss="modal">Sulje</button>
                             </div>
                         </form>
                     </div>
@@ -189,7 +189,7 @@
             <!--charts -->
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-top">
                 <!-- Trigger the modal with a button -->
-                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#rajatmodal">Muokkaa hälytysrajoja tästä</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#rajatmodal"><span data-feather="settings"></span> Muokkaa hälytysrajoja tästä</button>
                 <!-- Time period drop-down -->
                 <div>
                     <select id="list" onchange="getSelectValue();">
