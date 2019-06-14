@@ -123,13 +123,6 @@ function piirra(selectedValue, alku, loppu){
         //create charts
         function drawCharts(){
           
-          const charts = [
-            {cid: "#temp1", label: "Ilman lämpötila [C]", yData: temp1, color: "rgba(0, 0, 128, 1)", suggestedMin: 10, suggestedMax: 30},
-            {cid: "#hum1", label: "Ilman kosteus [%]", yData: hum1, color: "rgba(29, 202, 255, 1)", suggestedMin: 20, suggestedMax: 80},
-            {cid: "#ldr", label: "Valoisuus [lx]", yData: ldr, color: "rgba(255, 255, 25, 1)", suggestedMin: 100, suggestedMax: 1000},
-            {cid: "#co2", label: "Hiilidioksidipitoisuus [ppm]", yData: co2, color: "rgba(0, 255, 0, 1)", suggestedMin: 400, suggestedMax: 1400}
-          ];
-
           // check if sql query has returned empty array
           if(data[0].length == 0){
             const chrts = ["#temp1","#hum1","#ldr","#co2","#mixed1","#mixed2"];
@@ -143,33 +136,19 @@ function piirra(selectedValue, alku, loppu){
 
             return;
           }
-
-          // modify timestamp for charts #1
-          var xAxis = [];
-          // first element
-          var t = tstamp[0].split(/[- :]/); 
-          xAxis.push(t[0]+"-"+t[1]+"-"+t[2]+" "+t[3]+":"+t[4]);
-          // other elements
-          for(var i=1;i<tstamp.length-1;i++) {
-            var t = tstamp[i].split(/[- :]/); // Split timestamp into [ Y, M, D, h, m, s ]
-            xAxis.push(t[3]+":"+t[4]);
-          }
-          //last element
-          var t = tstamp[tstamp.length-1].split(/[- :]/); 
-          xAxis.push(t[0]+"-"+t[1]+"-"+t[2]+" "+t[3]+":"+t[4]);
-          //console.log(xAxis);
           
-          // modify timestamp for charts #2
-          var jsDate = [];
-          for(var i=0;i<tstamp.length;i++) {
-            var dateStr=tstamp[i]; //returned from mysql timestamp/datetime field
-            var a=dateStr.split(" ");
-            var d=a[0].split("-");
-            var t=a[1].split(":");
-            var formatedDate = new Date(d[0],(d[1]-1),d[2],t[0],t[1],t[2]);
-            jsDate.push(formatedDate);
+          // define time units
+          var uni = '';
+          switch(selectedValue) {
+            case "1":
+              uni = 'hour';
+              break;
+            case "365":
+              uni = 'month';
+              break;
+            default:
+              uni = 'day';
           }
-          //console.log(jsDate);
 
           //chart 1 
           var ctx = document.getElementById('mixed1').getContext('2d');
@@ -179,7 +158,7 @@ function piirra(selectedValue, alku, loppu){
           LineGraph1 = new Chart(ctx, {
             type: 'line',
             data: {
-              labels: jsDate,
+              labels: tstamp,
               datasets: [
                 {
                   label: "Ilman lämpötila [C]", //
@@ -236,11 +215,11 @@ function piirra(selectedValue, alku, loppu){
                 xAxes: [{
                   type: 'time',
                   time: {
+                    unit: uni,
                     displayFormats: {
-                      'minute': 'HH:MM',
                       'hour': 'HH:MM',
                       'day': 'MMM DD',
-                      
+                      'month': 'MMM YYYY'
                     }
                 },
                   distribution: 'linear'
@@ -306,11 +285,11 @@ function piirra(selectedValue, alku, loppu){
                   },
                   type: 'time',
                   time: {
+                    unit: uni,
                     displayFormats: {
-                      'minute': 'HH:MM',
                       'hour': 'HH:MM',
                       'day': 'MMM DD',
-                      
+                      'month': 'MMM YYYY'
                     }
                 },
                   distribution: 'linear'
@@ -358,11 +337,11 @@ function piirra(selectedValue, alku, loppu){
                     },
                     type: 'time',
                 time: {
+                  unit: uni,
                   displayFormats: {
-                    'minute': 'HH:MM',
                     'hour': 'HH:MM',
                     'day': 'MMM DD',
-                    
+                    'month': 'MMM YYYY'
                   }
               },
                 distribution: 'linear'
@@ -410,11 +389,11 @@ function piirra(selectedValue, alku, loppu){
                     },
                     type: 'time',
                 time: {
+                  unit: uni,
                   displayFormats: {
-                    'minute': 'HH:MM',
                     'hour': 'HH:MM',
                     'day': 'MMM DD',
-                    
+                    'month': 'MMM YYYY'
                   }
               },
                 distribution: 'linear'
@@ -462,11 +441,11 @@ function piirra(selectedValue, alku, loppu){
                     },
                     type: 'time',
                 time: {
+                  unit: uni,
                   displayFormats: {
-                    'minute': 'HH:MM',
                     'hour': 'HH:MM',
                     'day': 'MMM DD',
-                    
+                    'month': 'MMM YYYY'
                   }
               },
                 distribution: 'linear'
@@ -514,11 +493,11 @@ function piirra(selectedValue, alku, loppu){
                     },
                     type: 'time',
                 time: {
+                  unit: uni,
                   displayFormats: {
-                    'minute': 'HH:MM',
                     'hour': 'HH:MM',
                     'day': 'MMM DD',
-                    
+                    'month': 'MMM YYYY'
                   }
               },
                 distribution: 'linear'
